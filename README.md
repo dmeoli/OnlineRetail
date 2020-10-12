@@ -1,4 +1,4 @@
-# Data Mining 2020/2021 UniPi
+# Data Mining project 2020/2021
 
 A project consists in data analysis based on the use of data mining tools.
 The project has to be performed by a team of 2/3 students. It has to be performed by
