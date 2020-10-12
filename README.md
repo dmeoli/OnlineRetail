@@ -7,7 +7,7 @@ reported in a unique paper. The total length of this paper must be max 20 pages 
 including figures. The students must deliver both: paper and well commented Python
 notebooks.
 
-## Task 1 Data Understanding and Preparation (30 points):
+## Task 1: Data Understanding and Preparation (30 points):
 
 ### Task 1.1: Data Understanding
 Explore the dataset with the analytical tools
@@ -16,7 +16,7 @@ semantics, assessing data quality, the distribution of the variables and the
 pairwise correlations.
 
 ### Task 1.2: Data Preparation: Improve the quality of your data and prepare it by
-extracting new features interesting for describing the customer profile and his
+Extracting new features interesting for describing the customer profile and his
 purchasing behavior. These indicators have to be extracted for each customer.
 Indicators to be computed are:
 - I: the total number of items purchased by a customer during the period of
