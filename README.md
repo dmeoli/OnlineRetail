@@ -15,8 +15,8 @@ studied and write a concise “data understanding” report describing data
 semantics, assessing data quality, the distribution of the variables and the
 pairwise correlations.
 
-### Task 1.2: Data Preparation: Improve the quality of your data and prepare it by
-Extracting new features interesting for describing the customer profile and his
+### Task 1.2: Data Preparation 
+Improve the quality of your data and prepare it by extracting new features interesting for describing the customer profile and his
 purchasing behavior. These indicators have to be extracted for each customer.
 Indicators to be computed are:
 - I: the total number of items purchased by a customer during the period of
