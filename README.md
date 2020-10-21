@@ -26,9 +26,11 @@ observation
 - Imax: the maximum number of items purchased by a customer during a
 shopping session
 - E: the Shannon entropy on the purchasing behaviour of the customer
+
 It is MANDATORY that each team defines additional indicators leading to the
 construction of a customer profile that can lead to an interesting analysis of
-customer segmentation
+customer segmentation.
+
 Once, the set of indicators will be computed the team has to explore the new
 features for a statistical analysis (distributions, outliers, visualizations,
 correlations).
