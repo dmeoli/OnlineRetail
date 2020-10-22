@@ -20,18 +20,21 @@ Improve the quality of your data and prepare it by extracting new features inter
 purchasing behavior. These indicators have to be extracted for each customer.
 Indicators to be computed are:
 - I: the total number of items purchased by a customer during the period of
-observation.
+observation
 - Iu: the number of distinct items bought by a customer in the period of
-observation.
+observation
 - Imax: the maximum number of items purchased by a customer during a
 shopping session
 - E: the Shannon entropy on the purchasing behaviour of the customer
+
 It is MANDATORY that each team defines additional indicators leading to the
 construction of a customer profile that can lead to an interesting analysis of
 customer segmentation.
+
 Once, the set of indicators will be computed the team has to explore the new
 features for a statistical analysis (distributions, outliers, visualizations,
 correlations).
+
 Subtasks of DU:
 - Data semantics
 - Distribution of the variables and statistics
