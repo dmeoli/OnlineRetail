@@ -1,4 +1,12 @@
-# PyCharm
+# PyCharm IDE
 .idea
 
+# Jupyter
 .ipynb_checkpoints/
+
+# LaTeX
+tex/*.out
+tex/*.aux
+tex/*.log
+tex/*.gz
+tex/*.toc
