@@ -2,7 +2,7 @@
 .idea
 
 # Jupyter
-.ipynb_checkpoints/
+.ipynb_checkpoints
 
 # LaTeX
 tex/*.out
