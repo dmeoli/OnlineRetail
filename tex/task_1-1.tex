@@ -7,7 +7,7 @@ This report shows the analysis we made over the shopping sessions registered by 
 
 \section{Data Understanding}
 
-The dataset contains informations about the purchases of each customer of the supermarket. The dataset contains \textbf{471910} unique rows, each of one divided into \textbf{8} columns; each entry represents the purchase of a product by a customer, and it comprehends also informations about the date of the transaction, the price of the product and the quantity purchased.\\
+The dataset contains informations about the purchases of each customer of the supermarket. The dataset contains \textbf{471910} rows, each of one divided into \textbf{8} columns; each entry represents the purchase of a product by a customer, and it comprehends also informations about the date of the transaction, the price of the product and the quantity purchased.\\
 A key information we extracted from the dataset, based on the products descriptions and the frequency of purchases per customer, is that the supermarket in question is not a food store, but instead a grocery store, that sells in particular fast-moving consumer goods.
 
 \subsection{Data Semantics}
@@ -109,25 +109,70 @@ We also decided to create the attribute \textbf{TotalPrice}, which is simply the
 \subsection{Variables Distribution}
 In this section, we will study the distribution of various attributes, by plotting some interesting properties about them.
 
-\begin{figure}
+\begin{figure}[!h]
 \begin{subfigure}{.5\textwidth}
 \centering
-\includegraphics[width=1\textwidth]{img/year_count.png}
-\caption{Year count}
+\includegraphics[width=.9\textwidth]{img/year_count.png}
+\caption{Year}
 \label{fig:year_count}
 \end{subfigure}
 \begin{subfigure}{.5\textwidth}
 \centering
-\includegraphics[width=1\textwidth]{img/kde_year.png}
-\caption{Kde year}
+\includegraphics[width=.9\textwidth]{img/kde_year.png}
+\caption{PDF by Year}
 \label{fig:kde_year}
 \end{subfigure}
-\caption{}
+\begin{subfigure}{.5\textwidth}
+\centering
+\includegraphics[width=.9\textwidth]{img/week_kde.png}
+\caption{PDF by Week}
+\label{fig:week_kde}
+\end{subfigure}
+\begin{subfigure}{.5\textwidth}
+\centering
+\includegraphics[width=.9\textwidth]{img/daytime_bar.png}
+\caption{Day Time}
+\label{fig:daytime_bar}
+\end{subfigure}
+\caption{BasketDate Distributions}
 \end{figure}
 
 First, we analyse the \textbf{BasketDate}.\\
 From the Figure \ref{fig:year_count}, we can see that the attribute is highly unbalanced; in fact, we have that almost all the records are related to transaction of the 2011, while the objects from 2010 are very few.
 Indeed, the rows of 2011 represent about the 93\% of the whole dataset.\\
 Furthermore, from the Figure \ref{fig:kde_year}, that represents an estimation of the probability density function of \textbf{BasketDate} divided by year, we can appreciate the different distributions for the two years.\\
-In fact, for the 2010, we have a very uneven plot, which indicates that the records are not uniformly distributed with respect to the days in a month. That is justified by the fact that, for the majority of the months in 2010, there were registered only transactions from a single day; this day, that is the 12, is the value for which the plot shows the peak.\\
-On the other hand, the distribution for the 2011 is much more homogeneous, meaning that the transactions were registered for most days in the months of that year.
+In fact, for the 2010, we have a very uneven plot, which indicates that the records are not uniformly distributed with respect to the days in a month. That is justified by the fact that, for the majority of the months in 2010, there were registered only transactions from a single day; this day, that is the 12th, is the value for which the plot shows the peak.\\
+On the other hand, the distribution for the 2011 is much more homogeneous, meaning that the transactions were registered for most days in the months of that year.\\
+Another interesting distributions are plotted in Figure \ref{fig:week_kde} and \ref{fig:daytime_bar}.\\
+In the first one, we can see that the last weeks of the year are the one with more purchases; that is consistent with our knowledge, since those are the weeks closest to Christmas time, that typically represents a great period of shopping.\\	
+In the second one, the focus is instead on the hours in a day; we found that, unsurprisingly, the most popular hourly range goes from 9 to 18.
+
+\begin{figure}[!h]
+\begin{subfigure}{.5\textwidth}
+\centering
+\includegraphics[width=\textwidth]{img/country_bar.png}
+\caption{}
+\label{fig:country_bar}
+\end{subfigure}
+\begin{subfigure}{.5\textwidth}
+\centering
+\includegraphics[width=\textwidth]{img/part_country_bar.png}
+\caption{}
+\label{fig:part_country_bar}
+\end{subfigure}
+\caption{CustomerCountry Distributions}
+\end{figure}
+
+Some others statistics can be visualized for the attribute \textbf{CustomerCountry}.\\
+In Figure \ref{fig:country_bar}, we can see the distribution of the CustomerID with respect to the country; from the plot, it is clear that the most frequent country is the United Kingdom, that is present in about the 90\% of the rows.\\
+To see also some properties of the other countries, in Figure \ref{fig:part_country_bar}, we plotted the most frequent countries, excluding the UK. Here, we can see that the second most frequent country is Germany, while the other ones are almost irrelevant, since they are in very few objects.
+
+\begin{wrapfigure}{r}{.5\textwidth}
+\centering
+\includegraphics[width=0.49\textwidth]{img/corr.png}
+\caption{Correlation Matrix}
+\label{fig:corr}
+\end{wrapfigure}
+
+Finally, we see some informations about the correlation of the attributes, to see if some of them are redundant.\\
+From the Figure \ref{fig:corr}, we can see that almost all the attributes are uncorrelated, except for \textbf{TotalPrice}, that shows ah high correlation with \textbf{Qta}; that follows what we expected, since \textbf{TotalPrice} is, by construction, dependent on \textbf{Qta}. So, we conclude that all the original columns are independent, and so we don't need to perform any further manipulation.
