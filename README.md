@@ -25,7 +25,7 @@ observation
 observation
 - Imax: the maximum number of items purchased by a customer during a
 shopping session
-- E: the Shannon entropy on the purchasing behaviour of the customer
+- E: the Shannon entropy on the purchasing behavior of the customer
 
 It is MANDATORY that each team defines additional indicators leading to the
 construction of a customer profile that can lead to an interesting analysis of
@@ -42,7 +42,7 @@ Subtasks of DU:
 - Variables transformations & generation
 - Pairwise correlations and eventual elimination of redundant variables
 
-## Task 2: Clustering analysis (30 points - 32 with optional subtask)
+## Task 2: Clustering Analysis (30 points - 32 with optional subtask)
 Based on the customer’s profile explore the dataset using various clustering techniques.
 Carefully describe your decisions for each algorithm and which are the advantages
 provided by the different approaches.
@@ -65,3 +65,19 @@ the algorithm
 obtained
 - Optional (2 points): Explore the opportunity to use alternative clustering
 techniques in the library: https://github.com/annoviko/pyclustering/
+
+## Task 3: Predictive Analysis (30 points)
+Consider the problem of predicting for each customer a label that defines if (s)he is a
+high-spending customer, medium-spending customer or low-spending customer.
+The students need to:
+- define a customer profile that enables the above customer classification. Please,
+reason on the suitability of the customer profile, defined for the clustering
+analysis. In case this profile is not suitable for the above prediction problem you
+can also change the indicators.
+- compute the label for any customer. Note that, the class to be predicted must be
+nominal.
+- perform the predictive analysis comparing the performance of different models
+discussing the results and discussing the possible preprocessing that they
+applied to the data for managing possible problems identified that can make the
+prediction hard. Note that the evaluation should be performed on both training
+and test set.
