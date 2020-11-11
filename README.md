@@ -70,13 +70,13 @@ techniques in the library: https://github.com/annoviko/pyclustering/
 Consider the problem of predicting for each customer a label that defines if (s)he is a
 high-spending customer, medium-spending customer or low-spending customer.
 The students need to:
-- define a customer profile that enables the above customer classification. Please,
+- Define a customer profile that enables the above customer classification. Please,
 reason on the suitability of the customer profile, defined for the clustering
 analysis. In case this profile is not suitable for the above prediction problem you
 can also change the indicators.
-- compute the label for any customer. Note that, the class to be predicted must be
+- Compute the label for any customer. Note that, the class to be predicted must be
 nominal.
-- perform the predictive analysis comparing the performance of different models
+- Perform the predictive analysis comparing the performance of different models
 discussing the results and discussing the possible preprocessing that they
 applied to the data for managing possible problems identified that can make the
 prediction hard. Note that the evaluation should be performed on both training
