@@ -77,7 +77,7 @@ First of all, we defined some basic features, like:
 In Figure \ref{fig:first_features}, we can see some visualization for the features we just extracted; in particular, they represent the first 30 customers with the biggest values for each feature.\\
 An interesting information is clear from the plot \ref{fig:max_item}, where we can see that the maximum quantities purchased in a single shopping session are very big; they are all above 3500, with the maximum equal to 15049. These are very high values, unlikely for a retail customer; this led us to think that the supermarket in question also sells wholesale.
 
-\textbf{ENTROPY!!!!}
+To compute the entropy we defined two categorical attributes which are the result of the discretization of \textbf{Qta} and \textbf{TotPrice}. The attribute \textbf{Qta} was discretized by observing that $\sim 18\%$ of the rows have \textbf{Qta} equals to one, so we introduced the category \emph{Single}. Other than that we created also the categories \emph{Small}  (from $2$ to $6$), \emph{Medium} (from $7$ to $12$), \emph{High} (from $12$ to $36$) and \emph{Very High} (larger than $37$). For what concern the category related to \textbf{TotalPrice} we set an equal frequency binning into five categories. The entropies, \textbf{QtaEntr} and \textbf{TPEntr}, measure the variability of the customer's spending and quantity habit.
 
 Since the focus is on the purchasing behavior of the customers, we decided to study other features, in order to deeply understand the information we have. We chose to extract information about:
 \begin{itemize}
@@ -106,7 +106,7 @@ Now we extract some information about the average values, as:
 \item \textbf{AvgBaskValue}, the ratio between \textbf{ActualSpent} and the number of \emph{good} baskets, which represents the average amount of money spent for each basket per customer
 \end{itemize}
 
-\begin{wrapfigure}{r}{.5\textwidth}
+\begin{wrapfigure}[13]{r}{.5\textwidth}
 \centering
 \includegraphics[width=0.49\textwidth]{img/monthfreq.png}
 \caption{Monthly Frequency}
@@ -114,8 +114,6 @@ Now we extract some information about the average values, as:
 \end{wrapfigure}
 
 Another interesting feature is the \textbf{MonthFreq}, that we computed as the ratio between the number of \emph{good} baskets and 12, the number of months. We can visualize this attribute in the Figure \ref{fig:month_freq}, where we can clearly see that the peak is really close to 0; in fact, the mode of this column in equal to \textbf{0.083}, which means that the majority of the customers went to this supermarket just once in the year.
-
-Analyzing the Figure \ref{fig:boxplot_actuals}, we can see that the attributes \textbf{ActualQta} and \textbf{ActualSpent} are really spread; for this reason, we consider their logarithm in base 10, so that the difference between high values has a different weight in the plots.
 
 \begin{figure}
 \captionsetup{justification=centering}
@@ -133,3 +131,37 @@ Analyzing the Figure \ref{fig:boxplot_actuals}, we can see that the attributes \
 \end{subfigure}
 \caption{Box plots for ActualQta and ActualSpent, before and after the log}
 \end{figure}
+
+Analyzing the Figure \ref{fig:boxplot_actuals}, we can see that the attributes \textbf{ActualQta} and \textbf{ActualSpent} are really spread; for this reason, we consider their logarithm in base 10, so that the difference between high values has a different weight. We can appreciate the changes in the Figure \ref{fig:boxplot_logs}, where the two distributions are much more compact.\\
+After the transformations of these attributes, we saw that also \textbf{AvgPrice} and \textbf{AvgBaskValue} were quite spread, and so we decided to compute the same operation to them.
+
+\begin{wrapfigure}[12]{l}{0.5\textwidth}
+\centering
+\includegraphics[width=0.49\textwidth]{img/corr_logs.png}
+\caption{Correlation Matrix}
+\label{fig:corr_logs}
+\end{wrapfigure}
+
+Now, we can visualize the correlation between the attributes. In Figure \ref{fig:corr_logs}, as expected, we find that the average basket value is highly correlated with the total quantity purchased and the amount of money spent. Furthermore, we can see that also the monthly frequency is correlated with the amount spent and the total quantity. In the end, of course, the quantity purchased is very highly correlated with the total amount spent.
+
+\vspace{18mm}
+
+\begin{wrapfigure}{r}{0.5\textwidth}
+\centering
+\captionsetup{justification=centering}
+\includegraphics[width=.49\textwidth]{img/pairplot.png}
+\caption{Pair Plots}
+\label{fig:pairplot}
+\end{wrapfigure}
+
+In Figure \ref{fig:pairplot}, we can visualize the Pair Plot for the attributes we have.\\
+On the diagonal, we have the density plots, where we can appreciate the distribution of the features. Instead, the other scatter plots show the relationship between two variables. By analyzing those, we can have a confirmation of what we already found thanks to the previous plot. 
+
+\begin{comment}
+\begin{figure}[h!]
+\centering
+\includegraphics[width=.5\textwidth]{img/pairplot.png}
+\caption{Pair Plots}
+\label{fig:pairplot}
+\end{figure}
+\end{comment}
