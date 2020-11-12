@@ -1,0 +1,627 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2020.10.6)  12 NOV 2020 22:06
+entering extended mode
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
+**report.tex
+(./report.tex
+LaTeX2e <2020-02-02> patch level 5
+L3 programming layer <2020-06-03> (/usr/share/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2019/12/20 v1.4l Standard LaTeX document class
+(/usr/share/texmf-dist/tex/latex/base/size12.clo
+File: size12.clo 2019/12/20 v1.4l Standard LaTeX file (size option)
+)
+\c@part=\count167
+\c@section=\count168
+\c@subsection=\count169
+\c@subsubsection=\count170
+\c@paragraph=\count171
+\c@subparagraph=\count172
+\c@figure=\count173
+\c@table=\count174
+\abovecaptionskip=\skip47
+\belowcaptionskip=\skip48
+\bibindent=\dimen134
+) (/usr/share/texmf-dist/tex/generic/babel/babel.sty
+Package: babel 2020/05/13 3.44 The Babel package
+ (/usr/share/texmf-dist/tex/generic/babel/babel.def
+File: babel.def 2020/05/13 3.44 Babel common definitions
+\babel@savecnt=\count175
+\U@D=\dimen135
+\l@babelnohyphens=\language86
+ (/usr/share/texmf-dist/tex/generic/babel/txtbabel.def)
+\bbl@readstream=\read2
+)
+\bbl@dirlevel=\count176
+ (/usr/share/texmf-dist/tex/generic/babel-english/english.ldf
+Language: english 2017/06/06 v3.3r English support from the babel system
+Package babel Info: \l@canadian = using hyphenrules for english
+(babel)             (\language0) on input line 102.
+Package babel Info: \l@australian = using hyphenrules for ukenglish
+(babel)             (\language21) on input line 105.
+Package babel Info: \l@newzealand = using hyphenrules for ukenglish
+(babel)             (\language21) on input line 108.
+)) (/usr/share/texmf-dist/tex/latex/natbib/natbib.sty
+Package: natbib 2010/09/13 8.31b (PWD, AO)
+\bibhang=\skip49
+\bibsep=\skip50
+LaTeX Info: Redefining \cite on input line 694.
+\c@NAT@ctr=\count177
+) (/usr/share/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip16
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+) (/usr/share/texmf-dist/tex/latex/base/inputenc.sty
+Package: inputenc 2018/08/11 v1.3c Input encoding file
+\inpenc@prehook=\toks15
+\inpenc@posthook=\toks16
+ (/usr/share/texmf-dist/tex/latex/ucs/utf8x.def
+File: utf8x.def 2004/10/17 UCS: Input encoding UTF-8
+)) (/usr/share/texmf-dist/tex/latex/ucs/ucs.sty
+Package: ucs 2013/05/11 v2.2 UCS: Unicode input support
+ (/usr/share/texmf-dist/tex/latex/ucs/data/uni-global.def
+File: uni-global.def 2013/05/13 UCS: Unicode global data
+)
+\uc@secondtry=\count178
+\uc@combtoks=\toks17
+\uc@combtoksb=\toks18
+\uc@temptokena=\toks19
+) (/usr/share/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2020/01/20 v2.17e AMS math features
+\@mathmargin=\skip51
+
+For additional information on amsmath, use the `?' option.
+(/usr/share/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01 AMS text
+ (/usr/share/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks20
+\ex@=\dimen136
+)) (/usr/share/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen137
+) (/usr/share/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 2016/03/08 v2.02 operator names
+)
+\inf@bad=\count179
+LaTeX Info: Redefining \frac on input line 227.
+\uproot@=\count180
+\leftroot@=\count181
+LaTeX Info: Redefining \overline on input line 389.
+\classnum@=\count182
+\DOTSCASE@=\count183
+LaTeX Info: Redefining \ldots on input line 486.
+LaTeX Info: Redefining \dots on input line 489.
+LaTeX Info: Redefining \cdots on input line 610.
+\Mathstrutbox@=\box45
+\strutbox@=\box46
+\big@size=\dimen138
+LaTeX Font Info:    Redeclaring font encoding OML on input line 733.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 734.
+\macc@depth=\count184
+\c@MaxMatrixCols=\count185
+\dotsspace@=\muskip17
+\c@parentequation=\count186
+\dspbrk@lvl=\count187
+\tag@help=\toks21
+\row@=\count188
+\column@=\count189
+\maxfields@=\count190
+\andhelp@=\toks22
+\eqnshift@=\dimen139
+\alignsep@=\dimen140
+\tagshift@=\dimen141
+\tagwidth@=\dimen142
+\totwidth@=\dimen143
+\lineht@=\dimen144
+\@envbody=\toks23
+\multlinegap=\skip52
+\multlinetaggap=\skip53
+\mathdisplay@stack=\toks24
+LaTeX Info: Redefining \[ on input line 2859.
+LaTeX Info: Redefining \] on input line 2860.
+) (/usr/share/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2019/11/30 v1.2a Enhanced LaTeX Graphics (DPC,SPQR)
+ (/usr/share/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks25
+) (/usr/share/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2019/11/30 v1.4a Standard LaTeX Graphics (DPC,SPQR)
+ (/usr/share/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+) (/usr/share/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 105.
+ (/usr/share/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen145
+\Gin@req@width=\dimen146
+) (/usr/share/texmf-dist/tex/latex/caption/subcaption.sty
+Package: subcaption 2020/01/22 v1.3d Sub-captions (AR)
+ (/usr/share/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2020/05/10 v3.4j Customizing captions (AR)
+ (/usr/share/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2020/05/10 v1.11 caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 61.
+\captionmargin=\dimen147
+\captionmargin@=\dimen148
+\captionwidth=\dimen149
+\caption@tempdima=\dimen150
+\caption@indent=\dimen151
+\caption@parindent=\dimen152
+\caption@hangindent=\dimen153
+Package caption Info: Standard document class detected.
+)
+\c@caption@flags=\count191
+\c@continuedfloat=\count192
+)
+\c@subfigure=\count193
+\c@subtable=\count194
+) (/usr/share/texmf-dist/tex/latex/wrapfig/wrapfig.sty
+\wrapoverhang=\dimen154
+\WF@size=\dimen155
+\c@WF@wrappedlines=\count195
+\WF@box=\box47
+\WF@everypar=\toks26
+Package: wrapfig 2003/01/31  v 3.6
+) (/usr/share/texmf-dist/tex/latex/hyperref/hyperref.sty
+Package: hyperref 2020-05-15 v7.00e Hypertext links for LaTeX
+ (/usr/share/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
+Package: ltxcmds 2019/12/15 v1.24 LaTeX kernel commands for general use (HO)
+) (/usr/share/texmf-dist/tex/generic/iftex/iftex.sty
+Package: iftex 2020/03/06 v1.0d TeX engine tests
+) (/usr/share/texmf-dist/tex/latex/pdftexcmds/pdftexcmds.sty
+Package: pdftexcmds 2020-06-04 v0.32 Utility functions of pdfTeX for LuaTeX (HO)
+ (/usr/share/texmf-dist/tex/generic/infwarerr/infwarerr.sty
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+) (/usr/share/texmf-dist/tex/generic/kvsetkeys/kvsetkeys.sty
+Package: kvsetkeys 2019/12/15 v1.18 Key value parser (HO)
+) (/usr/share/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+) (/usr/share/texmf-dist/tex/generic/pdfescape/pdfescape.sty
+Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
+) (/usr/share/texmf-dist/tex/latex/hycolor/hycolor.sty
+Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
+) (/usr/share/texmf-dist/tex/latex/letltxmacro/letltxmacro.sty
+Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
+) (/usr/share/texmf-dist/tex/latex/auxhook/auxhook.sty
+Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
+) (/usr/share/texmf-dist/tex/latex/kvoptions/kvoptions.sty
+Package: kvoptions 2019/11/29 v3.13 Key value format for package options (HO)
+)
+\@linkdim=\dimen156
+\Hy@linkcounter=\count196
+\Hy@pagecounter=\count197
+ (/usr/share/texmf-dist/tex/latex/hyperref/pd1enc.def
+File: pd1enc.def 2020-05-15 v7.00e Hyperref: PDFDocEncoding definition (HO)
+) (/usr/share/texmf-dist/tex/generic/intcalc/intcalc.sty
+Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
+) (/usr/share/texmf-dist/tex/generic/etexcmds/etexcmds.sty
+Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
+)
+\Hy@SavedSpaceFactor=\count198
+Package hyperref Info: Hyper figures OFF on input line 4464.
+Package hyperref Info: Link nesting OFF on input line 4469.
+Package hyperref Info: Hyper index ON on input line 4472.
+Package hyperref Info: Plain pages OFF on input line 4479.
+Package hyperref Info: Backreferencing OFF on input line 4484.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4717.
+\c@Hy@tempcnt=\count199
+LaTeX Info: Redefining \url on input line 5076.
+\XeTeXLinkMargin=\dimen157
+ (/usr/share/texmf-dist/tex/generic/bitset/bitset.sty
+Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
+ (/usr/share/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
+Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
+))
+\Fld@menulength=\count266
+\Field@Width=\dimen158
+\Fld@charsize=\dimen159
+Package hyperref Info: Hyper figures OFF on input line 6347.
+Package hyperref Info: Link nesting OFF on input line 6352.
+Package hyperref Info: Hyper index ON on input line 6355.
+Package hyperref Info: backreferencing OFF on input line 6362.
+Package hyperref Info: Link coloring OFF on input line 6367.
+Package hyperref Info: Link coloring with OCG OFF on input line 6372.
+Package hyperref Info: PDF/A mode OFF on input line 6377.
+LaTeX Info: Redefining \ref on input line 6417.
+LaTeX Info: Redefining \pageref on input line 6421.
+ (/usr/share/texmf-dist/tex/generic/atbegshi/atbegshi.sty
+Package: atbegshi 2019/12/05 v1.19 At begin shipout hook (HO)
+)
+\Hy@abspage=\count267
+\c@Item=\count268
+\c@Hfootnote=\count269
+)
+Package hyperref Info: Driver (autodetected): hpdftex.
+ (/usr/share/texmf-dist/tex/latex/hyperref/hpdftex.def
+File: hpdftex.def 2020-05-15 v7.00e Hyperref driver for pdfTeX
+ (/usr/share/texmf-dist/tex/latex/atveryend/atveryend.sty
+Package: atveryend 2019-12-11 v1.11 Hooks at the very end of document (HO)
+Package atveryend Info: \enddocument detected (standard20110627).
+)
+\Fld@listcount=\count270
+\c@bookmark@seq@number=\count271
+ (/usr/share/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+Package: rerunfilecheck 2019/12/05 v1.9 Rerun checks for auxiliary files (HO)
+
+(/usr/share/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
+Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
+)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 286.
+)
+\Hy@SectionHShift=\skip54
+) (/usr/share/texmf-dist/tex/latex/parskip/parskip.sty
+Package: parskip 2020-05-19 v2.0e non-zero parskip adjustments
+ (/usr/share/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+Package: etoolbox 2019/09/21 v2.5h e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count272
+)) (/usr/share/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
+Package: fancyhdr 2019/01/31 v3.10 Extensive control of page headers and footers
+\f@nch@headwidth=\skip55
+\f@nch@O@elh=\skip56
+\f@nch@O@erh=\skip57
+\f@nch@O@olh=\skip58
+\f@nch@O@orh=\skip59
+\f@nch@O@elf=\skip60
+\f@nch@O@erf=\skip61
+\f@nch@O@olf=\skip62
+\f@nch@O@orf=\skip63
+) (/usr/share/texmf-dist/tex/latex/vmargin/vmargin.sty
+Package: vmargin 2004/07/15 V2.5 set document margins (VK)
+
+Package: vmargin 2004/07/15 V2.5 set document margins (VK)
+\PaperWidth=\dimen160
+\PaperHeight=\dimen161
+) (/usr/share/texmf-dist/tex/latex/comment/comment.sty
+\CommentStream=\write3
+ Excluding comment 'comment') (/usr/share/texmf-dist/tex/latex/l3backend/l3backend-pdfmode.def
+File: l3backend-pdfmode.def 2020-06-03 L3 backend support: PDF mode
+\l__kernel_color_stack_int=\count273
+\l__pdf_internal_box=\box48
+) (./report.aux)
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+ (/usr/share/texmf-dist/tex/latex/ucs/ucsencs.def
+File: ucsencs.def 2011/01/21 Fixes to fontencodings LGR, T3
+) (/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count274
+\scratchdimen=\dimen162
+\scratchbox=\box49
+\nofMPsegments=\count275
+\nofMParguments=\count276
+\everyMPshowfont=\toks27
+\MPscratchCnt=\count277
+\MPscratchDim=\dimen163
+\MPnumerator=\count278
+\makeMPintoPDFobject=\count279
+\everyMPtoPDFconversion=\toks28
+) (/usr/share/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
+ (/usr/share/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
+))
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: hyperref package is loaded.
+Package caption Info: wrapfig package is loaded.
+Package caption Info: End \AtBeginDocument code.
+\AtBeginShipoutBox=\box50
+Package hyperref Info: Link coloring OFF on input line 35.
+ (/usr/share/texmf-dist/tex/latex/hyperref/nameref.sty
+Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
+ (/usr/share/texmf-dist/tex/latex/refcount/refcount.sty
+Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
+) (/usr/share/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
+Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
+)
+\c@section@level=\count280
+)
+LaTeX Info: Redefining \ref on input line 35.
+LaTeX Info: Redefining \pageref on input line 35.
+LaTeX Info: Redefining \nameref on input line 35.
+ (./report.out) (./report.out)
+\@outlinefile=\write4
+<img/unipi.png, id=56, 288.07625pt x 294.09875pt>
+File: img/unipi.png Graphic file (type png)
+<use img/unipi.png>
+Package pdftex.def Info: img/unipi.png  used on input line 40.
+(pdftex.def)             Requested size: 144.03777pt x 147.04901pt.
+
+
+LaTeX Font Warning: Font shape `OT1/cmr/m/scit' undefined
+(Font)              using `OT1/cmr/m/it' instead on input line 47.
+
+[1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./img/unipi.png>] (./report.toc)
+\tf@toc=\write5
+pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.61 
+      [1] (./task_1-1.tex [2]
+<img/missing_values.png, id=89, 406.3983pt x 327.624pt>
+File: img/missing_values.png Graphic file (type png)
+<use img/missing_values.png>
+Package pdftex.def Info: img/missing_values.png  used on input line 52.
+(pdftex.def)             Requested size: 426.81142pt x 256.09558pt.
+ [3 <./img/missing_values.png>]
+<img/boxplot_before.png, id=96, 505.89pt x 361.35pt>
+File: img/boxplot_before.png Graphic file (type png)
+<use img/boxplot_before.png>
+Package pdftex.def Info: img/boxplot_before.png  used on input line 75.
+(pdftex.def)             Requested size: 209.44379pt x 149.60457pt.
+ [4 <./img/boxplot_before.png>]
+<img/year_count.png, id=104, 505.89pt x 361.35pt>
+File: img/year_count.png Graphic file (type png)
+<use img/year_count.png>
+Package pdftex.def Info: img/year_count.png  used on input line 108.
+(pdftex.def)             Requested size: 192.34286pt x 137.38611pt.
+<img/kde_year.png, id=105, 505.89pt x 361.35pt>
+File: img/kde_year.png Graphic file (type png)
+<use img/kde_year.png>
+Package pdftex.def Info: img/kde_year.png  used on input line 114.
+(pdftex.def)             Requested size: 192.34286pt x 137.38611pt.
+<img/week_kde.png, id=106, 505.89pt x 361.35pt>
+File: img/week_kde.png Graphic file (type png)
+<use img/week_kde.png>
+Package pdftex.def Info: img/week_kde.png  used on input line 120.
+(pdftex.def)             Requested size: 192.34286pt x 137.38611pt.
+<img/daytime_bar.png, id=107, 505.89pt x 361.35pt>
+File: img/daytime_bar.png Graphic file (type png)
+<use img/daytime_bar.png>
+Package pdftex.def Info: img/daytime_bar.png  used on input line 126.
+(pdftex.def)             Requested size: 192.34286pt x 137.38611pt.
+
+Overfull \hbox (2.61107pt too wide) in paragraph at lines 106--130
+[]$[]$ $[]$
+ []
+
+
+Overfull \hbox (2.61107pt too wide) in paragraph at lines 106--130
+[]$ $[]$ 
+ []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[5]
+<img/country_bar.png, id=117, 505.89pt x 361.35pt>
+File: img/country_bar.png Graphic file (type png)
+<use img/country_bar.png>
+Package pdftex.def Info: img/country_bar.png  used on input line 146.
+(pdftex.def)             Requested size: 213.71576pt x 152.65367pt.
+<img/part_country_bar.png, id=118, 505.89pt x 361.35pt>
+File: img/part_country_bar.png Graphic file (type png)
+<use img/part_country_bar.png>
+Package pdftex.def Info: img/part_country_bar.png  used on input line 152.
+(pdftex.def)             Requested size: 213.71576pt x 152.65367pt.
+
+Overfull \hbox (2.61107pt too wide) in paragraph at lines 144--156
+[]$[]$ $[]$ 
+ []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[6 <./img/year_count.png> <./img/kde_year.png> <./img/week_kde.png> <./img/daytime_bar.png>]
+<img/corr.png, id=132, 505.89pt x 361.35pt>
+File: img/corr.png Graphic file (type png)
+<use img/corr.png>
+Package pdftex.def Info: img/corr.png  used on input line 165.
+(pdftex.def)             Requested size: 209.44379pt x 149.60457pt.
+) (./task_1-2.tex [7 <./img/country_bar.png> <./img/part_country_bar.png> <./img/corr.png>] Excluding 'comment' comment. [8]
+<img/boxplot_after.png, id=146, 433.62pt x 289.08pt>
+File: img/boxplot_after.png Graphic file (type png)
+<use img/boxplot_after.png>
+Package pdftex.def Info: img/boxplot_after.png  used on input line 32.
+(pdftex.def)             Requested size: 166.69803pt x 111.13072pt.
+<img/tot_item.png, id=148, 395.4775pt x 295.1025pt>
+File: img/tot_item.png Graphic file (type png)
+<use img/tot_item.png>
+Package pdftex.def Info: img/tot_item.png  used on input line 48.
+(pdftex.def)             Requested size: 128.23076pt x 95.68652pt.
+<img/distinct_item.png, id=149, 382.42876pt x 295.1025pt>
+File: img/distinct_item.png Graphic file (type png)
+<use img/distinct_item.png>
+Package pdftex.def Info: img/distinct_item.png  used on input line 54.
+(pdftex.def)             Requested size: 128.23076pt x 98.95113pt.
+<img/max_item.png, id=150, 389.455pt x 295.1025pt>
+File: img/max_item.png Graphic file (type png)
+<use img/max_item.png>
+Package pdftex.def Info: img/max_item.png  used on input line 60.
+(pdftex.def)             Requested size: 128.23076pt x 97.16347pt.
+ [9 <./img/boxplot_after.png> <./img/tot_item.png> <./img/distinct_item.png> <./img/max_item.png>]
+<img/kde_entropy.png, id=163, 505.89pt x 361.35pt>
+File: img/kde_entropy.png Graphic file (type png)
+<use img/kde_entropy.png>
+Package pdftex.def Info: img/kde_entropy.png  used on input line 83.
+(pdftex.def)             Requested size: 209.44379pt x 149.60457pt.
+ Excluding 'comment' comment. [10 <./img/kde_entropy.png>]
+<img/monthfreq.png, id=173, 505.89pt x 361.35pt>
+File: img/monthfreq.png Graphic file (type png)
+<use img/monthfreq.png>
+Package pdftex.def Info: img/monthfreq.png  used on input line 125.
+(pdftex.def)             Requested size: 209.44379pt x 149.60457pt.
+<img/boxplot_for_actuals.png, id=175, 505.89pt x 361.35pt>
+File: img/boxplot_for_actuals.png Graphic file (type png)
+<use img/boxplot_for_actuals.png>
+Package pdftex.def Info: img/boxplot_for_actuals.png  used on input line 136.
+(pdftex.def)             Requested size: 213.71576pt x 152.65367pt.
+<img/boxplot_for_log_actuals.png, id=176, 505.89pt x 361.35pt>
+File: img/boxplot_for_log_actuals.png Graphic file (type png)
+<use img/boxplot_for_log_actuals.png>
+Package pdftex.def Info: img/boxplot_for_log_actuals.png  used on input line 142.
+(pdftex.def)             Requested size: 213.71576pt x 152.65367pt.
+
+Overfull \hbox (2.61107pt too wide) in paragraph at lines 134--146
+[]$[]$ $[]$ 
+ []
+
+[11 <./img/monthfreq.png>]
+<img/corr_logs.png, id=186, 501.072pt x 394.8351pt>
+File: img/corr_logs.png Graphic file (type png)
+<use img/corr_logs.png>
+Package pdftex.def Info: img/corr_logs.png  used on input line 156.
+(pdftex.def)             Requested size: 209.44379pt x 165.04036pt.
+<img/pairplot.png, id=188, 874.9488pt x 881.694pt>
+File: img/pairplot.png Graphic file (type png)
+<use img/pairplot.png>
+Package pdftex.def Info: img/pairplot.png  used on input line 168.
+(pdftex.def)             Requested size: 188.0709pt x 189.52016pt.
+ Excluding 'comment' comment.) [12 <./img/boxplot_for_actuals.png> <./img/boxplot_for_log_actuals.png> <./img/corr_logs.png> <./img/pairplot.png>] (./clustering.tex
+<img/clust_1/pca.png, id=201, 505.89pt x 361.35pt>
+File: img/clust_1/pca.png Graphic file (type png)
+<use img/clust_1/pca.png>
+Package pdftex.def Info: img/clust_1/pca.png  used on input line 10.
+(pdftex.def)             Requested size: 202.3524pt x 144.53743pt.
+<img/clust_1/sse.png, id=202, 505.89pt x 361.35pt>
+File: img/clust_1/sse.png Graphic file (type png)
+<use img/clust_1/sse.png>
+Package pdftex.def Info: img/clust_1/sse.png  used on input line 22.
+(pdftex.def)             Requested size: 202.3524pt x 144.53743pt.
+<img/clust_1/perc.png, id=203, 505.89pt x 361.35pt>
+File: img/clust_1/perc.png Graphic file (type png)
+<use img/clust_1/perc.png>
+Package pdftex.def Info: img/clust_1/perc.png  used on input line 28.
+(pdftex.def)             Requested size: 202.3524pt x 144.53743pt.
+<img/clust_1/sil.png, id=204, 505.89pt x 361.35pt>
+File: img/clust_1/sil.png Graphic file (type png)
+<use img/clust_1/sil.png>
+Package pdftex.def Info: img/clust_1/sil.png  used on input line 35.
+(pdftex.def)             Requested size: 202.3524pt x 144.53743pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<img/clust_1/sil_tot.png, id=206, 505.89pt x 361.35pt>
+File: img/clust_1/sil_tot.png Graphic file (type png)
+<use img/clust_1/sil_tot.png>
+Package pdftex.def Info: img/clust_1/sil_tot.png  used on input line 47.
+(pdftex.def)             Requested size: 202.3524pt x 144.53743pt.
+[13 <./img/clust_1/pca.png>] [14 <./img/clust_1/sse.png> <./img/clust_1/perc.png> <./img/clust_1/sil.png> <./img/clust_1/sil_tot.png>]
+<img/clust_1/km_clusters.png, id=224, 505.89pt x 361.35pt>
+File: img/clust_1/km_clusters.png Graphic file (type png)
+<use img/clust_1/km_clusters.png>
+Package pdftex.def Info: img/clust_1/km_clusters.png  used on input line 57.
+(pdftex.def)             Requested size: 209.44379pt x 149.60457pt.
+<img/clust_1/sim_heatmap.png, id=225, 505.89pt x 361.35pt>
+File: img/clust_1/sim_heatmap.png Graphic file (type png)
+<use img/clust_1/sim_heatmap.png>
+Package pdftex.def Info: img/clust_1/sim_heatmap.png  used on input line 62.
+(pdftex.def)             Requested size: 209.44379pt x 149.60457pt.
+<img/clust_1/cluster_avg.png, id=226, 505.89pt x 361.35pt>
+File: img/clust_1/cluster_avg.png Graphic file (type png)
+<use img/clust_1/cluster_avg.png>
+Package pdftex.def Info: img/clust_1/cluster_avg.png  used on input line 68.
+(pdftex.def)             Requested size: 209.44379pt x 149.60457pt.
+<img/clust_1/logqta_km.png, id=228, 505.89pt x 361.35pt>
+File: img/clust_1/logqta_km.png Graphic file (type png)
+<use img/clust_1/logqta_km.png>
+Package pdftex.def Info: img/clust_1/logqta_km.png  used on input line 79.
+(pdftex.def)             Requested size: 209.44379pt x 149.60457pt.
+<img/clust_1/logspent_km.png, id=229, 505.89pt x 361.35pt>
+File: img/clust_1/logspent_km.png Graphic file (type png)
+<use img/clust_1/logspent_km.png>
+Package pdftex.def Info: img/clust_1/logspent_km.png  used on input line 85.
+(pdftex.def)             Requested size: 209.44379pt x 149.60457pt.
+<img/clust_1/logavgbv_km.png, id=230, 505.89pt x 361.35pt>
+File: img/clust_1/logavgbv_km.png Graphic file (type png)
+<use img/clust_1/logavgbv_km.png>
+Package pdftex.def Info: img/clust_1/logavgbv_km.png  used on input line 92.
+(pdftex.def)             Requested size: 209.44379pt x 149.60457pt.
+<img/clust_1/tp_entr_km.png, id=231, 505.89pt x 361.35pt>
+File: img/clust_1/tp_entr_km.png Graphic file (type png)
+<use img/clust_1/tp_entr_km.png>
+Package pdftex.def Info: img/clust_1/tp_entr_km.png  used on input line 98.
+(pdftex.def)             Requested size: 209.44379pt x 149.60457pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[15 <./img/clust_1/km_clusters.png> <./img/clust_1/sim_heatmap.png> <./img/clust_1/cluster_avg.png>]
+<img/clust_1/c_link.png, id=245, 505.89pt x 361.35pt>
+File: img/clust_1/c_link.png Graphic file (type png)
+<use img/clust_1/c_link.png>
+Package pdftex.def Info: img/clust_1/c_link.png  used on input line 112.
+(pdftex.def)             Requested size: 188.49812pt x 134.64026pt.
+<img/clust_1/s_link.png, id=246, 505.89pt x 361.35pt>
+File: img/clust_1/s_link.png Graphic file (type png)
+<use img/clust_1/s_link.png>
+Package pdftex.def Info: img/clust_1/s_link.png  used on input line 118.
+(pdftex.def)             Requested size: 188.49812pt x 134.64026pt.
+<img/clust_1/ward.png, id=247, 505.89pt x 361.35pt>
+File: img/clust_1/ward.png Graphic file (type png)
+<use img/clust_1/ward.png>
+Package pdftex.def Info: img/clust_1/ward.png  used on input line 124.
+(pdftex.def)             Requested size: 188.49812pt x 134.64026pt.
+<img/clust_1/centroid.png, id=248, 505.89pt x 361.35pt>
+File: img/clust_1/centroid.png Graphic file (type png)
+<use img/clust_1/centroid.png>
+Package pdftex.def Info: img/clust_1/centroid.png  used on input line 130.
+(pdftex.def)             Requested size: 188.49812pt x 134.64026pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[16 <./img/clust_1/logqta_km.png> <./img/clust_1/logspent_km.png> <./img/clust_1/logavgbv_km.png> <./img/clust_1/tp_entr_km.png>]
+<img/clust_1/dbscan.png, id=258, 505.89pt x 361.35pt>
+File: img/clust_1/dbscan.png Graphic file (type png)
+<use img/clust_1/dbscan.png>
+Package pdftex.def Info: img/clust_1/dbscan.png  used on input line 144.
+(pdftex.def)             Requested size: 247.63522pt x 176.88661pt.
+<img/clust_1/dbscan_bad.png, id=259, 505.89pt x 361.35pt>
+File: img/clust_1/dbscan_bad.png Graphic file (type png)
+<use img/clust_1/dbscan_bad.png>
+Package pdftex.def Info: img/clust_1/dbscan_bad.png  used on input line 150.
+(pdftex.def)             Requested size: 242.24666pt x 173.03801pt.
+)
+No file report.bbl.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 71.
+[17 <./img/clust_1/c_link.png> <./img/clust_1/s_link.png> <./img/clust_1/ward.png> <./img/clust_1/centroid.png>] [18 <./img/clust_1/dbscan.png> <./img/clust_1/dbscan_bad.png>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 71.
+ (./report.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 71.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 71.
+Package rerunfilecheck Info: File `report.out' has not changed.
+(rerunfilecheck)             Checksum: 7389F7FA22131AC9F723F332F30C1112;813.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 71.
+ ) 
+Here is how much of TeX's memory you used:
+ 9238 strings out of 480478
+ 141364 string characters out of 5905959
+ 437619 words of memory out of 5000000
+ 25006 multiletter control sequences out of 15000+600000
+ 540753 words of font info for 52 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 45i,10n,47p,930b,500s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
+Output written on report.pdf (19 pages, 6318402 bytes).
+PDF statistics:
+ 332 PDF objects out of 1000 (max. 8388607)
+ 220 compressed objects within 3 object streams
+ 52 named destinations out of 1000 (max. 500000)
+ 295 words of extra memory for PDF output out of 10000 (max. 10000000)
+
