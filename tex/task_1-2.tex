@@ -77,7 +77,21 @@ First of all, we defined some basic features, like:
 In Figure \ref{fig:first_features}, we can see some visualization for the features we just extracted; in particular, they represent the first 30 customers with the biggest values for each feature.\\
 An interesting information is clear from the plot \ref{fig:max_item}, where we can see that the maximum quantities purchased in a single shopping session are very big; they are all above 3500, with the maximum equal to 15049. These are very high values, unlikely for a retail customer; this led us to think that the supermarket in question also sells wholesale.
 
+\begin{wrapfigure}{l}{.5\textwidth}
+\centering
+\captionsetup{justification=centering}
+\includegraphics[width=0.49\textwidth]{img/kde_entropy.png}
+\caption{Entropy distribution}
+\label{fig:kde_entropy}
+\end{wrapfigure}
+
+\begin{comment}
 To compute the entropy we defined two categorical attributes which are the result of the discretization of \textbf{Qta} and \textbf{TotPrice}. The attribute \textbf{Qta} was discretized by observing that $\sim 18\%$ of the rows have \textbf{Qta} equals to one, so we introduced the category \emph{Single}. Other than that we created also the categories \emph{Small}  (from $2$ to $6$), \emph{Medium} (from $7$ to $12$), \emph{High} (from $12$ to $36$) and \emph{Very High} (larger than $37$). For what concern the category related to \textbf{TotalPrice} we set an equal frequency binning into five categories. The entropies, \textbf{QtaEntr} and \textbf{TPEntr}, measure the variability of the customer's spending and quantity habit.
+\end{comment}
+
+In Figure \ref{fig:kde_entropy}, we can evaluate the distribution of the entropy. In particular, we are focusing on the attribute \textbf{TotalPrice}.
+This value of the entropy represents the variability of the customer's spending habits; a bigger value means that the customer did not have a regular behavior, instead he spent always different amount of money.\\
+We have a small peak corresponding to 0, meaning that there are some customers with very specific habits, but the maximum is reached for $\sim 4$, which means that the majority of the clients have a quite unpredictable behavior.
 
 Since the focus is on the purchasing behavior of the customers, we decided to study other features, in order to deeply understand the information we have. We chose to extract information about:
 \begin{itemize}
