@@ -68,7 +68,7 @@ techniques in the library: https://github.com/annoviko/pyclustering/
 
 ## Task 3: Predictive Analysis (30 points)
 Consider the problem of predicting for each customer a label that defines if (s)he is a
-high-spending customer, medium-spending customer or low-spending customer.
+*high-spending* customer, *medium-spending* customer or *low-spending* customer.
 The students need to:
 - Define a customer profile that enables the above customer classification. Please,
 reason on the suitability of the customer profile, defined for the clustering
