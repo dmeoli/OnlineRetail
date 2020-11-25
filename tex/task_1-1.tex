@@ -7,22 +7,22 @@ The dataset contains 471910 entries, each of them represent a purchase related t
 This dataset contains 8 attributes that correspond to:
 
 \begin{itemize}
-\item \textbf{BasketID} (\textit{24627}): a 6 digit integer number uniquely assigned to each purchase; if it starts with a \textit{C}, it indicates a cancellation (\textit{3754});
-\item \textbf{BasketDate}: the day (\textit{from 2010/12/01 to 2011/12/09}) and time (\textit{from 6am to 21pm}) when each purchase was placed;
-\item \textbf{Sale} (\textit{∼4avg}): the unit product price, all in the same currency, probably in sterling;
-\item \textbf{CustomerID} (\textit{4372 + 65073na}): a 5 digit integer number uniquely assigned to each customer;
-\item \textbf{CustomerCountry} (\textit{37}): the name of the country where each customer resides;
-\item \textbf{ProdID} (\textit{3953}): a 5 digit + 1 letter identifier uniquely assigned to each distinct product; identical codes with different letters identify the same products with different characteristics (\emph{e.g.}, 84997D: '\emph{pink piece polkadot cutlery set} vs. 84997C: '\emph{blue piece polkadot cutlery set});
-\item \textbf{ProdDescr} (\textit{4097 + 753na}): the description of the product purchased;
-\item \textbf{Qta} (\textit{∼11avg}): the purchased quantities of each product per order.
+\item \textbf{BasketID} (\emph{24627}): a 6 digit integer number uniquely assigned to each purchase; if it starts with a \emph{C}, it indicates a cancellation (\emph{3754});
+\item \textbf{BasketDate}: the day (\emph{from 2010/12/01 to 2011/12/09}) and time (\emph{from 6am to 21pm}) when each purchase was placed;
+\item \textbf{Sale} (\emph{∼4avg}): the unit product price, all in the same currency, probably in sterling;
+\item \textbf{CustomerID} (\emph{4372 + 65073na}): a 5 digit integer number uniquely assigned to each customer;
+\item \textbf{CustomerCountry} (\emph{37}): the name of the country where each customer resides;
+\item \textbf{ProdID} (\emph{3953}): a 5 digit + 1 letter identifier uniquely assigned to each distinct product; identical codes with different letters identify the same products with different characteristics (\emph{e.g.}, 84997D: '\emph{pink piece polkadot cutlery set} vs. 84997C: '\emph{blue piece polkadot cutlery set});
+\item \textbf{ProdDescr} (\emph{4097 + 753na}): the description of the product purchased;
+\item \textbf{Qta} (\emph{∼11avg}): the purchased quantities of each product per order.
 \end{itemize}
 
 \subsection{Assessing Data Quality}
-In order to assess the quality of data, we proceed by removing the \textit{5232} duplicate entries, so we will work with the remaining \textit{466678} rows.
+In order to assess the quality of data, we proceed by removing the \emph{5232} duplicate entries, so we will work with the remaining \emph{466678} rows.
 
-Then, we proceed by removing the entries corresponding to the \textbf{65073} null \textit{CustomerID} values, since there is no way to integrate them to trace the original customer.
+Then, we proceed by removing the entries corresponding to the \emph{65073} null \emph{CustomerID} values, since there is no way to integrate them to trace the original customer.
 
-Afterwards, we checked the \textit{ProdID} that does not respect the defined format and we found some that contains only letters, \emph{e.g.}, '\emph{POST}', '\emph{D}', '\emph{C2}', '\emph{M}', '\emph{BANK CHARGES}', etc. with the following respective \textit{ProdDescr}: '\emph{POSTAGE}', '\emph{Discount}', '\emph{CARRIAGE}', '\emph{Manual}', '\emph{Bank Charges}'.
+Afterwards, we checked the \emph{ProdID} that does not respect the defined format and we found some that contains only letters, \emph{e.g.}, '\emph{POST}', '\emph{D}', '\emph{C2}', '\emph{M}', '\emph{BANK CHARGES}', etc. with the following respective \emph{ProdDescr}: '\emph{POSTAGE}', '\emph{Discount}', '\emph{CARRIAGE}', '\emph{Manual}', '\emph{Bank Charges}'.
 
 \begin{wrapfigure}{r}{.5\textwidth}
 \centering
