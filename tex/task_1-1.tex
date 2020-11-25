@@ -1,74 +1,28 @@
 \section{Data Understanding}
 
-The dataset contains informations about the purchases of each customer of the supermarket. The dataset contains \textbf{471910} rows, each of one divided into \textbf{8} columns; each entry represents the purchase of a product by a customer, and it comprehends also informations about the date of the transaction, the price of the product and the quantity purchased.\\
-A key information we extracted from the dataset, based on the products descriptions and the frequency of purchases per customer, is that the supermarket in question is not a food store, but instead a grocery store, that sells in particular fast-moving consumer goods.
+The dataset contains 471910 entries, each of them represent a purchase related to a supermarket made by a customer over a period of one year.
 
 \subsection{Data Semantics}
 
-In this section, we describe the semantic of each attribute, providing also some statistics about them.
+This dataset contains 8 attributes that correspond to:
 
-\textbf{BasketID} \\
-A code that identifies a shopping session for a customer. It remains the same for all the rows that indicate different products inside a single session.\\
-We have \textbf{22190} distinct Basket IDs.\\
-We define \emph{good} \textbf{BasketID} as a six digit code, instead a \emph{bad} \textbf{BasketID} is composed by a character, \emph{C} or \emph{A}, followed by a six digit code.
-
-\textbf{BasketDate}\\
-The date and time of a transaction. Basket Dates that correspond to the same Basket ID have the same value.\\
-The dates range from 2010 to 2011, while the times range from 6 to 21.
-
-\textbf{Sale}\\
-A numeric attribute that indicates the price of a product.
-Since there is no currency associated with the sale price, we assume that it is always the same.
-
-\textbf{CustomerID}\\
-A code that identifies a customer. It is a five-digit code.\\
-We have \textbf{4372} unique customer IDs, with some \emph{NULL} values.
-
-\textbf{CustomerCountry}\\
-A categorical attribute that indicates the country of origin of each customer.\\
-We have \textbf{37} different countries.
-
-\textbf{ProdID}\\
-A code that identifies a product.\\
-It most cases, it is a five-digit string; sometimes, it has a letter at the end, while other times it is a string of characters.\\
-We have \textbf{3953} distinct Product IDs.
-We define \emph{good} \textbf{ProdID} as a five digit code, possibly followed by a variable number of characters; everything else, which are strings followed by some numbers, is labelled as a \emph{bad} \textbf{ProdID}.
-
-\textbf{ProdDescr}\\  
-A string with a description of a product.\\
-We have \textbf{4097} unique Product Descriptions, with some \emph{NULL} values.
-
-\textbf{Qta}\\
-A numeric attribute that represents the purchased quantity for each product.
+\begin{itemize}
+\item \textbf{BasketID} (\textit{24627}): a 6 digit integer number uniquely assigned to each purchase; if it starts with a \textit{C}, it indicates a cancellation (\textit{3754});
+\item \textbf{BasketDate}: the day (\textit{from 2010/12/01 to 2011/12/09}) and time (\textit{from 6am to 21pm}) when each purchase was placed;
+\item \textbf{Sale} (\textit{∼4avg}): the unit product price, all in the same currency, probably in sterling;
+\item \textbf{CustomerID} (\textit{4372 + 65073na}): a 5 digit integer number uniquely assigned to each customer;
+\item \textbf{CustomerCountry} (\textit{37}): the name of the country where each customer resides;
+\item \textbf{ProdID} (\textit{3953}): a 5 digit + 1 letter identifier uniquely assigned to each distinct product; identical codes with different letters identify the same products with different characteristics (\emph{e.g.}, 84997D: '\emph{pink piece polkadot cutlery set} vs. 84997C: '\emph{blue piece polkadot cutlery set});
+\item \textbf{ProdDescr} (\textit{4097 + 753na}): the description of the product purchased;
+\item \textbf{Qta} (\textit{∼11avg}): the purchased quantities of each product per order.
+\end{itemize}
 
 \subsection{Assessing Data Quality}
-Now, we describe a deeper analysis to assess the quality of data.\\
-First, we checked for duplicate rows, and we found a total of \textbf{5232} duplicate records. Since each row represents a single purchase from a customer in a specific date, we have considered these duplicates as errors, and so we decided to drop them. After this correction, we have a dataset consisting of \textbf{466678} records.
+In order to assess the quality of data, we proceed by removing the \textit{5232} duplicate entries, so we will work with the remaining \textit{466678} rows.
 
-Then, we focused on the missing values; in the dataset, we have only two columns with some \emph{NULL} values; in particular, we have \textbf{CustomerID}, with \textbf{65073} null objects, and \textbf{ProdDescr}, with \textbf{753}.
+Then, we proceed by removing the entries corresponding to the \textbf{65073} null \textit{CustomerID} values, since there is no way to integrate them to trace the original customer.
 
-\begin{figure}[h!]
-\centering
-\includegraphics[height=9cm, width=15cm]{img/missing_values.png}
-\caption{Missing values}
-\end{figure}
-
-We checked attributes like \textbf{BasketDate}, \textbf{Sale} and \textbf{Qta} to see if there were some syntactic errors, but we did not find any of them.
-
-Afterwards, we checked the \emph{semantic accuracy} of the entries in the dataset, to see if some value was not coherent with the logic of its attribute.\\
-In particular, we found:
-\begin{itemize}
-\item 2 records with a negative value for \textbf{Sale};
-
-\item Some rows with "\emph{strange}" \textbf{ProdDescr}, not referring to a particular product
-	\begin{itemize}
-		\item Some of them describe the product's conditions, \emph{e.g.} '\emph{Damaged}', '\emph{wet rusty}', '\emph{Unsaleable destroyed}'. We noticed that these records have all \emph{NULL} \textbf{CustomerID}, so we consider these objects not as actual purchases, but instead as internal operations of the supermarket staff;
-		\item Other ones are referring to some online buying, \emph{e.g.} '\emph{amazon}', '\emph{ebay}', '\emph{dotcom sales}', but we couldn't be able to understand the real meaning of these objects, since they are very few in the dataset;
-		\item Others, like '\emph{Manual}' and '\emph{Next Day Carriage}', are related to some particular situations, that are not interesting in relation to our analysis;
-	\end{itemize}
-
-\item Some rows have negative values for \textbf{Qta}; here, we discover an interesting pattern: in fact, all the rows with a \textbf{BasketID} starting with \textbf{C}, have a negative \textbf{Qta}. We interpret these records as refunds.
-\end{itemize}
+Afterwards, we checked the \textit{ProdID} that does not respect the defined format and we found some that contains only letters, \emph{e.g.}, '\emph{POST}', '\emph{D}', '\emph{C2}', '\emph{M}', '\emph{BANK CHARGES}', etc. with the following respective \textit{ProdDescr}: '\emph{POSTAGE}', '\emph{Discount}', '\emph{CARRIAGE}', '\emph{Manual}', '\emph{Bank Charges}'.
 
 \begin{wrapfigure}{r}{.5\textwidth}
 \centering
@@ -95,7 +49,7 @@ We chosen to categorize the attribute \textbf{BasketDate}, by first splitting th
 \end{itemize}
 
 The rationale behind these choices is that we are more interested in the period in which a transaction occurs, rather that its precise date and time, to be able to cluster customers with a similar shopping behavior; furthermore, since the dataset is not from a grocery store, the customers with several shopping sessions per day or per week are really rare, and so we decided to use a broader partitioning.\\
-After these categorization, we ended introducing \textbf{DayTime} and \textbf{Week}.
+After these categorization, we ended up introducing \textbf{DayTime} and \textbf{Week}.
 
 We also decided to create the attribute \textbf{TotalPrice}, which is simply the product of \textbf{Sale} and \textbf{Qta}, and represents the total amount spent by a customer for each record. We made this choice mainly to have a clearer look to the dataset, emphasizing an important information that was not explicit in the original table, and also to simplify the extraction of some features and statistics.
 
@@ -105,25 +59,25 @@ In this section, we will study the distribution of various attributes, by plotti
 \begin{figure}[!h]
 \begin{subfigure}{.5\textwidth}
 \centering
-\includegraphics[width=.9\textwidth]{img/year_count.png}
+\includegraphics[width=.7\textwidth]{img/year_count.png}
 \caption{Year}
 \label{fig:year_count}
 \end{subfigure}
 \begin{subfigure}{.5\textwidth}
 \centering
-\includegraphics[width=.9\textwidth]{img/kde_year.png}
+\includegraphics[width=.7\textwidth]{img/kde_year.png}
 \caption{PDF by Year}
 \label{fig:kde_year}
 \end{subfigure}
 \begin{subfigure}{.5\textwidth}
 \centering
-\includegraphics[width=.9\textwidth]{img/week_kde.png}
+\includegraphics[width=.7\textwidth]{img/week_kde.png}
 \caption{PDF by Week}
 \label{fig:week_kde}
 \end{subfigure}
 \begin{subfigure}{.5\textwidth}
 \centering
-\includegraphics[width=.9\textwidth]{img/daytime_bar.png}
+\includegraphics[width=.7\textwidth]{img/daytime_bar.png}
 \caption{Day Time}
 \label{fig:daytime_bar}
 \end{subfigure}
@@ -133,23 +87,23 @@ In this section, we will study the distribution of various attributes, by plotti
 First, we analyse the \textbf{BasketDate}.\\
 From the Figure \ref{fig:year_count}, we can see that the attribute is highly unbalanced; in fact, we have that almost all the records are related to transaction of the 2011, while the objects from 2010 are very few.
 Indeed, the rows of 2011 represent about the 93\% of the whole dataset.\\
-Furthermore, from the Figure \ref{fig:kde_year}, that represents an estimation of the probability density function of \textbf{BasketDate} divided by year, we can appreciate the different distributions for the two years.\\
-In fact, for the 2010, we have a very uneven plot, which indicates that the records are not uniformly distributed with respect to the days in a month. That is justified by the fact that, for the majority of the months in 2010, there were registered only transactions from a single day; this day, that is the 12th, is the value for which the plot shows the peak.\\
+Furthermore, from the Figure \ref{fig:kde_year}, that represents an estimation of the probability density function of \textbf{BasketDate} divided by year, we can appreciate the two different distributions.\\
+In fact, for the 2010, we have a very uneven plot, which indicates that the records are not uniformly distributed with respect to the days in a month. This because, for the majority of the months in 2010, there were registered only transactions from a single day, the 12th; this is the value for which the plot shows the peak.\\
 On the other hand, the distribution for the 2011 is much more homogeneous, meaning that the transactions were registered for most days in the months of that year.\\
 Another interesting distributions are plotted in Figure \ref{fig:week_kde} and \ref{fig:daytime_bar}.\\
-In the first one, we can see that the last weeks of the year are the one with more purchases; that is consistent with our knowledge, since those are the weeks closest to Christmas time, that typically represents a great period of shopping.\\	
+In the first one, we can see that the last weeks of the year are the one with more purchases; that is consistent with our expectations, since those are the weeks closest to Christmas time, that typically represents a great period of shopping.\\	
 In the second one, the focus is instead on the hours in a day; we found that, unsurprisingly, the most popular hourly range goes from 9 to 18.
 
 \begin{figure}[!h]
 \begin{subfigure}{.5\textwidth}
 \centering
-\includegraphics[width=\textwidth]{img/country_bar.png}
+\includegraphics[width=.93\textwidth]{img/country_bar.png}
 \caption{}
 \label{fig:country_bar}
 \end{subfigure}
 \begin{subfigure}{.5\textwidth}
 \centering
-\includegraphics[width=\textwidth]{img/part_country_bar.png}
+\includegraphics[width=.93\textwidth]{img/part_country_bar.png}
 \caption{}
 \label{fig:part_country_bar}
 \end{subfigure}
