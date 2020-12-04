@@ -1,37 +1,10 @@
 \section{Data Preparation}
 
-\subsection{Cleaning the Dataset}
-In this section, we are going to manipulate our dataset, in order to improve its quality and to facilitate the next analyses.
-
-First of all, we focused on the \emph{NULL} values.\\
-For what concerns the \textbf{CustomerID}, since our main goal is to outline the customer behavior, we decided to drop all the missing values for this attribute; therefore, we have eliminated \textbf{65073} rows.\\
-Instead, regarding the \textbf{ProdDescr}, we notice that all the \emph{NULL} \textbf{ProdDescr} have also the \textbf{CustomerID} equal to \emph{NULL}; for that, we already eliminated these rows with the previous operation.\\ 
-From the data understanding regarding this attribute, we noticed some values that are not relevant for our analysis; so we decided to drop these rows, being particularly careful to not delete useful objects.
-
-Dealing with the \textbf{Sale} attribute, we can perform some kind of data integration.\\
-We have \textbf{34} elements with a price equal to 0; that, of course, would represent a problem in the following phases of our work, since the information about the amount spent by a customer is crucial to understand its behavior. For that, we can fix these rows by extracting the informations we need from the rest of the dataset, checking by the \textbf{ProdID}. Here, we noticed that the price of a single product can show several variations, maybe due to the market fluctuations; we chose to take the mean of those values to integrate the rows in question.
-
-About \textbf{BasketDate}, we decided to remove rows of the 2010, since the data were not taken regularly, and so they could alter our next study. On the contrary, we focus on the 2011 records, which were registered much more uniformly and are more useful and representative.
-
-We also decided to delete the rows with a \emph{bad} \textbf{ProdID}, that we defined earlier as not a five digit code plus a variable number of characters. As a matter of fact, at this stage of data cleaning, the dataset contains only 4 unique \emph{bad} IDs, that are \emph{POST}, \emph{C2}, \emph{PADS} and \emph{DOT}; it is evident that they have an ambiguous meaning and so, they are not interesting in our context. As a result,we dropped \textbf{1273} elements.
-
-We checked the attribute \textbf{CustomerCountry}, especially to see if some customer is associated to more than one country; in that case, we select, for each customer, the country registered with the most number of purchases.
-
 We also looked at the outliers we already detected with the box plots in the previous section.\\
 As we can see in Figure \ref{fig:boxplot_after}, the previous operations already cleaned some of the outliers we had in the original dataset; now we manually check them, to determine if they are errors or not.
 
-\begin{wrapfigure}{l}{.4\textwidth}
-\centering
-\captionsetup{justification=centering}
-\includegraphics[width=0.39\textwidth]{img/boxplot_after.png}
-\caption{Box plots\\ after the data cleaning}
-\label{fig:boxplot_after}
-\end{wrapfigure}
-
 In the case of \textbf{Sale}, we have that the maximum value is 649.5, which is quite high; in reality, we discovered that all the outliers for this attribute are referring to purchases of furniture or objects sold in big quantities, \emph{e.g.} 60 picnic baskets. So we consider these rows as correct.\\
 In the case of \textbf{Qta}, we see just two values that are really away from the others, and they represent huge purchases, with quantities equal to 74251 and 80995; we have also the same quantities in negative. Since this is a very strange case, we thought that they could be the results of an error and so we decided to drop these 4 rows.
-
-We ended up with a cleaned dataset, consisting of \textbf{373364} entries.
 
 \begin{figure}[h!]
 \captionsetup{justification=centering}
