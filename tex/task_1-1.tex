@@ -25,7 +25,7 @@ Then, we proceed by removing the entries corresponding to the \emph{65073} null 
 
 Afterwards, we removed the \emph{ProdID} that does not respect the defined format and we found some that contains only letters, \emph{e.g.}, '\emph{POST}', '\emph{D}', '\emph{C2}', '\emph{M}', '\emph{BANK CHARGES}', etc. with the following respective \emph{ProdDescr}: '\emph{POSTAGE}', '\emph{Discount}', '\emph{CARRIAGE}', '\emph{Manual}', '\emph{Bank Charges}', etc.
 
-\subsection{Variables Transformations \& Generation}
+\subsection{Variables Transformations}
 
 \begin{figure}
 \centering
@@ -107,10 +107,10 @@ In Figure \ref{fig:orders_country_bar} and \ref{fig:orders_country}, we can see 
 
 \begin{wrapfigure}{r}{.5\textwidth}
 \centering
-\includegraphics[width=0.49\textwidth]{img/corr.png}
+\includegraphics[width=0.49\textwidth]{img/dataset_corr.png}
 \caption{Correlation Matrix}
-\label{fig:corr}
+\label{fig:dataset_corr}
 \end{wrapfigure}
 
 Finally, we see some informations about the correlation of the attributes, to see if some of them are redundant.\\
-From the Figure \ref{fig:corr}, we can see that almost all the attributes are uncorrelated, except for \emph{TotSale}, that shows ah high correlation with \emph{Qta}; that follows what we expected, since \emph{TotSale} is, by construction, dependent on \emph{Qta}. So, we conclude that all the original columns are independent, and so we don't need to perform any further manipulation.
+From the Figure \ref{fig:dataset_corr}, we can see that almost all the attributes are uncorrelated, except for \emph{TotSale}, that shows ah high correlation with \emph{Qta}; that follows what we expected, since \emph{TotSale} is, by construction, dependent on \emph{Qta}. So, we conclude that all the original columns are independent, and so we don't need to perform any further manipulation.
