@@ -89,7 +89,7 @@ Consider the problem of mining frequent sequential patterns. To address the task
 - Apply the sequential pattern mining algorithm
 - Discuss the resulting patterns
 
-Note, that you can decide to filter out some customers.
+Note that you can decide to filter out some customers.
 
 Optional (2 points): The algorithm presented during the python lecture on sequential
 pattern mining does not consider the opportunity to define temporal constraints.
