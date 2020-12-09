@@ -63,7 +63,8 @@ the algorithm
     - Show and discuss different dendrograms using different algorithms
 - Final evaluation of the best clustering approach and comparison of the clustering
 obtained
-- Optional (2 points): Explore the opportunity to use alternative clustering
+
+Optional (2 points): Explore the opportunity to use alternative clustering
 techniques in the library: https://github.com/annoviko/pyclustering/
 
 ## Task 3: Predictive Analysis (30 points)
