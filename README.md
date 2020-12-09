@@ -83,7 +83,7 @@ applied to the data for managing possible problems identified that can make the
 prediction hard. Note that the evaluation should be performed on both training
 and test set.
   
-## Task 4: Sequential Pattern mining (30 points - 32 with optional subtask)
+## Task 4: Sequential Pattern Mining (30 points - 32 with optional subtask)
 Consider the problem of mining frequent sequential patterns. To address the task:
 - Model the customer as a sequence of baskets
 - Apply the sequential pattern mining algorithm
