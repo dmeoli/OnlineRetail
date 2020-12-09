@@ -88,6 +88,7 @@ Consider the problem of mining frequent sequential patterns. To address the task
 - Model the customer as a sequence of baskets
 - Apply the sequential pattern mining algorithm
 - Discuss the resulting patterns
+
 Note, that you can decide to filter out some customers.
 
 Optional (2 points): The algorithm presented during the python lecture on sequential
