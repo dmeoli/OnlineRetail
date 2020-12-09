@@ -81,3 +81,15 @@ discussing the results and discussing the possible preprocessing that they
 applied to the data for managing possible problems identified that can make the
 prediction hard. Note that the evaluation should be performed on both training
 and test set.
+  
+## Task 4: Sequential Pattern mining (30 points - 32 with optional subtask)
+Consider the problem of mining frequent sequential patterns. To address the task:
+- Model the customer as a sequence of baskets
+- Apply the sequential pattern mining algorithm
+- Discuss the resulting patterns
+Note, that you can decide to filter out some customers.
+
+Optional (2 points): The algorithm presented during the python lecture on sequential
+pattern mining does not consider the opportunity to define temporal constraints.
+As an optional point, the students can extend the algorithm and analysis considering one
+or more constraints.
