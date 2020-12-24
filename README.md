@@ -7,7 +7,7 @@ reported in a unique paper. The total length of this paper must be max 20 pages 
 including figures. The students must deliver both: paper and well commented Python
 notebooks.
 
-## Task 1: Data Understanding and Preparation (30 points)
+## Task 1: Data Understanding and Preparation
 
 ### Task 1.1: Data Understanding
 Explore the dataset with the analytical tools
@@ -42,7 +42,7 @@ Subtasks of DU:
 - Variables transformations & generation
 - Pairwise correlations and eventual elimination of redundant variables
 
-## Task 2: Clustering Analysis (30 points - 32 with optional subtask)
+## Task 2: Clustering Analysis
 Based on the customer’s profile explore the dataset using various clustering techniques.
 Carefully describe your decisions for each algorithm and which are the advantages
 provided by the different approaches.
@@ -67,7 +67,7 @@ obtained
 Optional (2 points): Explore the opportunity to use alternative clustering
 techniques in the library: https://github.com/annoviko/pyclustering/
 
-## Task 3: Predictive Analysis (30 points)
+## Task 3: Predictive Analysis
 Consider the problem of predicting for each customer a label that defines if (s)he is a
 *high-spending* customer, *medium-spending* customer or *low-spending* customer.
 The students need to:
@@ -83,7 +83,7 @@ applied to the data for managing possible problems identified that can make the
 prediction hard. Note that the evaluation should be performed on both training
 and test set.
   
-## Task 4: Sequential Pattern Mining (30 points - 32 with optional subtask)
+## Task 4: Sequential Pattern Mining
 Consider the problem of mining frequent sequential patterns. To address the task:
 - Model the customer as a sequence of baskets
 - Apply the sequential pattern mining algorithm
