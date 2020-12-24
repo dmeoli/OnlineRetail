@@ -38,16 +38,17 @@ First of all, we defined some basic features, like:
 \item The number of distinct items bought by a customer
 \item The maximum number of items purchased by a customer during a shopping session
 \end{itemize}
-In Figure \ref{fig:first_features}, we can see some visualization for these features; in particular, they represent the first 30 customers with the biggest values for each feature.\\
-An interesting information is clear from the plot \ref{fig:max_item}, where we can see that the maximum quantities purchased in a single shopping session are very big; they are all above 3500, with the maximum equal to 15049. These are very high values, unlikely for a retail customer; this led us to think that the supermarket in question also sells wholesale.
 
-\begin{wrapfigure}{l}{.5\textwidth}
+\begin{wrapfigure}[15]{l}{.5\textwidth}
 \centering
 \captionsetup{justification=centering}
 \includegraphics[width=0.49\textwidth]{img/kde_entropy.png}
 \caption{Entropy distribution}
 \label{fig:kde_entropy}
 \end{wrapfigure}
+
+In Figure \ref{fig:first_features}, we can see some visualization for these features; in particular, they represent the first 30 customers with the biggest values for each feature.\\
+An interesting information is clear from the plot \ref{fig:max_item}, where we can see that the maximum quantities purchased in a single shopping session are very big; they are all above 3500, with the maximum equal to 15049. These are very high values, unlikely for a retail customer; this led us to think that the supermarket in question also sells wholesale.
 
 In Figure \ref{fig:kde_entropy}, we can evaluate the distribution of the entropy. In particular, we are focusing on the attribute \textbf{TotalPrice}.
 This value of the entropy represents the variability of the customer's spending habits; a bigger value means that the customer did not have a regular behavior, instead he spent always different amount of money.\\
@@ -80,7 +81,7 @@ Now we extract some information about the average values, as:
 \item \textbf{AvgBaskValue}, the ratio between \textbf{ActualSpent} and the number of \emph{good} baskets, which represents the average amount of money spent for each basket per customer
 \end{itemize}
 
-\begin{wrapfigure}[9]{r}{.4\textwidth}
+\begin{wrapfigure}[14]{r}{.4\textwidth}
 \centering
 \includegraphics[width=0.39\textwidth]{img/monthfreq.png}
 \caption{Monthly Frequency}
@@ -109,25 +110,25 @@ Another interesting feature is the \textbf{MonthFreq}, that we computed as the r
 Analyzing the Figure \ref{fig:boxplot_actuals}, we can see that the attributes \textbf{ActualQta} and \textbf{ActualSpent} are really spread; for this reason, we consider their logarithm in base 10, so that the difference between high values has a different weight. We can appreciate the changes in the Figure \ref{fig:boxplot_logs}, where the two distributions are much more compact.\\
 After the transformations of these attributes, we saw that also \textbf{AvgPrice} and \textbf{AvgBaskValue} were quite spread, and so we decided to compute the same operation to them.
 
-\begin{wrapfigure}[12]{l}{0.5\textwidth}
-\centering
-\includegraphics[width=0.49\textwidth]{img/corr_logs.png}
-\caption{Correlation Matrix}
-\label{fig:corr_logs}
-\end{wrapfigure}
+\pagebreak
 
 Now, we can visualize the correlation between the attributes. In Figure \ref{fig:corr_logs}, as expected, we find that the average basket value is highly correlated with the total quantity purchased and the amount of money spent. Furthermore, we can see that also the monthly frequency is correlated with the amount spent and the total quantity. In the end, of course, the quantity purchased is very highly correlated with the total amount spent.
 
-\vspace{20mm}
-
-\begin{wrapfigure}[9]{r}{0.45\textwidth}
-\vspace{-15mm}
-\centering
-\captionsetup{justification=centering}
-\includegraphics[width=.45\textwidth]{img/pairplot.png}
-\caption{Pair Plots}
-\label{fig:pairplot}
-\end{wrapfigure}
-
-In Figure \ref{fig:pairplot}, we can visualize the Pair Plot for the attributes we have.\\
+In Figure \ref{fig:pairplot}, we can visualize the pairplot for the attributes we have.\\
 On the diagonal, we have the density plots, where we can appreciate the distribution of the features. Instead, the other scatter plots show the relationship between two variables. By analyzing those, we can have a confirmation of what we already found thanks to the previous plot. 
+
+\begin{figure}[ht]
+\begin{minipage}[b]{0.45\linewidth}
+\centering
+\includegraphics[width=\textwidth]{img/corr_logs.png}
+\caption{Correlation Matrix}
+\label{fig:corr_logs}
+\end{minipage}
+\hspace{0.5cm}
+\begin{minipage}[b]{0.45\linewidth}
+\centering
+\includegraphics[width=\textwidth]{img/pairplot.png}
+\caption{Pairplot}
+\label{fig:pairplot}
+\end{minipage}
+\end{figure}

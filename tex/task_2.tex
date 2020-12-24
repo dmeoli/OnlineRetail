@@ -2,11 +2,11 @@
 We now run and compare some clustering algorithm in order to find some structures among the data. First we start with a basic \emph{K-Means} followed with some \emph{Hierarchical clustering techniques} and \emph{DBSCAN}. 
 \subsection{Preprocessing}
 
-\begin{wrapfigure}[10]{r}{0.5\textwidth}
+\begin{wrapfigure}[10]{r}{0.4\textwidth}
 \vspace{-13mm}
 \centering
 \captionsetup{justification=centering}
-\includegraphics[width=.5\textwidth]{img/clustering/pca.png}
+\includegraphics[width=.4\textwidth]{img/clustering/pca.png}
 \caption{Explained variance ratio}
 \label{fig:pca_img}
 \end{wrapfigure}
@@ -45,11 +45,11 @@ The algorithm run for $K$ ranging from 2 to 10 clusters. For each iteration the 
 
 By looking at the plots in Figure \ref{fig:km_metrics}, we can see that there isn't a prominent \emph{elbow shape}, so we needed the analysis of more metrics to get the optimal number of clusters. At first, we saw that, for $K$ moving from 2 to 3, the difference of the SSE in percentage was quite high ($\sim$0.24), while for all the other values the difference was below 0.2. By inspecting the silhouette score, it is possible to see that it has its maximum for $K = 2$, followed by $K = 3$. In conclusion, we opted for 3 clusters, to get a trade off between high silhouette and low SSE.
 
-\begin{wrapfigure}[13]{l}{.5\textwidth}
+\begin{wrapfigure}[13]{l}{.4\textwidth}
     \vspace{-2mm}
     \centering
     \captionsetup{justification=centering}
-    \includegraphics[width=.5\textwidth]{img/clustering/sil_tot.png}
+    \includegraphics[width=.4\textwidth]{img/clustering/sil_tot.png}
     \caption{Silhouette score\\ for each data point}
     \label{fig:silhouette}
 \end{wrapfigure}
