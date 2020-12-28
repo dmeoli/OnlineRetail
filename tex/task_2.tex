@@ -45,8 +45,8 @@ The algorithm run for $K$ ranging from 2 to 10 clusters. For each iteration the 
 
 By looking at the plots in Figure \ref{fig:km_metrics}, we can see that there isn't a prominent \emph{elbow shape}, so we needed the analysis of more metrics to get the optimal number of clusters. At first, we saw that, for $K$ moving from 2 to 3, the difference of the SSE in percentage was quite high ($\sim$0.24), while for all the other values the difference was below 0.2. By inspecting the silhouette score, it is possible to see that it has its maximum for $K = 2$, followed by $K = 3$. In conclusion, we opted for 3 clusters, to get a trade off between high silhouette and low SSE.
 
-\begin{wrapfigure}[13]{l}{.4\textwidth}
-    \vspace{-2mm}
+\begin{wrapfigure}[12]{l}{.4\textwidth}
+    \vspace{-5mm}
     \centering
     \captionsetup{justification=centering}
     \includegraphics[width=.4\textwidth]{img/clustering/sil_tot.png}
@@ -120,7 +120,13 @@ Instead, the plot in Figure \ref{fig:km_avg} shows the average values for each a
 \subsection{Hierarchical clustering}
 We used different kinds of algorithm: \emph{Complete Link}, \emph{Single Link}, \emph{Ward} and \emph{Centroid}. The CPCC coefficient are respectively 0.51, 0.62, 0.44 and 0.74 meaning that the best results are obtained with \emph{Single Link} and \emph{Centroid}. By looking at the dendograms in Figure \ref{fig:dendograms}, if we cut the tree by selecting two clusters, we can see that the vast majority of the data falls into a single cluster, leaving the last merge between a large cluster and a small one, in some cases even a singleton. The most balanced result is obtained with the \emph{Ward} method, even though it has the lowest CPCC.
 
-\begin{figure}
+\subsection{DBSCAN}
+
+We explored different combination of \emph{eps} and \emph{MinPts}; for a given value of \emph{MinPts}, we selected \emph{eps} by checking the \emph{KNN} distance, with $K$ equal to \emph{MinPts}.\\
+Some results are plotted in Figure \ref{fig:dbscan}. In the first case, with \emph{eps}$= 0.6$ and \emph{MinPts}$=8$, we have a large and cluster surrounded by noise points; in the second one, with \emph{eps}$=0.3$ and \emph{MinPts}$=5$, we still have a large cluster, but also a lot of other clusters, really small if compared to the central one.\\
+For that, we think that the dataset is not suitable for this kind of algorithm.
+
+\begin{figure}[h!]
     \centering
     \begin{subfigure}{0.49\textwidth}
         \centering
@@ -146,11 +152,9 @@ We used different kinds of algorithm: \emph{Complete Link}, \emph{Single Link}, 
          \caption{\emph{Centroids}}
          \label{fig:centr_img}
      \end{subfigure}
-     \caption{}
+     \caption{Dendograms}
     \label{fig:dendograms}
 \end{figure}
-
-\subsection{DBSCAN}
 
 \begin{figure}[h!]
 	\captionsetup{justification=centering}
@@ -169,6 +173,4 @@ We used different kinds of algorithm: \emph{Complete Link}, \emph{Single Link}, 
 	\label{fig:dbscan}
 \end{figure}
 
-We explored different combination of \emph{eps} and \emph{MinPts}; for a given value of \emph{MinPts}, we selected \emph{eps} by checking the \emph{KNN} distance, with $K$ equal to \emph{MinPts}.\\
-Some results are plotted in Figure \ref{fig:dbscan}. In the first case, with \emph{eps}$= 0.6$ and \emph{MinPts}$=8$, we have a large and cluster surrounded by noise points; in the second one, with \emph{eps}$=0.3$ and \emph{MinPts}$=5$, we still have a large cluster, but also a lot of other clusters, really small if compared to the central one.\\
-For that, we think that the dataset is not suitable for this kind of algorithm.
+
