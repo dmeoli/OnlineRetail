@@ -6,17 +6,16 @@
   </context>
   <operator activated="true" class="process" compatibility="9.8.001" expanded="true" name="Process">
     <parameter key="logverbosity" value="status"/>
-    <parameter key="logfile" value="/home/donato/donato.meoli.95@gmail.com/DataMiningUniPi/rapidminer/rapidminer.log"/>
     <parameter key="random_seed" value="2001"/>
     <parameter key="send_mail" value="never"/>
     <parameter key="notification_email" value=""/>
     <parameter key="process_duration_for_mail" value="30"/>
     <parameter key="encoding" value="SYSTEM"/>
     <process expanded="true">
-      <operator activated="true" class="retrieve" compatibility="9.8.001" expanded="true" height="68" name="Retrieve customer_supermarket" width="90" x="112" y="136">
-        <parameter key="repository_entry" value="//Local Repository/data/customer_supermarket"/>
+      <operator activated="true" class="retrieve" compatibility="9.8.001" expanded="true" height="68" name="Retrieve customer_supermarket" width="90" x="45" y="85">
+        <parameter key="repository_entry" value="../data/customer_supermarket"/>
       </operator>
-      <operator activated="true" class="nominal_to_binominal" compatibility="9.8.001" expanded="true" height="103" name="Nominal to Binominal" width="90" x="313" y="238">
+      <operator activated="true" class="nominal_to_binominal" compatibility="9.8.001" expanded="true" height="103" name="Nominal to Binominal" width="90" x="246" y="187">
         <parameter key="return_preprocessing_model" value="false"/>
         <parameter key="create_view" value="false"/>
         <parameter key="attribute_filter_type" value="all"/>
@@ -34,7 +33,14 @@
         <parameter key="transform_binominal" value="false"/>
         <parameter key="use_underscore_in_name" value="false"/>
       </operator>
-      <operator activated="true" class="generalized_sequential_patterns" compatibility="9.8.001" expanded="true" height="82" name="GSP" width="90" x="514" y="85">
+      <operator activated="true" class="blending:pivot" compatibility="9.8.001" expanded="true" height="82" name="Pivot" width="90" x="447" y="238">
+        <parameter key="group_by_attributes" value="BasketDayOfYear|CustomerID"/>
+        <parameter key="column_grouping_attribute" value=""/>
+        <list key="aggregation_attributes"/>
+        <parameter key="use_default_aggregation" value="true"/>
+        <parameter key="default_aggregation_function" value="maximum"/>
+      </operator>
+      <operator activated="true" class="generalized_sequential_patterns" compatibility="9.8.001" expanded="true" height="82" name="GSP" width="90" x="581" y="85">
         <parameter key="customer_id" value="CustomerID"/>
         <parameter key="time_attribute" value="BasketDayOfYear"/>
         <parameter key="min_support" value="0.05"/>
@@ -43,12 +49,55 @@
         <parameter key="min_gap" value="0.0"/>
         <parameter key="positive_value" value="true"/>
       </operator>
+      <operator activated="true" class="retrieve" compatibility="9.8.001" expanded="true" height="68" name="Retrieve customer_supermarket (2)" width="90" x="45" y="391">
+        <parameter key="repository_entry" value="../data/customer_supermarket"/>
+      </operator>
+      <operator activated="true" class="nominal_to_binominal" compatibility="9.8.001" expanded="true" height="103" name="Nominal to Binominal (2)" width="90" x="246" y="493">
+        <parameter key="return_preprocessing_model" value="false"/>
+        <parameter key="create_view" value="false"/>
+        <parameter key="attribute_filter_type" value="all"/>
+        <parameter key="attribute" value=""/>
+        <parameter key="attributes" value=""/>
+        <parameter key="use_except_expression" value="false"/>
+        <parameter key="value_type" value="nominal"/>
+        <parameter key="use_value_type_exception" value="false"/>
+        <parameter key="except_value_type" value="file_path"/>
+        <parameter key="block_type" value="single_value"/>
+        <parameter key="use_block_type_exception" value="false"/>
+        <parameter key="except_block_type" value="single_value"/>
+        <parameter key="invert_selection" value="false"/>
+        <parameter key="include_special_attributes" value="false"/>
+        <parameter key="transform_binominal" value="false"/>
+        <parameter key="use_underscore_in_name" value="false"/>
+      </operator>
+      <operator activated="true" class="blending:pivot" compatibility="9.8.001" expanded="true" height="82" name="Pivot (2)" width="90" x="447" y="544">
+        <parameter key="group_by_attributes" value="BasketDayOfYear|CustomerID"/>
+        <parameter key="column_grouping_attribute" value=""/>
+        <list key="aggregation_attributes"/>
+        <parameter key="use_default_aggregation" value="true"/>
+        <parameter key="default_aggregation_function" value="maximum"/>
+      </operator>
+      <operator activated="true" class="generalized_sequential_patterns" compatibility="9.8.001" expanded="true" height="82" name="constrained GSP" width="90" x="581" y="391">
+        <parameter key="customer_id" value="CustomerID"/>
+        <parameter key="time_attribute" value="BasketDayOfYear"/>
+        <parameter key="min_support" value="0.05"/>
+        <parameter key="window_size" value="30.0"/>
+        <parameter key="max_gap" value="7.0"/>
+        <parameter key="min_gap" value="0.0"/>
+        <parameter key="positive_value" value="true"/>
+      </operator>
       <connect from_op="Retrieve customer_supermarket" from_port="output" to_op="Nominal to Binominal" to_port="example set input"/>
-      <connect from_op="Nominal to Binominal" from_port="example set output" to_op="GSP" to_port="example set"/>
+      <connect from_op="Nominal to Binominal" from_port="example set output" to_op="Pivot" to_port="input"/>
+      <connect from_op="Pivot" from_port="output" to_op="GSP" to_port="example set"/>
       <connect from_op="GSP" from_port="patterns" to_port="result 1"/>
+      <connect from_op="Retrieve customer_supermarket (2)" from_port="output" to_op="Nominal to Binominal (2)" to_port="example set input"/>
+      <connect from_op="Nominal to Binominal (2)" from_port="example set output" to_op="Pivot (2)" to_port="input"/>
+      <connect from_op="Pivot (2)" from_port="output" to_op="constrained GSP" to_port="example set"/>
+      <connect from_op="constrained GSP" from_port="patterns" to_port="result 2"/>
       <portSpacing port="source_input 1" spacing="0"/>
       <portSpacing port="sink_result 1" spacing="0"/>
       <portSpacing port="sink_result 2" spacing="0"/>
+      <portSpacing port="sink_result 3" spacing="0"/>
     </process>
   </operator>
 </process>
