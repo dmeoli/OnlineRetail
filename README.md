@@ -48,7 +48,7 @@ Carefully describe your decisions for each algorithm and which are the advantage
 provided by the different approaches.
 
 Subtasks:
-- Clustering Analysis by K-means:
+- Clustering analysis by K-means:
     - Identification of the best value of k
     - Characterization of the obtained clusters by using both analysis of
 the k centroids and comparison of the distribution of variables within
