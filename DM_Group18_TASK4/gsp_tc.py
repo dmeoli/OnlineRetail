@@ -97,7 +97,7 @@ def generateCandidatesForPair(cand1, cand2):
         if (len(cand2[-1]) == 1):
             newCandidate.append(cand2[-1])
         else:
-            newCandidate[-1].extend(cand2[-1][-1])
+            newCandidate[-1].extend([cand2[-1][-1]]) # ATTENZIONE A QUESTA MODIFICA
         return newCandidate
 
 def sequenceSize(sequence):
