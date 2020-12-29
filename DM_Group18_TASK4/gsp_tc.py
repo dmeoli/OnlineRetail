@@ -100,24 +100,27 @@ def generateCandidatesForPair(cand1, cand2):
             newCandidate[-1].extend(cand2[-1][-1])
         return newCandidate
 
+def sequenceSize(sequence):
+    return sum(len(i) for i in sequence)
+
 # Generate k-sequences from a set of (k-1)-sequences.
 def generateCandidates(lastLevelCandidates):
     k = sequenceSize(lastLevelCandidates[0]) + 1
 
     if (k == 2):
-    	flatShortCandidates = [item 
-    		for sublist2 in lastLevelCandidates 
-    			for sublist1 in sublist2 
-    				for item in sublist1]
+        flatShortCandidates = [item 
+            for sublist2 in lastLevelCandidates 
+                for sublist1 in sublist2 
+                    for item in sublist1]
 
-        result = [[[a, b]] 
-        	for a in flatShortCandidates 
-        		for b in flatShortCandidates 
-        			if b > a]
+        result = [[[a, b]]
+            for a in flatShortCandidates 
+                for b in flatShortCandidates 
+                    if b > a]
 
         result.extend([[[a], [b]] 
-        	for a in flatShortCandidates 
-        		for b in flatShortCandidates])
+            for a in flatShortCandidates 
+                for b in flatShortCandidates])
 
         return result
     else:
@@ -165,21 +168,21 @@ def supports(mseq, cseq, maxspan, mingap, maxgap):
 
             for itemset, t in mseq[j+1 :]:
 
-            	# The mingap constraint is violated
-            	# The time difference between the current and the previous itemset
-            	# must be geater than
-            	if not (t - prev_t > mingap):
-            		i = 0
-            		break
+                # The mingap constraint is violated
+                # The time difference between the current and the previous itemset
+                # must be geater than
+                if not (t - prev_t > mingap):
+                    i = 0
+                    break
 
-            	# The mingap constraint is violated
-            	# The time difference between the current and the previous itemset
-            	# must be geater than
-            	if not (t - prev_t <= maxgap):
-            		i = 0
-            		break
+                # The mingap constraint is violated
+                # The time difference between the current and the previous itemset
+                # must be geater than
+                if not (t - prev_t <= maxgap):
+                    i = 0
+                    break
 
-            	# The maxspan constraint is violated
+                # The maxspan constraint is violated
                 if t - min_t > maxspan:
                     i = 0
                     break 
@@ -192,7 +195,7 @@ def supports(mseq, cseq, maxspan, mingap, maxgap):
                     return True
     return False
 
-def countSupport(dataset, cseq, maxspan, mingap. maxgap):
+def countSupport(dataset, cseq, maxspan, mingap, maxgap):
 	support_count = 0
 	for seq in dataset:
 		if supports(seq, cseq, maxspan):
@@ -213,32 +216,32 @@ def countSupport(dataset, cseq, maxspan, mingap. maxgap):
 #	Fk = {filter out all the sequences with a support lower than the threshold}
 # return the union of all the Fk
 def apriori_tc(dataset, maxspan, minsup, mingap, maxgap, verbose=False):
-	# Overall is a list of lists.
-	# An element of Overall is a list of tuples.
-	# Each tuple is a couple of a list and a positive integer.
-	# The list is a frequent-k-sequence and the integer is its support.
-	# Overall = [
-	#	[(freq-1, sup), ... , (freq-1, sup)],
-	#	... ,
-	#	[(freq-k, sup), ... , (freq-k, sup)] ]
-	# Note that a k-sequence is also a list of lists.
-	# freq-k = [[...], ... , [...]]
-	Overall = []
+    # Overall is a list of lists.
+    # An element of Overall is a list of tuples.
+    # Each tuple is a couple of a list and a positive integer.
+    # The list is a frequent-k-sequence and the integer is its support.
+    # Overall = [
+    #   [(freq-1, sup), ... , (freq-1, sup)],
+    #   ... ,
+    #   [(freq-k, sup), ... , (freq-k, sup)] ]
+    # Note that a k-sequence is also a list of lists.
+    # freq-k = [[...], ... , [...]]
+    Overall = []
 
-	# Extract all the frequent-1-sequences
-	itemsInDataset = sorted(set([item 
-		for sublist1 in dataset # sublist1 = [([ ... ], t), ... , ([ ... ], t)]
-			for sublist2 in sublist1 # sublist2 = ([ ... ], t)
-				for item in sublist2[0] ])) # Must add the zero in order to pick the list.
+    # Extract all the frequent-1-sequences
+    itemsInDataset = sorted(set([item 
+        for sublist1 in dataset # sublist1 = [([ ... ], t), ... , ([ ... ], t)]
+            for sublist2 in sublist1 # sublist2 = ([ ... ], t)
+                for item in sublist2[0] ])) # Must add the zero in order to pick the list.
 
-	# Generate sequences of single items. 
-	# Remeber, a sequence is a list of lists, hence a 1-sequence has the form: [ [item] ]
+    # Generate sequences of single items. 
+    # Remeber, a sequence is a list of lists, hence a 1-sequence has the form: [ [item] ]
     singleItemSequences = [ [[item]] for item in itemsInDataset]
 
     # Count the frequence of the sequence i in the dataset and extract the frequent ones
     singleItemCounts = [(i, countFreq(i, dataset)) 
-    	for i in singleItemSequences 
-    		if countSupport(i, dataset) >= minsup]
+        for i in singleItemSequences 
+            if countSupport(i, dataset) >= minsup]
 
     # Overall[0] = F1
     Overall.append(singleItemCounts)
@@ -249,32 +252,32 @@ def apriori_tc(dataset, maxspan, minsup, mingap, maxgap, verbose=False):
     k = 1
     while (True):
 
-    	# if Fk is empty
+        # if Fk is empty
         if not Overall[k - 1]:
             break
 
         # candidatesLastLevel = F(k-1)
-    	candidatesLastLevel = [x[0] for x in Overall[k - 1]]
+        candidatesLastLevel = [x[0] for x in Overall[k - 1]]
 
-    	# Generate a set of k-sequences from the frequent (k-1)-sequences
-    	candidatesGenerated = generateCandidates(candidatesLastLevel)
+        # Generate a set of k-sequences from the frequent (k-1)-sequences
+        candidatesGenerated = generateCandidates(candidatesLastLevel)
 
-    	# Generate all the (k-1)-subsequence from a sequence candidate cand.
-    	# If each direct subsequence is also a frequent-(k-1)-sequnce 
-    	# (if is contained in candidatesLastLevel) then the k-sequence 
-    	# is a candidate-k-sequence.
-    	candidatesPruned = [cand 
-    		for cand in candidatesGenerated 
-    			if all(x in candidatesLastLevel 
-    				for x in generateDirectSubsequences(cand))]
+        # Generate all the (k-1)-subsequence from a sequence candidate cand.
+        # If each direct subsequence is also a frequent-(k-1)-sequnce 
+        # (if is contained in candidatesLastLevel) then the k-sequence 
+        # is a candidate-k-sequence.
+        candidatesPruned = [cand 
+            for cand in candidatesGenerated 
+                if all(x in candidatesLastLevel 
+                    for x in generateDirectSubsequences(cand))]
 
-    	# Genetare a list of tuples (seq, sup) where sup is the support count
-    	# of the k-sequence seq in the dataset.
-    	# Remember that the support count must also consider the time constraint.
-    	candidatesCounts = [(i, countSupport(dataset, i, maxspan, mingap, maxgap)) for i in candidatesPruned]
+        # Genetare a list of tuples (seq, sup) where sup is the support count
+        # of the k-sequence seq in the dataset.
+        # Remember that the support count must also consider the time constraint.
+        candidatesCounts = [(i, countSupport(dataset, i, maxspan, mingap, maxgap)) for i in candidatesPruned]
 
-    	# Extract all the sequences with a support count grater then minsup
-    	resultLvl = [(i, count) for (i, count) in candidatesCounts if (count >= minsup)]
+        # Extract all the sequences with a support count grater then minsup
+        resultLvl = [(i, count) for (i, count) in candidatesCounts if (count >= minsup)]
         if verbose:
             print("Candidates generated, lvl " + str(k + 1) + ": " + str(candidatesGenerated))
             print("Candidates pruned, lvl " + str(k + 1) + ": " + str(candidatesPruned))
@@ -287,14 +290,14 @@ def apriori_tc(dataset, maxspan, minsup, mingap, maxgap, verbose=False):
     
     # Rember the structure of Overall
     # [ [(freq-1, sup), ... , (freq-1, sup)]
-    # 	...
-    #	[(freq-k sup), ... , (freq-k, sup)] ]
- 	# This last list comprehension transform Overll into
+    #   ...
+    #   [(freq-k sup), ... , (freq-k, sup)] ]
+    # This last list comprehension transform Overll into
     # [ (freq-1, sup), ... , (freq-1, sup),
     #	(freq-2, sup), ... , (freq-2, sup),
     #	...
     #	(freq-k sup), ... , (freq-k, sup)]
-	Overall = [item 
-		for sublist in Overall 
-			for item in sublist]
+    Overall = [item 
+        for sublist in Overall 
+            for item in sublist]
     return Overall
