@@ -154,8 +154,9 @@ def generateDirectSubsequences(sequence):
 #	- cseq = [[ ... ], ... , [ ... ]]
 # mseq support cseq if cseq is a subsequence of mseq and and the time contraints hold. 
 def supports(mseq, cseq, maxspan, mingap, maxgap):
-    i = 0
+	
     for j in range(len(mseq)):
+        i = 0
         if set(mseq[j][0]).issuperset(set(cseq[i])):
             min_t = mseq[j][1]
             i += 1
@@ -172,21 +173,18 @@ def supports(mseq, cseq, maxspan, mingap, maxgap):
                 # The time difference between the current and the previous itemset
                 # must be geater than
                 if not (t - prev_t > mingap):
-                    i = 0
-                    break
-
+                    continue
+                    
                 # The mingap constraint is violated
                 # The time difference between the current and the previous itemset
                 # must be geater than
                 if not (t - prev_t <= maxgap):
-                    i = 0
                     break
-
+                
                 # The maxspan constraint is violated
                 if t - min_t > maxspan:
-                    i = 0
-                    break 
-
+                    break
+                    
                 if set(itemset).issuperset(set(cseq[i])):
                     i += 1
 
