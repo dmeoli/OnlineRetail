@@ -1,7 +1,7 @@
 \section{Data Preparation}
 
 We also looked at the outliers we already detected with the box plots in the previous section.\\
-As we can see in Figure \ref{fig:boxplot_after}, the previous operations already cleaned some of the outliers we had in the original dataset; now we manually check them, to determine if they are errors or not.
+As we can see in Figure \ref{fig:sale_qta_boxplots_after}, the previous operations already cleaned some of the outliers we had in the original dataset; now we manually check them, to determine if they are errors or not.
 
 In the case of \textbf{Sale}, we have that the maximum value is 649.5, which is quite high; in reality, we discovered that all the outliers for this attribute are referring to purchases of furniture or objects sold in big quantities, \emph{e.g.} 60 picnic baskets. So we consider these rows as correct.\\
 In the case of \textbf{Qta}, we see just two values that are really away from the others, and they represent huge purchases, with quantities equal to 74251 and 80995; we have also the same quantities in negative. Since this is a very strange case, we thought that they could be the results of an error and so we decided to drop these 4 rows.
@@ -92,13 +92,13 @@ Another interesting feature is the \textbf{MonthFreq}, that we computed as the r
 
 \begin{figure}
 \captionsetup{justification=centering}
-\begin{subfigure}{0.5\textwidth}
+\begin{subfigure}{0.49\textwidth}
 \centering
 \includegraphics[width=\textwidth]{img/boxplot_for_actuals.png}
 \caption{}
 \label{fig:boxplot_actuals}
 \end{subfigure}
-\begin{subfigure}{0.5\textwidth}
+\begin{subfigure}{0.49\textwidth}
 \centering
 \includegraphics[width=\textwidth]{img/boxplot_for_log_actuals.png}
 \caption{}

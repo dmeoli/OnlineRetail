@@ -27,16 +27,18 @@ Afterwards, we removed the \emph{ProdID} that does not respect the defined forma
 
 \subsection{Variables Transformations}
 
-\begin{figure}[!h]
-\begin{subfigure}{.5\textwidth}
+\begin{figure}
+\begin{subfigure}{.49\textwidth}
 \centering
 \includegraphics[width=.95\textwidth]{img/boxplots_before.png}
+\caption{}
 \label{fig:sale_qta_boxplots_before}
 \end{subfigure}
-\begin{subfigure}{.5\textwidth}
+\begin{subfigure}{.49\textwidth}
 \centering
 \captionsetup{justification=centering}
 \includegraphics[width=.95\textwidth]{img/boxplots_after.png}
+\caption{}
 \label{fig:sale_qta_boxplots_after}
 \end{subfigure}
 \caption{\emph{Qta} and \emph{Sale} boxplots before and after data cleaning}
@@ -55,15 +57,14 @@ To also manage the presence of the remaining prices equal to zero, 34 entries to
 We decided to create the attribute \emph{TotSale}, i.e., the product between \emph{Sale} and \emph{Qta}, that represents the total amount spent by a customer for each type of product purchased. We made this choice mainly to have a clearer look to the dataset, emphasizing an important information that was not explicit in the original table, and also for the feature extraction later.
 
 \subsection{Variables Distribution}
-
 \begin{figure}[!h]
-\begin{subfigure}{.5\textwidth}
+\begin{subfigure}{.49\textwidth}
 \centering
 \includegraphics[width=.7\textwidth]{img/year_bar.png}
 \caption{Year}
 \label{fig:year_bar}
 \end{subfigure}
-\begin{subfigure}{.5\textwidth}
+\begin{subfigure}{.49\textwidth}
 \centering
 \includegraphics[width=.7\textwidth]{img/year_kde.png}
 \caption{PDF by year}
@@ -96,13 +97,13 @@ In fact, for the 2010, we have a very uneven plot, which indicates that the reco
 Other interesting distributions are plotted in Figure \ref{fig:month_bar}, \ref{fig:week_bar} and \ref{fig:hour_bar}. In the first one, we can see that the last weeks of the year are the one with more purchases; that is consistent with our expectations, since those are the weeks closest to Christmas time, that typically represents a great period of shopping. This thesis is supported also from the second one, in which we can see that December is the month with the most purchases. The third one is focused instead on the hours in a day; we found that, unsurprisingly, the most popular hourly is lunchtime.
 
 \begin{figure}[!h]
-\begin{subfigure}{.5\textwidth}
+\begin{subfigure}{.49\textwidth}
 \centering
 \includegraphics[width=.93\textwidth]{img/orders_country_bar.png}
 \caption{}
 \label{fig:orders_country_bar}
 \end{subfigure}
-\begin{subfigure}{.5\textwidth}
+\begin{subfigure}{.49\textwidth}
 \centering
 \includegraphics[width=.93\textwidth]{img/orders_country.png}
 \caption{}
