@@ -60,9 +60,7 @@ def isSubsequenceRecursive(mainSequence, subSequenceClone, start=0):
 # if sequence is a subsequence of seq then increase couting.
 # Note that seq = [([ ... ], t), ... , ([ ... ], t)], we have to deal with the timestamp
 def countFreq(sequence, dataset):
-    return sum(1
-               for seq in dataset
-               if isSubsequence(seq, sequence))
+    return sum(1 for seq in dataset if isSubsequence(seq, sequence)) / len(dataset)
 
 
 # Merge two (k-1)-sequence into a k-sequence
@@ -100,7 +98,7 @@ def generateCandidatesForPair(cand1, cand2):
         if (len(cand2[-1]) == 1):
             newCandidate.append(cand2[-1])
         else:
-            newCandidate[-1].extend([cand2[-1][-1]])  # ATTENZIONE A QUESTA MODIFICA
+            newCandidate[-1].extend(cand2[-1][-1])  # ATTENZIONE A QUESTA MODIFICA -> [cand2[-1][-1]]
         return newCandidate
 
 
@@ -205,7 +203,7 @@ def countSupport(dataset, cseq, maxspan, mingap, maxgap):
     for seq in dataset:
         if supports(seq, cseq, maxspan, mingap, maxgap):
             support_count += 1
-    return support_count
+    return support_count / len(dataset)
 
 
 # Apriori pseudocode
@@ -235,8 +233,7 @@ def apriori_tc(dataset, maxspan, minsup, mingap, maxgap, verbose=False):
     Overall = []
 
     # Extract all the frequent-1-sequences
-    itemsInDataset = sorted(set([item
-                                 for sublist1 in dataset  # sublist1 = [([ ... ], t), ... , ([ ... ], t)]
+    itemsInDataset = sorted(set([item for sublist1 in dataset  # sublist1 = [([ ... ], t), ... , ([ ... ], t)]
                                  for sublist2 in sublist1  # sublist2 = ([ ... ], t)
                                  for item in sublist2[0]]))  # Must add the zero in order to pick the list.
 
@@ -303,9 +300,8 @@ def apriori_tc(dataset, maxspan, minsup, mingap, maxgap, verbose=False):
     #	(freq-2, sup), ... , (freq-2, sup),
     #	...
     #	(freq-k sup), ... , (freq-k, sup)]
-    Overall = [item
-               for sublist in Overall
-               for item in sublist]
+    Overall = [item for sublist in Overall for item in sublist]
+    Overall.sort(key=lambda tup: tup[1], reverse=True)
     return Overall
 
 
