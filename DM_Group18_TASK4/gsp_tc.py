@@ -256,6 +256,13 @@ def countSupport(dataset, cseq, maxspan, mingap, maxgap):
 # return the union of all the Fk
 def apriori_tc(dataset, minsup=0.5, maxspan=np.inf, mingap=0, maxgap=np.inf, verbose=False):
     
+    if verbose:
+    	print('Starting Apriori with:')
+    	print('\tminsup:', minsup)
+    	print('\tmaxspan:', maxspan)
+    	print('\tmingap:', mingap)
+    	print('\tmaxgap:', maxgap)
+
     N = len(dataset)
 
     # The algorithm uses a modified pruning strategies (using the notion of contigous subsequence)
