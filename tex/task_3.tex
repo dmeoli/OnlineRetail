@@ -6,7 +6,8 @@ From the Figure \ref{fig:skmclust}, we recall that we partitioned the dataset in
 We can see that the clusters are well separated from each other, and so we can use them as customer classification. 
 
 To perform the task, which is a \emph{supervised} one, we split the dataset into training and test set, equal to the 75\% and 25\% of the dataset respectively. Plus, during the splitting, we specify that each partition must have approximately the same relative class frequencies;
-that is to manage the unbalance we have in the original dataset, in which the \textbf{medium-spending} $\Leftarrow$ \textbf{DA CONTROLLARE} customers are much more frequent than the other classes.
+that is to manage the unbalance we have in the original dataset, in which the \textbf{medium-spending} customers are much more frequent than the other classes.\\
+We also standardize the data with a standard scaler, achieving a distribution with 0 mean and unit variance.
 
 For each model, we perform a grid search, to find the best values for some hyperparameters; for that, we used a \emph{K-fold cross validation}, with $K=5$.
 
@@ -48,13 +49,6 @@ With this model, we got a training accuracy of 1 and a test accuracy of 0.999; t
 \label{fig:nn_confusion}
 \end{minipage}
 
-\begin{figure}
-\centering
-\includegraphics[width=\linewidth]{img/decision_tree.png}
-\caption{Decision Tree}
-\label{fig:decision_tree}
-\end{figure}
-
 \subsection{Naive Bayes Classifier}
 \begin{minipage}{0.59\textwidth}
 \vspace{-13mm}
@@ -75,7 +69,7 @@ In Figure \ref{fig:nb_confusion}, we can see that the performances of this model
 The K-Nearest Neighbors model is an instance-based classifier, that, for each record, selects the class label based on the majority of its nearest neighbors.\\
 The grid search showed that the best configuration is
 \begin{itemize}
-\item n\_neighbors equal to 50
+\item \emph{n\_neighbors} equal to 50
 \item \emph{distance} as weight function; that makes the weight of a point to be inversely proportional to its distance
 \end{itemize}
 
@@ -89,6 +83,13 @@ The Figure \ref{fig:knn_confusion} shows that some points are misclassified, wit
 \captionof{figure}{Confusion Matrix\\ for K-Nearest Neighbors}
 \label{fig:knn_confusion}
 \end{minipage}
+
+\begin{figure}
+\centering
+\includegraphics[width=\linewidth]{img/decision_tree.png}
+\caption{Decision Tree}
+\label{fig:decision_tree}
+\end{figure}
 
 \subsection{Decision Tree}
 \begin{minipage}{0.59\textwidth}
@@ -127,7 +128,7 @@ In this case, the best hyperparameters are:
 \item \emph{min\_samples\_split} equal to 2
 \item \emph{n\_estimators} equal to 1500
 \end{itemize}
-As a results, we have a training accuracy of 1 and a test accuracy of 0.9952; these good results are confirmed by the Figure \ref{fig:rf_confusion.png}, that shows that the errors made by the model are very few.
+As a results, we have a training accuracy of 1 and a test accuracy of 0.9952; these good results are confirmed by the Figure \ref{fig:rf_confusion}, that shows that the errors made by the model are very few.
 \end{minipage}
 \begin{minipage}{0.4\textwidth}
 \centering
@@ -136,3 +137,7 @@ As a results, we have a training accuracy of 1 and a test accuracy of 0.9952; th
 \captionof{figure}{Confusion Matrix\\ for Random Forest}
 \label{fig:rf_confusion}
 \end{minipage}
+
+\subsection{Conclusion}
+In conclusion, the model that performs the best is the Neural Network, which is almost perfect both on training and test set; also the SVM and Random Forest have very good performances, having an accuracy of 99\%.\\
+Overall, even if the other models give slightly worse results, they all have an accuracy greater than 93\%, which is pretty good. That is because the dataset is not very complex, since the clusters given by K-Means(Fig. \ref{fig:skmclust}) are almost linearly separable.
