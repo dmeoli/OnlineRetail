@@ -81,9 +81,9 @@
         <parameter key="customer_id" value="CustomerID"/>
         <parameter key="time_attribute" value="BasketDayOfYear"/>
         <parameter key="min_support" value="0.05"/>
-        <parameter key="window_size" value="30.0"/>
+        <parameter key="window_size" value="999.0"/>
         <parameter key="max_gap" value="7.0"/>
-        <parameter key="min_gap" value="0.0"/>
+        <parameter key="min_gap" value="1.0"/>
         <parameter key="positive_value" value="true"/>
       </operator>
       <connect from_op="Retrieve customer_supermarket" from_port="output" to_op="Nominal to Binominal" to_port="example set input"/>
