@@ -308,6 +308,7 @@ def apriori_tc(dataset, maxspan, minsup, mingap, maxgap, verbose=False):
                for item in sublist]
     return Overall
 
+
 if __name__ == "__main__":
     dataset = [
         [(['a'], 1), (['a', 'b', 'c'], 2), (['a', 'c'], 3), (['c'], 4)],
