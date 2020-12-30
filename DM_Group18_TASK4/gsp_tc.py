@@ -176,20 +176,20 @@ def supports(mseq, cseq, maxspan, mingap, maxgap):
                 # The mingap constraint is violated
                 # The time difference between the current and the previous itemset
                 # must be geater than
-                if not (t - prev_t > mingap):
+                if not t - prev_t > mingap:
                     continue
 
                 # The mingap constraint is violated
                 # The time difference between the current and the previous itemset
                 # must be geater than
-                if not (t - prev_t <= maxgap):
+                if not t - prev_t <= maxgap:
                     break
 
                 # The maxspan constraint is violated
                 if t - min_t > maxspan:
                     break
 
-                if set(itemset).issuperset(set(cseq[i])):
+                if set(itemset).issuperset(cseq[i]):
                     i += 1
 
                 # The whole sequence is found satisfying all the time constraints
