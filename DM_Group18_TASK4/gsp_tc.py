@@ -199,11 +199,7 @@ def supports(mseq, cseq, maxspan, mingap, maxgap):
 
 
 def countSupport(dataset, cseq, maxspan, mingap, maxgap):
-    support_count = 0
-    for seq in dataset:
-        if supports(seq, cseq, maxspan, mingap, maxgap):
-            support_count += 1
-    return support_count / len(dataset)
+    return sum(1 for seq in dataset if supports(seq, cseq, maxspan, mingap, maxgap)) / len(dataset)
 
 
 # Apriori pseudocode
@@ -335,4 +331,4 @@ if __name__ == "__main__":
     # ([['a'], ['c'], ['b'], ['c']], 0.5),      1 -1 3 -1 2 -1 3 -1 #SUP: 2
     # ([['a', 'b'], ['c'], ['c']], 0.5)]        1 2 -1 3 -1 3 -1 #SUP: 2
 
-    print(apriori_tc(dataset, minsup=0.5, maxspan=999, mingap=0, maxgap=999))
+    print(apriori_tc(dataset, minsup=0.5, maxspan=365, mingap=0, maxgap=365))
