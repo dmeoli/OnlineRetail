@@ -13,7 +13,7 @@
     <parameter key="encoding" value="SYSTEM"/>
     <process expanded="true">
       <operator activated="true" class="retrieve" compatibility="9.8.001" expanded="true" height="68" name="Retrieve customer_supermarket" width="90" x="45" y="85">
-        <parameter key="repository_entry" value="../data/customer_supermarket"/>
+        <parameter key="repository_entry" value="//Local Repository/data/customer_supermarket"/>
       </operator>
       <operator activated="true" class="nominal_to_binominal" compatibility="9.8.001" expanded="true" height="103" name="Nominal to Binominal" width="90" x="246" y="187">
         <parameter key="return_preprocessing_model" value="false"/>
@@ -44,13 +44,13 @@
         <parameter key="customer_id" value="CustomerID"/>
         <parameter key="time_attribute" value="BasketDayOfYear"/>
         <parameter key="min_support" value="0.05"/>
-        <parameter key="window_size" value="999.0"/>
+        <parameter key="window_size" value="0.0"/>
         <parameter key="max_gap" value="999.0"/>
         <parameter key="min_gap" value="0.0"/>
         <parameter key="positive_value" value="true"/>
       </operator>
-      <operator activated="true" class="retrieve" compatibility="9.8.001" expanded="true" height="68" name="Retrieve customer_supermarket (2)" width="90" x="45" y="391">
-        <parameter key="repository_entry" value="../data/customer_supermarket"/>
+      <operator activated="true" class="retrieve" compatibility="9.8.001" expanded="true" height="68" name="Retrieve customer_supermarket (2)" width="90" x="45" y="442">
+        <parameter key="repository_entry" value="//Local Repository/data/customer_supermarket"/>
       </operator>
       <operator activated="true" class="nominal_to_binominal" compatibility="9.8.001" expanded="true" height="103" name="Nominal to Binominal (2)" width="90" x="246" y="493">
         <parameter key="return_preprocessing_model" value="false"/>
@@ -81,7 +81,7 @@
         <parameter key="customer_id" value="CustomerID"/>
         <parameter key="time_attribute" value="BasketDayOfYear"/>
         <parameter key="min_support" value="0.05"/>
-        <parameter key="window_size" value="999.0"/>
+        <parameter key="window_size" value="0.0"/>
         <parameter key="max_gap" value="7.0"/>
         <parameter key="min_gap" value="1.0"/>
         <parameter key="positive_value" value="true"/>
