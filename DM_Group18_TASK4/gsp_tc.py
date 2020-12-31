@@ -375,4 +375,5 @@ def apriori_tc(dataset, minsup=0.5, maxspan=np.inf, mingap=0, maxgap=np.inf, ver
     Overall = [item
                for sublist in Overall
                for item in sublist]
-    return Overall.sort(key=lambda tup: tup[1], reverse=True)
+    Overall.sort(key=lambda tup: tup[1], reverse=True)
+    return Overall
