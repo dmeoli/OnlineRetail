@@ -1,6 +1,7 @@
 import copy
 import numpy as np
 
+
 # Dataset structure.
 # The dataset is a list of sequences.
 # Each element in a sequence is a couple of:
@@ -35,6 +36,7 @@ def isSubsequence(mainSequence, subSequence):
     subSequenceClone = list(subSequence)  # clone the sequence, because we will alter it
     return isSubsequenceRecursive(mainSequence, subSequenceClone)  # start recursion
 
+
 def isSubsequenceRecursive(mainSequence, subSequenceClone, start=0):
     # Check if empty: End of recursion, all itemsets have been found
     if (not subSequenceClone):
@@ -60,7 +62,7 @@ def isContSubseq(mseq, sseq):
             # Special case if cseq is a sequence of one element
             if i == len(sseq):
                 return True
-            for itemset in mseq[j+1 :]:
+            for itemset in mseq[j + 1:]:
                 if set(itemset).issuperset(set(sseq[i])):
                     i += 1
                 else:
@@ -69,6 +71,7 @@ def isContSubseq(mseq, sseq):
                 if i == len(sseq):
                     return True
     return False
+
 
 def generateDirectContSubseq(sequence):
     result = []
@@ -84,13 +87,14 @@ def generateDirectContSubseq(sequence):
                     sequenceClone = copy.deepcopy(sequence)
                     sequenceClone[i].pop(j)
                     result.append(sequenceClone)
-        else: # Middle element   
+        else:  # Middle element
             if len(itemset) > 1:
                 for j in range(len(itemset)):
                     sequenceClone = copy.deepcopy(sequence)
                     sequenceClone[i].pop(j)
                     result.append(sequenceClone)
     return result
+
 
 # Given a sequence and a dataset, count the frequence of the sequence in the dataset
 # for seq in dataset
@@ -99,33 +103,34 @@ def generateDirectContSubseq(sequence):
 # if sequence is a subsequence of seq then increase couting.
 # Note that seq = [([ ... ], t), ... , ([ ... ], t)], we have to deal with the timestamp
 def countFreq(sequence, dataset):
-	return sum(1 
-		for seq in dataset 
-			if isSubsequence(seq, sequence))
+    return sum(1
+               for seq in dataset
+               if isSubsequence(seq, sequence))
+
 
 # Merge two (k-1)-sequence into a k-sequence
 def generateCandidatesForPair(cand1, cand2):
     cand1Clone = copy.deepcopy(cand1)
     cand2Clone = copy.deepcopy(cand2)
-    
+
     # drop the leftmost item from cand1:
     if (len(cand1[0]) == 1):
-    	# Se il 'leftmost element' contiene un solo item 
-    	# (quindi l'unico da essere scartato).
+        # Se il 'leftmost element' contiene un solo item
+        # (quindi l'unico da essere scartato).
         cand1Clone.pop(0)
     else:
-    	# Se il 'leftmost element' contiene più di u item 
-    	# (quindi l'ultimo item).
+        # Se il 'leftmost element' contiene più di u item
+        # (quindi l'ultimo item).
         cand1Clone[0] = cand1Clone[0][1:]
-    
+
     # drop the rightmost item from cand2:
     if (len(cand2[-1]) == 1):
-    	# Se il 'rightmost element' contiene un solo item 
-    	# (quindi l'unico da essere scartato).
+        # Se il 'rightmost element' contiene un solo item
+        # (quindi l'unico da essere scartato).
         cand2Clone.pop(-1)
     else:
-    	# Se il 'rightmostmost element' contiene più di u item 
-    	# (quindi l'ultimo item).
+        # Se il 'rightmostmost element' contiene più di u item
+        # (quindi l'ultimo item).
         cand2Clone[-1] = cand2Clone[-1][:-1]
 
     # if the result is not the same, then we dont need to join
@@ -138,30 +143,32 @@ def generateCandidatesForPair(cand1, cand2):
         if (len(cand2[-1]) == 1):
             newCandidate.append(cand2[-1])
         else:
-            newCandidate[-1].extend([cand2[-1][-1]]) # ATTENZIONE A QUESTA MODIFICA
+            newCandidate[-1].extend([cand2[-1][-1]])  # ATTENZIONE A QUESTA MODIFICA
         return newCandidate
+
 
 def sequenceSize(sequence):
     return sum(len(i) for i in sequence)
+
 
 # Generate k-sequences from a set of (k-1)-sequences.
 def generateCandidates(lastLevelCandidates):
     k = sequenceSize(lastLevelCandidates[0]) + 1
 
     if (k == 2):
-        flatShortCandidates = [item 
-            for sublist2 in lastLevelCandidates 
-                for sublist1 in sublist2 
-                    for item in sublist1]
+        flatShortCandidates = [item
+                               for sublist2 in lastLevelCandidates
+                               for sublist1 in sublist2
+                               for item in sublist1]
 
         result = [[[a, b]]
-            for a in flatShortCandidates 
-                for b in flatShortCandidates 
-                    if b > a]
+                  for a in flatShortCandidates
+                  for b in flatShortCandidates
+                  if b > a]
 
-        result.extend([[[a], [b]] 
-            for a in flatShortCandidates 
-                for b in flatShortCandidates])
+        result.extend([[[a], [b]]
+                       for a in flatShortCandidates
+                       for b in flatShortCandidates])
 
         return result
     else:
@@ -174,6 +181,7 @@ def generateCandidates(lastLevelCandidates):
                     candidates.append(newCand)
         candidates.sort()
         return candidates
+
 
 def generateDirectSubsequences(sequence):
     result = []
@@ -189,43 +197,43 @@ def generateDirectSubsequences(sequence):
                 result.append(sequenceClone)
     return result
 
+
 # Return True if mseq supports cseq, False otherwire.
 # Remember that:
 #	- mseq = [([ ... ], t), ... , ([ ... ], t)]
 #	- cseq = [[ ... ], ... , [ ... ]]
 # mseq support cseq if cseq is a subsequence of mseq and and the time contraints hold. 
 def supports(mseq, cseq, maxspan, mingap, maxgap):
-
     for j in range(len(mseq)):
         i = 0
         if set(mseq[j][0]).issuperset(set(cseq[i])):
             min_t = mseq[j][1]
             i += 1
-            
+
             # Special case if cseq is a sequence of one element
             if i == len(cseq):
                 return True
-            
+
             prev_t = mseq[j][1]
 
-            for itemset, t in mseq[j+1 :]:
+            for itemset, t in mseq[j + 1:]:
 
                 # The mingap constraint is violated
                 # The time difference between the current and the previous itemset
                 # must be geater than
                 if not (t - prev_t > mingap):
                     continue
-                    
+
                 # The mingap constraint is violated
                 # The time difference between the current and the previous itemset
                 # must be geater than
                 if not (t - prev_t <= maxgap):
                     break
-                
+
                 # The maxspan constraint is violated
                 if t - min_t > maxspan:
                     break
-                    
+
                 if set(itemset).issuperset(set(cseq[i])):
                     i += 1
 
@@ -234,12 +242,14 @@ def supports(mseq, cseq, maxspan, mingap, maxgap):
                     return True
     return False
 
+
 def countSupport(dataset, cseq, maxspan, mingap, maxgap):
-	support_count = 0
-	for seq in dataset:
-		if supports(seq, cseq, maxspan, mingap, maxgap):
-			support_count += 1
-	return support_count
+    support_count = 0
+    for seq in dataset:
+        if supports(seq, cseq, maxspan, mingap, maxgap):
+            support_count += 1
+    return support_count
+
 
 # Apriori pseudocode
 #
@@ -255,13 +265,12 @@ def countSupport(dataset, cseq, maxspan, mingap, maxgap):
 #	Fk = {filter out all the sequences with a support lower than the threshold}
 # return the union of all the Fk
 def apriori_tc(dataset, minsup=0.5, maxspan=np.inf, mingap=0, maxgap=np.inf, verbose=False):
-    
     if verbose:
-    	print('Starting Apriori with:')
-    	print('\tminsup:', minsup)
-    	print('\tmaxspan:', maxspan)
-    	print('\tmingap:', mingap)
-    	print('\tmaxgap:', maxgap)
+        print('Starting Apriori with:')
+        print('\tminsup:', minsup)
+        print('\tmaxspan:', maxspan)
+        print('\tmingap:', mingap)
+        print('\tmaxgap:', maxgap)
 
     N = len(dataset)
 
@@ -269,7 +278,7 @@ def apriori_tc(dataset, minsup=0.5, maxspan=np.inf, mingap=0, maxgap=np.inf, ver
     # if there is also a maxgap constraint.
     mod_pruning = False
     if maxgap != np.inf:
-    	mod_pruning = True
+        mod_pruning = True
 
     # Overall is a list of lists.
     # An element of Overall is a list of tuples.
@@ -284,19 +293,19 @@ def apriori_tc(dataset, minsup=0.5, maxspan=np.inf, mingap=0, maxgap=np.inf, ver
     Overall = []
 
     # Extract all the frequent-1-sequences
-    itemsInDataset = sorted(set([item 
-        for sublist1 in dataset # sublist1 = [([ ... ], t), ... , ([ ... ], t)]
-            for sublist2 in sublist1 # sublist2 = ([ ... ], t)
-                for item in sublist2[0] ])) # Must add the zero in order to pick the list.
+    itemsInDataset = sorted(set([item
+                                 for sublist1 in dataset  # sublist1 = [([ ... ], t), ... , ([ ... ], t)]
+                                 for sublist2 in sublist1  # sublist2 = ([ ... ], t)
+                                 for item in sublist2[0]]))  # Must add the zero in order to pick the list.
 
     # Generate sequences of single items. 
     # Remeber, a sequence is a list of lists, hence a 1-sequence has the form: [ [item] ]
-    singleItemSequences = [ [[item]] for item in itemsInDataset]
+    singleItemSequences = [[[item]] for item in itemsInDataset]
 
     # Count the frequence of the sequence i in the dataset and extract the frequent ones
-    singleItemCounts = [(i, countFreq(i, dataset)) 
-        for i in singleItemSequences 
-            if countFreq(i, dataset) >= N*minsup]
+    singleItemCounts = [(i, countFreq(i, dataset))
+                        for i in singleItemSequences
+                        if countFreq(i, dataset) >= N * minsup]
 
     # Overall[0] = F1
     Overall.append(singleItemCounts)
@@ -318,24 +327,24 @@ def apriori_tc(dataset, minsup=0.5, maxspan=np.inf, mingap=0, maxgap=np.inf, ver
         candidatesGenerated = generateCandidates(candidatesLastLevel)
 
         if mod_pruning:
-        	# If there is the maxgap constraint.
-        	# Generate all the candidate-(k-1)-subsequence from a sequence candidate cand.
-        	# If each direct subsequence is also a frequent-(k-1)-sequnce 
-        	# (if is contained in candidatesLastLevel) then the k-sequence 
-        	# is a candidate-k-sequence.
-        	candidatesPruned = [cand 
-            for cand in candidatesGenerated 
-                if all(x in candidatesLastLevel 
-                    for x in generateDirectContSubseq(cand))]
+            # If there is the maxgap constraint.
+            # Generate all the candidate-(k-1)-subsequence from a sequence candidate cand.
+            # If each direct subsequence is also a frequent-(k-1)-sequnce
+            # (if is contained in candidatesLastLevel) then the k-sequence
+            # is a candidate-k-sequence.
+            candidatesPruned = [cand
+                                for cand in candidatesGenerated
+                                if all(x in candidatesLastLevel
+                                       for x in generateDirectContSubseq(cand))]
         else:
-        	# Generate all the (k-1)-subsequence from a sequence candidate cand.
-        	# If each direct subsequence is also a frequent-(k-1)-sequnce 
-        	# (if is contained in candidatesLastLevel) then the k-sequence 
-        	# is a candidate-k-sequence.
-        	candidatesPruned = [cand 
-            	for cand in candidatesGenerated 
-                	if all(x in candidatesLastLevel 
-                    	for x in generateDirectSubsequences(cand))]
+            # Generate all the (k-1)-subsequence from a sequence candidate cand.
+            # If each direct subsequence is also a frequent-(k-1)-sequnce
+            # (if is contained in candidatesLastLevel) then the k-sequence
+            # is a candidate-k-sequence.
+            candidatesPruned = [cand
+                                for cand in candidatesGenerated
+                                if all(x in candidatesLastLevel
+                                       for x in generateDirectSubsequences(cand))]
 
         # Genetare a list of tuples (seq, sup) where sup is the support count
         # of the k-sequence seq in the dataset.
@@ -343,7 +352,7 @@ def apriori_tc(dataset, minsup=0.5, maxspan=np.inf, mingap=0, maxgap=np.inf, ver
         candidatesCounts = [(i, countSupport(dataset, i, maxspan, mingap, maxgap)) for i in candidatesPruned]
 
         # Extract all the sequences with a support count grater then minsup
-        resultLvl = [(i, count) for (i, count) in candidatesCounts if (count >= N*minsup)]
+        resultLvl = [(i, count) for (i, count) in candidatesCounts if (count >= N * minsup)]
         if verbose:
             print("Candidates generated, lvl " + str(k + 1) + ": " + str(candidatesGenerated))
             print("Candidates pruned, lvl " + str(k + 1) + ": " + str(candidatesPruned))
@@ -353,7 +362,7 @@ def apriori_tc(dataset, minsup=0.5, maxspan=np.inf, mingap=0, maxgap=np.inf, ver
 
     # Remeber, the last element of Overall is empty so it must be removed
     Overall = Overall[:-1]
-    
+
     # Rember the structure of Overall
     # [ [(freq-1, sup), ... , (freq-1, sup)]
     #   ...
@@ -363,7 +372,7 @@ def apriori_tc(dataset, minsup=0.5, maxspan=np.inf, mingap=0, maxgap=np.inf, ver
     #	(freq-2, sup), ... , (freq-2, sup),
     #	...
     #	(freq-k sup), ... , (freq-k, sup)]
-    Overall = [item 
-        for sublist in Overall 
-            for item in sublist]
-    return Overall
+    Overall = [item
+               for sublist in Overall
+               for item in sublist]
+    return Overall.sort(key=lambda tup: tup[1], reverse=True)
