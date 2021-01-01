@@ -27,7 +27,7 @@ observation
 shopping session
 - E: the Shannon entropy on the purchasing behavior of the customer
 
-It is MANDATORY that each team defines additional indicators leading to the
+It is mandatory that each team defines additional indicators leading to the
 construction of a customer profile that can lead to an interesting analysis of
 customer segmentation.
 
@@ -64,7 +64,7 @@ the algorithm
 - Final evaluation of the best clustering approach and comparison of the clustering
 obtained
 
-Optional (2 points): Explore the opportunity to use alternative clustering
+Explore the opportunity to use alternative clustering
 techniques in the library: https://github.com/annoviko/pyclustering/
 
 ## Task 3: Predictive Analysis
@@ -91,7 +91,7 @@ Consider the problem of mining frequent sequential patterns. To address the task
 
 Note that you can decide to filter out some customers.
 
-Optional (2 points): The algorithm presented during the python lecture on sequential
+The algorithm presented during the python lecture on sequential
 pattern mining does not consider the opportunity to define temporal constraints.
 As an optional point, the students can extend the algorithm and analysis considering one
 or more constraints.
