@@ -15,6 +15,13 @@ studied and write a concise “data understanding” report describing data
 semantics, assessing data quality, the distribution of the variables and the
 pairwise correlations.
 
+Subtasks of DU:
+- Data semantics
+- Distribution of the variables and statistics
+- Assessing data quality (missing values, outliers)
+- Variables transformations & generation
+- Pairwise correlations and eventual elimination of redundant variables
+
 ### Task 1.2: Data Preparation 
 Improve the quality of your data and prepare it by extracting new features interesting for describing the customer profile and his
 purchasing behavior. These indicators have to be extracted for each customer.
@@ -34,13 +41,6 @@ customer segmentation.
 Once, the set of indicators will be computed the team has to explore the new
 features for a statistical analysis (distributions, outliers, visualizations,
 correlations).
-
-Subtasks of DU:
-- Data semantics
-- Distribution of the variables and statistics
-- Assessing data quality (missing values, outliers)
-- Variables transformations & generation
-- Pairwise correlations and eventual elimination of redundant variables
 
 ## Task 2: Clustering Analysis
 Based on the customer’s profile explore the dataset using various clustering techniques.
