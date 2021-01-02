@@ -1,0 +1,29 @@
+\section{Sequential Pattern Mining}
+In this section, we want extract some patterns from the dataset, in order to capture some frequent purchasing behavior of the customers. 
+
+\subsection{Dataset Modeling}
+First of all, we need to model the dataset, to be able to apply the algorithm afterwards.\\
+For each customer, we have to extract from our data the list of his baskets, containing all the products he purchased, with a temporal information. 
+We decided to use as a timestamp the day of the year, since the dataset covers a period of about an year, and the vast majority of the customers purchased at most one basket per day; hence, we defined \emph{BasketDayOfYear}, a numerical attribute that goes from 2 to 344.
+
+We ended up having, for each customer, a list of tuple, composed by the day of the year and the list of products, identified by the \emph{ProdDescr}, he purchased at that time.
+
+Then, we checked for consecutive duplicate rows, that are those consecutive records with the same value for each attribute; we found \textbf{1103} sequences of this kind and we decided to drop them.
+That occurs because some products share the same description, while having different ids, and so they are distinguished in a basket; maybe, that is due to some minor differences which are not indicated in the descriptions, and so they cannot be considered in our analysis.
+
+\subsection{GSP Algorithm}
+We now apply the \textbf{Generalized Sequential Pattern} algorithm, to retrieve the frequent patterns present in our data.\\
+\textbf{GSP} algorithm starts by finding all the 1-sequences that are frequent, that are those patterns with a support greater than the \emph{min\_sup}, a parameter of the function. In our case, we set \emph{min\_sup} equal to 0.05.\\
+Then, at each step, it generates new longer candidates by merging pairs of the previous ones, and later it eliminates all the sequences with a low support. It stops when no more frequent sequences are found.
+
+With this method, we found \textbf{41} frequent patterns, all of them made up by just two products; plus, the maximum support is 0.087, which is quite low. That means that, in the dataset, there are not very frequent patterns, and so we can say that the customers' behavior is quite different from each other.
+
+Nevertheless, we can see some interesting characteristics of the patterns we found.\\
+In particular, we notice the majority of them are constituted by the same item, with the only difference of the colour, design or some other minor detail. That is unsurprisingly, since it is common for wholesalers to buy several versions of the same product. Some examples are:
+\begin{itemize}
+\item \emph{HEART OF WICKER LARGE} and \emph{HEART OF WICKER SMALL} 
+\item \emph{LUNCH BAG BLACK SKULL} and \emph{LUNCH BAG RED RETROSPOT}
+\item \emph{ALARM CLOCK BAKELIKE GREEN} and \emph{ALARM CLOCK BAKELIKE RED}
+\end{itemize}
+
+In other cases, we found sequences of products related to each other, which is quite normal also for single customers; an example can be \emph{REGENCY CAKESTAND TIER} and \emph{ROSES REGENCY TEACUP AND SAUCER}.
