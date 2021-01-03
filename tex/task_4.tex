@@ -16,14 +16,31 @@ We now apply the \textbf{Generalized Sequential Pattern} algorithm, to retrieve 
 \textbf{GSP} algorithm starts by finding all the 1-sequences that are frequent, that are those patterns with a support greater than the \emph{min\_sup}, a parameter of the function. In our case, we set \emph{min\_sup} equal to 0.05.\\
 Then, at each step, it generates new longer candidates by merging pairs of the previous ones, and later it eliminates all the sequences with a low support. It stops when no more frequent sequences are found.
 
-With this method, we found \textbf{41} frequent patterns, all of them made up by just two products; plus, the maximum support is 0.087, which is quite low. That means that, in the dataset, there are not very frequent patterns, and so we can say that the customers' behavior is quite different from each other.
+With this method, after filtering all those by one object, we found \textbf{41} frequent patterns, all of them made up by just two products; plus, the maximum support is 0.087, which is quite low. That means that, in the dataset, there are not very frequent patterns, and so we can say that the customers' behavior is quite different from each other.
 
 Nevertheless, we can see some interesting characteristics of the patterns we found.\\
 In particular, we notice the majority of them are constituted by the same item, with the only difference of the colour, design or some other minor detail. That is unsurprisingly, since it is common for wholesalers to buy several versions of the same product. Some examples are:
 \begin{itemize}
-\item \emph{HEART OF WICKER LARGE} and \emph{HEART OF WICKER SMALL} 
-\item \emph{LUNCH BAG BLACK SKULL} and \emph{LUNCH BAG RED RETROSPOT}
-\item \emph{ALARM CLOCK BAKELIKE GREEN} and \emph{ALARM CLOCK BAKELIKE RED}
+\item \{\emph{WHITE HANGING HEART TLIGHT HOLDER}\}, \{\emph{WHITE HANGING HEART TLIGHT HOLDER}\}
+\item \{\emph{HEART OF WICKER LARGE}, \emph{HEART OF WICKER SMALL}\}
+\item \{\emph{LUNCH BAG BLACK SKULL}, \emph{LUNCH BAG RED RETROSPOT}\}
+\item \{\emph{ALARM CLOCK BAKELIKE GREEN}, \emph{ALARM CLOCK BAKELIKE RED}\}
 \end{itemize}
 
-In other cases, we found sequences of products related to each other, which is quite normal also for single customers; an example can be \emph{REGENCY CAKESTAND TIER} and \emph{ROSES REGENCY TEACUP AND SAUCER}.
+In other cases, we found sequences of products related to each other, which is quite normal also for single customers; an example can be \{\emph{REGENCY CAKESTAND TIER}, \emph{ROSES REGENCY TEACUP AND SAUCER}\}.
+
+\subsubsection{Including Temporal Constraints}
+We can extend our analysis by considering some temporal constraints in the pattern mining.\\
+In fact, it is important to take into account the time elapsed between two purchases, as long as the total duration of the sequence. 
+
+This constraints can be add in the \textbf{GSP} algorithm, by introducing some new parameters:
+\begin{itemize}
+\item \emph{max\_span}, the maximum duration of the whole sequence
+\item \emph{min\_gap}, the minimum time between two elements of the sequence
+\item \emph{max\_gap}, the maximum gap between two elements of the sequence
+\end{itemize}
+The algorithm proceeds as before, with the addiction that it prunes also all the candidates that violate these time constraints.
+
+We imposed the distance between two elements to be at least of one day and at most of one week, and the overall duration of one month; hence, $\emph{max\_span} = 30$, $\emph{min\_gap} = 1$ and $\emph{max\_gap} = 7$. Also in this scenario, we kept the $\emph{min\_sup} = 0.05$.
+
+We expect the sequences found in this case to be a subset of the ones we found before, and in fact the method returns \textbf{32} frequent patterns, all of them already present in the previous results; we do not consider the sequences made by one element in this case too. 
