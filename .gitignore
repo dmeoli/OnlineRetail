@@ -10,3 +10,6 @@ tex/*.aux
 tex/*.log
 tex/*.gz
 tex/*.toc
+
+# SPMF
+spmf-output.txt
