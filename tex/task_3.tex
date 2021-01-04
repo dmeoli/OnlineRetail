@@ -65,9 +65,9 @@ We can also appreciate, from the shadows around the curves, that the standard de
 Now, we use a Neural Network, in particular a \textbf{Multi-Layer Perceptron}.\\
 The best values for the hyperparameters that we found were:
 \begin{itemize}
-\item 1 hidden layer with 50 units
-\item Logistic activation function
-\item The \emph{l-bfgs} optimizer, that can converge faster and with better results on small datasets like ours
+\item \emph{1 hidden layer} with \emph{50 units}
+\item \emph{sigmoid} activation function
+\item \emph{l-bfgs} optimizer, that can converge faster and with better results on small datasets like ours
 \end{itemize}
 
 With this model, we got a training accuracy of 1 and a test accuracy of 0.996; the reason is clear in Figure \ref{fig:nn_confusion}, where we can see that very few data points were misclassified.\\
