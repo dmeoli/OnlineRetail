@@ -6,9 +6,10 @@ So, in order to achieve this goal, we need to model each customer as a sequence 
 \subsection{Generalized Sequential Pattern Mining}
 We now apply the \emph{GSP (Generalized Sequential Pattern)} algorithm, an apriori-based Sequential Pattern Mining algorithm to discover the frequent patterns present in our dataset.\\
 \emph{GSP} is a breadth-first algorithm that starts by finding all the 1-sequence that are frequent, i.e. the first level candidate sequences, that are those patterns with support greater than the \emph{min\_sup}. We set \emph{min\_sup} equal to 5\%, which is quite low.\\
-Then, at each step, i.e. for each successive layer, it generates new longer candidates by merging pairs of the previous ones, and later it eliminates all the sequences with low support. It stops when no more frequent sequences are found.
+Then, at each step, \emph{i.e.} for each successive layer, it generates new longer candidates by merging pairs of the previous ones, and later it eliminates all the sequences with low support. It stops when no more frequent sequences are found.
 
-We found 41 frequent patterns, all of them made up of just two products in the same sequence or in two different ones, except for one with three products in the same sequence. By taking a first look at the latter we can notice that all of them relates to the same product, so we can imagine that these patterns are supported by regular customers or customers who are comfortable with that product:
+We found 41 frequent patterns, all of them made up of just two products in the same sequence or in two different ones, except for one with three products in the same sequence.\\
+By taking a first look at those sequences, we can notice that some of them are related to the same product, so we can imagine that these patterns are supported by regular customers or customers who are comfortable with that product. Some examples are:
 
 \begin{itemize}
 \item \{\emph{WHITE HANGING HEART TLIGHT HOLDER}\}, \{\emph{WHITE HANGING HEART TLIGHT HOLDER}\}
@@ -22,20 +23,16 @@ We found 41 frequent patterns, all of them made up of just two products in the s
 \item \{\emph{SET OF CAKE TINS PANTRY DESIGN}\}, \{\emph{SET OF CAKE TINS PANTRY DESIGN}\}
 \end{itemize}
 
-Meanwhile, in the first case, we can notice that all these frequent patterns are related to the same product with different characteristics in terms of shape, color, size, etc., so we can imagine that these patterns are supported by wholesale customers that purchase a stock of same products with different characteristics.
-
-Nevertheless, we can see some interesting characteristics of the patterns we found.\\
-In particular, we notice the majority of them are constituted by the same item, with the only difference of the color, design, or some other minor detail. That is unsurprising since it is common for wholesalers to buy several versions of the same product. Some examples are:
+On the other hand, for the remaining sequences, we can notice that those are related to the same product with different characteristics in terms of shape, color, size, etc., so we can imagine that these patterns are supported by wholesale customers that purchase a stock of same products with different characteristics. Some of them are:
 
 \begin{itemize}
 \item \{\emph{GREEN REGENCY TEACUP AND SAUCER}, \emph{PINK REGENCY TEACUP AND SAUCER}, \emph{ROSES REGENCY TEACUP AND SAUCER}\}
 \item \{\emph{GARDENERS KNEELING PAD CUP OF TEA}, \emph{GARDENERS KNEELING PAD KEEP CALM}\}
 \item \{\emph{HEART OF WICKER LARGE}, \emph{HEART OF WICKER SMALL}\}
 \item \{\emph{WOODEN HEART CHRISTMAS SCANDINAVIAN}, \emph{WOODEN STAR CHRISTMAS SCANDINAVIAN}\}
-\item etc.
 \end{itemize}
 
-In conclusion, we can assert that there are not very interesting frequent patterns, i.e. patterns that involve different kinds of products, and so we can say that the customers' behavior is quite different from each other. This is probably due to the presence of wholesale and retail customers purchasing in the same dataset.
+In conclusion, we can assert that there are not very interesting frequent patterns, \emph{i.e.} patterns that involve different kinds of products, and so we can say that the customers' behavior is quite different from each other. This is probably due to the presence of wholesale and retail customers purchasing in the same dataset.
 
 \subsubsection{Time Constraints}
 To make the SPM phase more interesting we decided to involve some time constraints in the GSP algorithm known as:
@@ -48,7 +45,7 @@ To make the SPM phase more interesting we decided to involve some time constrain
 
 The algorithm works as specified before, with the addiction that it prunes also all the candidates that violate these time constraints.
 
-In order to perform the mining phase with these constraints by taking into account the time elapsed between two purchases, we need to expand our dataset definition by associating a timestamp to each basket. About that we decided to use as timestamp the day of the year since the dataset covers a period of about a year and the vast majority of the customers purchased at most one basket per day; hence, we defined \emph{BasketDayOfYear}, a numerical attribute that goes from 2 to 344.
+In order to perform the mining phase with these constraints by taking into account the time elapsed between two purchases, we need to expand our dataset definition by associating a timestamp to each basket. So we decided to use as timestamp the day of the year, since the dataset covers a period of about a year and the vast majority of the customers purchased at most one basket per day; hence, we defined \emph{BasketDayOfYear}, a numerical attribute that goes from 2 to 344.
 
 For our analysis, we choose \emph{min\_sup} equal to 5\% and we decide to constraint the frequent patterns as follow: 
 
