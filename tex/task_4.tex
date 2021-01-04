@@ -12,22 +12,36 @@ Then, we checked for consecutive duplicate rows, that are those consecutive reco
 That occurs because some products share the same description, while having different ids, and so they are distinguished in a basket; maybe, that is due to some minor differences which are not indicated in the descriptions, and so they cannot be considered in our analysis.
 
 \subsection{GSP Algorithm}
-We now apply the \textbf{Generalized Sequential Pattern} algorithm, to retrieve the frequent patterns present in our data.\\
-\textbf{GSP} algorithm starts by finding all the 1-sequences that are frequent, that are those patterns with a support greater than the \emph{min\_sup}, a parameter of the function. In our case, we set \emph{min\_sup} equal to 0.05.\\
+We now apply the \emph{Generalized Sequential Pattern}, an apriori-based Sequential Pattern Mining algorithm to discover the frequent patterns present in our dataset.\\
+\emph{GSP} algorithm starts by finding all the 1-sequences that are frequent, that are those patterns with a support greater than the \emph{min\_sup}. We set \emph{min\_sup} equal to 5\%.\\
 Then, at each step, it generates new longer candidates by merging pairs of the previous ones, and later it eliminates all the sequences with a low support. It stops when no more frequent sequences are found.
 
-With this method, after filtering all those by one object, we found \textbf{41} frequent patterns, all of them made up by just two products; plus, the maximum support is 0.087, which is quite low. That means that, in the dataset, there are not very frequent patterns, and so we can say that the customers' behavior is quite different from each other.
+With this method, after filtering all those by one object, we found 42 frequent patterns, all of them made up by just two products; plus, the maximum support is 0.087, which is quite low. That means that, in the dataset, there are not very frequent patterns, and so we can say that the customers' behavior is quite different from each other.
 
 Nevertheless, we can see some interesting characteristics of the patterns we found.\\
 In particular, we notice the majority of them are constituted by the same item, with the only difference of the colour, design or some other minor detail. That is unsurprisingly, since it is common for wholesalers to buy several versions of the same product. Some examples are:
+
 \begin{itemize}
 \item \{\emph{WHITE HANGING HEART TLIGHT HOLDER}\}, \{\emph{WHITE HANGING HEART TLIGHT HOLDER}\}
-\item \{\emph{HEART OF WICKER LARGE}, \emph{HEART OF WICKER SMALL}\}
-\item \{\emph{LUNCH BAG BLACK SKULL}, \emph{LUNCH BAG RED RETROSPOT}\}
-\item \{\emph{ALARM CLOCK BAKELIKE GREEN}, \emph{ALARM CLOCK BAKELIKE RED}\}
+\item \{\emph{JUMBO BAG RED RETROSPOT}\}, \{\emph{JUMBO BAG RED RETROSPOT}\}
+\item \{\emph{REGENCY CAKESTAND TIER}\}, \{\emph{REGENCY CAKESTAND TIER}\}
+\item \{\emph{ASSORTED COLOUR BIRD ORNAMENT}\}, \{\emph{ASSORTED COLOUR BIRD ORNAMENT}\}
+\item \{\emph{PARTY BUNTING}\}, \{\emph{PARTY BUNTING}\}
+\item \{\emph{LUNCH BAG RED RETROSPOT}\}, \{\emph{LUNCH BAG RED RETROSPOT}\}
+\item \{\emph{LUNCH BAG BLACK SKULL}\}, \{\emph{LUNCH BAG BLACK SKULL}\}
+\item \{\emph{LUNCH BAG SUKI DESIGN}\}, \{\emph{LUNCH BAG SUKI DESIGN}\}
+\item \{\emph{SET OF CAKE TINS PANTRY DESIGN}\}, \{\emph{SET OF CAKE TINS PANTRY DESIGN}\}
 \end{itemize}
 
 In other cases, we found sequences of products related to each other, which is quite normal also for single customers; an example can be \{\emph{REGENCY CAKESTAND TIER}, \emph{ROSES REGENCY TEACUP AND SAUCER}\}.
+
+\begin{itemize}
+\item \{\emph{GREEN REGENCY TEACUP AND SAUCER}, \emph{PINK REGENCY TEACUP AND SAUCER}, \emph{ROSES REGENCY TEACUP AND SAUCER}\}
+\item \{\emph{GARDENERS KNEELING PAD CUP OF TEA}, \emph{GARDENERS KNEELING PAD KEEP CALM}\}
+\item \{\emph{HEART OF WICKER LARGE}, \emph{HEART OF WICKER SMALL}\}
+\item \{\emph{WOODEN HEART CHRISTMAS SCANDINAVIAN}, \emph{WOODEN STAR CHRISTMAS SCANDINAVIAN}\}
+\item etc.
+\end{itemize}
 
 \subsubsection{Including Temporal Constraints}
 We can extend our analysis by considering some temporal constraints in the pattern mining.\\
@@ -35,9 +49,9 @@ In fact, it is important to take into account the time elapsed between two purch
 
 This constraints can be add in the \textbf{GSP} algorithm, by introducing some new parameters:
 \begin{itemize}
-\item \emph{max\_span}, the maximum duration of the whole sequence
-\item \emph{min\_gap}, the minimum time between two elements of the sequence
-\item \emph{max\_gap}, the maximum gap between two elements of the sequence
+\item \emph{max\_span}, the maximum duration of the whole sequence;
+\item \emph{min\_gap}, the minimum time between two elements of the sequence;
+\item \emph{max\_gap}, the maximum gap between two elements of the sequence.
 \end{itemize}
 The algorithm proceeds as before, with the addiction that it prunes also all the candidates that violate these time constraints.
 
