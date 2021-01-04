@@ -33,18 +33,25 @@ Afterwards, we removed the \emph{ProdID} that does not respect the defined forma
 \subsection{Variables Transformations}
 
 \begin{figure}
-\begin{subfigure}{.49\textwidth}
+\begin{subfigure}{.32\textwidth}
 \centering
-\includegraphics[width=.95\textwidth]{img/understanding/boxplots_before.png}
+\includegraphics[width=\textwidth]{img/understanding/boxplots_before.png}
 \caption{}
 \label{fig:sale_qta_boxplots_before}
 \end{subfigure}
-\begin{subfigure}{.49\textwidth}
+\begin{subfigure}{.32\textwidth}
 \centering
 \captionsetup{justification=centering}
-\includegraphics[width=.95\textwidth]{img/understanding/boxplots_after.png}
+\includegraphics[width=\textwidth]{img/understanding/boxplots_after1.png}
 \caption{}
-\label{fig:sale_qta_boxplots_after}
+\label{fig:sale_qta_boxplots_after1}
+\end{subfigure}
+\begin{subfigure}{.32\textwidth}
+\centering
+\captionsetup{justification=centering}
+\includegraphics[width=\textwidth]{img/understanding/boxplots_after2.png}
+\caption{}
+\label{fig:sale_qta_boxplots_after2}
 \end{subfigure}
 \caption{\emph{Qta} and \emph{Sale} boxplots before and after data cleaning}
 \end{figure}
@@ -122,6 +129,9 @@ Other interesting distributions are plotted in Figure \ref{fig:month_bar}, \ref{
 \caption{CustomerCountry distributions}
 \end{figure}
 
+In Figure \ref{fig:orders_country_bar} and \ref{fig:orders_country}, we can see the distribution of the \emph{CustomerID} with respect to the country; from the plot, it is clear that the most frequent country is the \emph{United Kingdom}, that is present in about the 90\% of the rows.
+
+Finally, we see some informations about the correlation of the attributes, to see if some of them are redundant.\\
 \begin{wrapfigure}{r}{0.4\textwidth}
 \centering
 \includegraphics[width=0.4\textwidth]{img/understanding/dataset_corr.png}
@@ -129,9 +139,6 @@ Other interesting distributions are plotted in Figure \ref{fig:month_bar}, \ref{
 \label{fig:dataset_corr}
 \end{wrapfigure}
 
-In Figure \ref{fig:orders_country_bar} and \ref{fig:orders_country}, we can see the distribution of the \emph{CustomerID} with respect to the country; from the plot, it is clear that the most frequent country is the \emph{United Kingdom}, that is present in about the 90\% of the rows.
-
-Finally, we see some informations about the correlation of the attributes, to see if some of them are redundant.\\
 From the Figure \ref{fig:dataset_corr}, we can see that almost all the attributes are uncorrelated, except for \emph{TotSale}, that shows ah high correlation with \emph{Qta}; that follows what we expected, since \emph{TotSale} is, by construction, dependent on \emph{Qta}. So, we conclude that all the original columns are independent, and so we don't need to perform any further manipulation.
 
 We ended up with a cleaned dataset, consisting of \emph{363577} entries.
