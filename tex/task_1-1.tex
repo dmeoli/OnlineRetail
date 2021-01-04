@@ -23,7 +23,7 @@ In order to assess the quality of data, we proceed by removing the \emph{5232} d
 
 From the plots in Figure \ref{fig:sale_qta_boxplots_before} it's possible to see that the two numerical attributes have really high outliers, both positive and negative. The presence of negative values is in contrast with the semantic of the attributes since they should be positive.\\
 From the fact that \emph{Qta} seems to have a symmetric behaviour we can assume that a negative Qta represent a \emph{refund}. This hypotesis is also supported by the fact that almost all the records with negative \emph{Qta} have a \emph{BasketID} starting with \emph{C}, which may stand for \emph{cancellation}. Note that there are records with negative \emph{Qta} whose \emph{BasketID}'s don't start with \emph{C}; by analyzing the corresponding \emph{ProdDescr} we can conclude that they refer to errors or damaged items.\\
-For what concerns the negative \emph{Sale}, there are just two records with that property, and from the \emph{ProdDescr} (\emph{ADJUST BAD DEBT}) we can conclude that are due to errors. All the rows which can be identified as \emph{errors} have a \emph{Null} \emph{CustomerID}
+For what concerns the negative \emph{Sale}, there are just two records with that property, and from the \emph{ProdDescr} ('\emph{ADJUST BAD DEBT}') we can conclude that are due to errors. All the rows which can be identified as \emph{errors} have a \emph{Null} \emph{CustomerID}
 
 Then, we proceed by removing the entries corresponding to the \emph{65073} null \emph{CustomerID} values, the 13.94\% of the dataset, since our main goal is to outline the customer behavior and there is no way to integrate them to trace the customer's orders. By doing so we also deleted the errors discussed before.
 
@@ -66,7 +66,7 @@ In order to manage the presence of negative quantities as shown in the first box
 
 To also manage the presence of the remaining prices equal to zero, 34 entries, as shown in the second boxplot in Figure \ref{fig:sale_qta_boxplots_before}, we filled these values with the average of the selling prices of the products with the same id.
 
-As we can see in Figure \ref{fig:sale_qta_boxplots_after}, the previous operations already cleaned some of the outliers we had in the original dataset; now we manually check them, to determine if they are errors or not.
+As we can see in Figure \ref{fig:sale_qta_boxplots_after1}, the previous operations already cleaned some of the outliers we had in the original dataset; now we manually check them, to determine if they are errors or not.
 
 In the case of \emph{Sale}, we have that the maximum value is 649.5, which is quite high but we discovered that this purchase is referred to a 60 pieces of an item, \emph{i.e. picnic basket wicker 60 pieces}, so we proceed by dividing the \emph{Sale} value by 60 and incrementing the \emph{Qta} with the same value.\\
 In the case of \emph{Qta}, we see just one value are really away from the others, and it represent huge purchases, with quantity equal to 12540. We decided to drop the row.

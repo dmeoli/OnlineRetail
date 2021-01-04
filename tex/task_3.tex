@@ -62,12 +62,12 @@ We can also appreciate, from the shadows around the curves, that the standard de
      \caption{Neural Network}
     \label{fig:nn}
 \end{figure}
-Now, we use a Neural Network, in particular a \textbf{Multi Layer Perceptron}.\\
+Now, we use a Neural Network, in particular a \textbf{Multi-Layer Perceptron}.\\
 The best values for the hyperparameters that we found were:
 \begin{itemize}
 \item 1 hidden layer with 50 units
 \item Logistic activation function
-\item The \emph{lbfgs} optimizer, that can converge faster and with better results on small datasets like ours
+\item The \emph{l-bfgs} optimizer, that can converge faster and with better results on small datasets like ours
 \end{itemize}
 
 With this model, we got a training accuracy of 1 and a test accuracy of 0.996; the reason is clear in Figure \ref{fig:nn_confusion}, where we can see that very few data points were misclassified.\\
@@ -210,6 +210,6 @@ In this case, the best hyperparameters are:
 As a results, we have a training accuracy of 0.9994 and a test accuracy of 0.9753; these results are confirmed by the Figure \ref{fig:rf_confusion}, that shows that the model made some errors.\\
 The Figure \ref{fig:rf_lc} shows that, for small sizes of the training set, the validation score is quite low; with bigger sets, this score has some improvements but it is not able to approach the training score, that is constantly equal to 1.
 
-\subsection{Conclusion}
+\subsection{Conclusions}
 In conclusion, the model that performs the best is the Neural Network, which is almost perfect both on training and test set; also the SVM, K-Nearest Neighbors and Random Forest have very good performances, having a very high accuracy.\\
 Overall, even if the other models give slightly worse results, they all have an accuracy greater than 93\%, which is pretty good. That is because the dataset is not very complex, since the clusters given by K-Means(Fig. \ref{fig:km_clusters}) are almost linearly separable.
