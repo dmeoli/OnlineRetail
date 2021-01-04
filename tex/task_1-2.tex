@@ -40,10 +40,10 @@ Now, with respect to the \emph{TotSale} attribute we can take into account:
 \item the Shannon entropy on the purchasing behavior of the customer.
 \end{itemize}
 
-The entropy represents the variability of the customer's spending habits; i.e. a bigger value means that the customer did not have a regular behavior since he spent always a different amount of money, while lower values identify predictable spending behavior since the customer tends to spend always the same amount of money.\\
+The entropy represents the variability of the customer's spending habits, \emph{i.e.} a bigger value means that the customer did not have a regular behavior since he spent always a different amount of money, while lower values identify predictable spending behavior since the customer tends to spend always the same amount of money.\\
 As shown in \ref{fig:features_pairplot}, we have a small peak corresponding to 0, meaning that there are some customers with very specific habits, but the maximum is reached for $\sim 4$, which means that the majority of the clients have a quite unpredictable behavior.
 
-At this point we decide to introduce a domain specific model, called \emph{RFM}, to provide an intresting customer segmentation based on the purchasing behavior of the customers. In particular, the \emph{RFM (Recency, Frequency, Monetary)} analysis refers to:
+At this point we decide to introduce a domain specific model, called \emph{RFM}, to provide an interesting customer segmentation based on the purchasing behavior of the customers. In particular, the \emph{RFM (Recency, Frequency, Monetary)} analysis refers to:
 
 \begin{itemize}
 \item \emph{Frequency} is the number of orders for each customer;
@@ -79,7 +79,9 @@ Wrt our dataset the customer segmentation result as following:
 \item the number of \emph{Lost Cheap Customers} is 360
 \end{itemize}
 
-Now, we can visualize the correlation between the attributes. In Figure \ref{fig:features_corr}, as expected, we find that the average basket value is highly correlated with the total quantity purchased and the amount of money spent. Furthermore, we can see that also the year frequency is correlated with the amount spent and the total quantity. In the end, of course, the quantity purchased is very highly correlated with the total amount spent. Since the dataset deal with both reatil customers and wholesalers we have that some atrtibutes have really spread values. To weight  less the difference between high value with respect the difference between small values we took the logarithm in base ten of those attributes. In Figure \ref{fig:features_corr_logs} and Figure \ref{fig:features_pairplot_logs} we can see the correlation matrix and the pairplot after computing the logarithm in base ten of \emph{I}, \emph{Iu}, \emph{Imax}, \emph{Savg}, \emph{F} and \emph{M}.
+Now, we can visualize the correlation between the attributes. In Figure \ref{fig:features_corr}, as expected, we find that the average basket value is highly correlated with the total quantity purchased and the amount of money spent. Furthermore, we can see that also the year frequency is correlated with the amount spent and the total quantity. In the end, of course, the quantity purchased is very highly correlated with the total amount spent. \\
+Since the dataset deal with both retail customers and wholesalers, we have that some attributes have really spread values. To weight less the difference between high value with respect to the difference between small values, we took the logarithm in base ten of those attributes.\\
+In Figure \ref{fig:features_corr_logs} and Figure \ref{fig:features_pairplot_logs} we can see the correlation matrix and the pairplot after computing the logarithm in base ten of \emph{I}, \emph{Iu}, \emph{Imax}, \emph{Savg}, \emph{F} and \emph{M}.
 
 In Figure \ref{fig:pplots}, we can visualize the pairplot for the attributes we have.\\
 On the diagonal, we have the density plots, where we can appreciate the distribution of the features. Instead, the other scatter plots show the relationship between two variables. By analyzing those, we can have a confirmation of what we already found thanks to the previous plot. 
