@@ -7,7 +7,7 @@ The dataset contains \emph{471910} entries, each of them represent a purchase re
 The dataset contains 8 attributes that correspond to:
 
 \begin{itemize}
-\item \textbf{BasketID} (\emph{24627}): a 6 digit integer number uniquely assigned to each purchase; it may start with \emph{C} or \emph{A}.
+\item \textbf{BasketID} (\emph{24627}): a 6 digit integer number uniquely assigned to each purchase; it may start with \emph{C} or \emph{A}; if it starts with a C, it indicates a cancellation, if it starts with a with A it indicates a bad debt adjusted;
 \item \textbf{BasketDate}: the day (\emph{from 2010/12/01 to 2011/12/09}) and time (\emph{from 6am to 21pm}) when each purchase was placed;
 \item \textbf{Sale} (\emph{∼4avg}): the unit product price, all in the same currency, probably in sterling;
 \item \textbf{CustomerID} (\emph{4372 + 65073na}): a 5 digit integer number uniquely assigned to each customer;
