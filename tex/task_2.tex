@@ -1,5 +1,6 @@
 \section{Clustering}
-We now run and compare some clustering algorithm in order to find some structures among the data. First we start with a basic \emph{K-Means} followed with some \emph{Hierarchical clustering techniques} and \emph{DBSCAN}. 
+We now run and compare some clustering algorithm in order to find some structures among the data. First we start with a basic \emph{K-Means}, followed by \emph{Hierarchical clustering techniques} and \emph{DBSCAN}. In the end, we also analyze the behavior of other algorithms, like \emph{Fuzzy C-Means} and \emph{Birch}.
+
 \subsection{Preprocessing}
 
 \begin{wrapfigure}[10]{r}{0.4\textwidth}
@@ -16,7 +17,7 @@ The data matrix was first standardized and then the two principal components wer
 We selected the two principal components, in this way, we could also have a visual inspection.
 
 \subsection{K-Means}
-The algorithm run for $K$ ranging from \emph{2} to \emph{15} clusters. For each iteration the SSE and the average silhouette value were computed.
+The algorithm runs for $K$ ranging from \emph{2} to \emph{15} clusters. For each iteration the SSE and the average silhouette value were computed.
 
 By looking at the plots in Figure \ref{fig:km_metrics}, we can see that there isn't a prominent \emph{elbow shape}, so we needed the analysis of more metrics to get the optimal number of clusters. By inspecting the silhouette score, it is possible to see that it has its maximum for $K = 2$, followed by $K = 3$. In conclusion, we opted for 3 clusters, to get a trade off between high silhouette and low SSE.
 
@@ -40,16 +41,16 @@ By looking at the plots in Figure \ref{fig:km_metrics}, we can see that there is
     \label{fig:km_metrics}
 \end{figure}
 
-\begin{wrapfigure}[12]{l}{.4\textwidth}
+\begin{wrapfigure}[10]{l}{.4\textwidth}
     \vspace{-5mm}
     \centering
     \captionsetup{justification=centering}
-    \includegraphics[width=.4\textwidth]{img/clustering/sil_tot.png}
+    \includegraphics[width=.3\textwidth]{img/clustering/sil_tot.png}
     \caption{Silhouette score\\ for each data point}
     \label{fig:silhouette}
 \end{wrapfigure}
 
-The resulting clusters have a comparable number of points. In particular \emph{Cluster 2} has \textbf{2006} points, \emph{Cluster 1} \textbf{1440} and \emph{Cluster 0} \textbf{760}.\\
+The resulting clusters have a comparable number of points. In particular, \emph{Cluster 2} has \textbf{2006} points, \emph{Cluster 1} \textbf{1440} and \emph{Cluster 0} \textbf{760}.\\
 In Figure \ref{fig:silhouette}, we can see the plot of the Silhouette score, where each different color represents a different cluster, and the dotted red line is the average silhouette score. In particular we have that \emph{Cluster 0} has a silhouette of \emph{0.39}, \emph{0.40} for \emph{Cluster 1} and \emph{0.35} for \emph{Cluster 2}, with an overall average silhouette of \emph{0.39}. We see that a small fraction of points in \emph{Cluster 0} have a negative value but overall the Silhouette suggests a good clustering.
 
 In Figure \ref{fig:km_clusters}, we can appreciate the results of the algorithm, where we can see that the clusters are well separated from one another.\\
@@ -74,10 +75,12 @@ The plot in Figure \ref{fig:cluster_avg} shows the average values for each attri
 	\caption{Average values\\ per cluster}
         \label{fig:cluster_avg}
     \end{subfigure}
+\caption{K-Means}
 \end{figure}
 
+\vspace{-5mm}
 \subsection{Hierarchical clustering}
-We used different kinds of algorithm: \emph{Complete Link}, \emph{Single Link}, \emph{Ward Link} and \emph{Average Link}. By looking at the dendograms in Figure \ref{fig:dendograms}, if we cut the tree by selecting two or three clusters, we can see that \emph{Single Link} and \emph{Average Link} generate an unbalanced clustering leaving the last merges between a large cluster and a small one, in some cases even a singleton. The most balanced are obtain with \emph{Ward Link} and \emph{Complete Link}.
+We used different kinds of algorithm: \emph{Complete Link}, \emph{Single Link}, \emph{Ward Link} and \emph{Average Link}. By looking at the dendograms in Figure \ref{fig:dendograms}, if we cut the tree by selecting two or three clusters, we can see that \emph{Single Link} and \emph{Average Link} generate an unbalanced clustering, leaving the last merges between a large cluster and a small one, in a case even a singleton. The most balanced results are obtained with \emph{Ward Link} and \emph{Complete Link}.
 
 \begin{figure}[h!]
     \centering
@@ -114,8 +117,8 @@ We used different kinds of algorithm: \emph{Complete Link}, \emph{Single Link}, 
 
 \subsection{DBSCAN}
 
-We explored different combination of \emph{eps} for a given \emph{MinPts}; to choose \emph{eps} we checked the \emph{KNN} distance, with $K$ equal to \emph{MinPts}.\\
-If \emph{MinPts} is $20$, the optimal \emph{eps} is around $0.25$. In this case the algorithm found a large dense area surrounded by noise points, as is showed in Figure \ref{fig:dbscan}. By increasing \emph{eps} to $0.3$ the results are the same, if instead the value of $0.2$ is used the algorithm finds more clusters of negligible dimension.\\
+We explored different combinations of \emph{eps} for a given \emph{MinPts}; to choose \emph{eps} we checked the \emph{KNN} distance, with $K$ equal to \emph{MinPts}.\\
+If \emph{MinPts} is $20$, the optimal \emph{eps} is around $0.25$; in this case, the algorithm found a large dense area surrounded by noisy points, as is showed in Figure \ref{fig:dbscan_good}. By increasing \emph{eps} to $0.3$ the results are the same, if instead we use the value of $0.2$, the algorithm finds more clusters of negligible dimension.
 
 \begin{figure}[h!]
 	\captionsetup{justification=centering}
@@ -124,7 +127,7 @@ If \emph{MinPts} is $20$, the optimal \emph{eps} is around $0.25$. In this case 
 		\includegraphics[width=.65\textwidth]{img/clustering/dbscan.png}
 		\centering
 		\caption{\emph{eps}$ = 0.25$}
-		\label{fig:dbscan}
+		\label{fig:dbscan_good}
 	\end{subfigure}
 	\begin{subfigure}{0.49\textwidth}
 		\includegraphics[width=.65\textwidth]{img/clustering/dbscan_bad.png}
@@ -160,7 +163,7 @@ Together with the previous algorithms, we also tried to run \emph{Fuzzy C-Means}
     \label{fig:fc_means}
 \end{figure}
 
-\begin{wrapfigure}{r}{0.39\textwidth}
+\begin{wrapfigure}[5]{r}{0.39\textwidth}
 	\vspace*{-1cm}
 	\begin{center}
 		\includegraphics[width=0.39\textwidth]{img/clustering/clust_birch.png}
@@ -169,13 +172,13 @@ Together with the previous algorithms, we also tried to run \emph{Fuzzy C-Means}
 	\label{fig:clust_birch}
 \end{wrapfigure}
 
-Fow what concerns \emph{Birch} result's we have that, even in this case, the algorithm is able to partitions the customers into three categories but it generates unbalanced classes. In fact the clusters' carnidalities are \emph{188}, \emph{1315} and \emph{2703}.
+Fow what concerns \emph{Birch} result's, we have that, even in this case, the algorithm is able to partition the customers into three categories but it generates unbalanced classes. In fact the clusters' cardinalities are \emph{188}, \emph{1315} and \emph{2703}.
 
 \newpage
 
 \subsection{Clustering results}
 
-In conclusion we opted for the \emph{K-Means} clustering to characterize the customers. As is shown in Figure \ref{fig:pairplot}, the algorithm is able to identify three class of customers corresponding to the low, medium and high spending customers.
+In conclusion, we opted for the \emph{K-Means} clustering to characterize the customers. As is shown in Figure \ref{fig:pairplot}, the algorithm is able to identify three class of customers corresponding to the low, medium and high spending customers.
 
 \begin{figure}[h!]
 	\captionsetup{justification=centering}
