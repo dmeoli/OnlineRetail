@@ -85,25 +85,25 @@ We used different kinds of algorithm: \emph{Complete Link}, \emph{Single Link}, 
 	\vspace*{-0.3cm}
     \begin{subfigure}{0.49\textwidth}
         \centering
-        \includegraphics[width=0.7\textwidth]{img/clustering/complete_link.png}
+        \includegraphics[width=0.65\textwidth]{img/clustering/complete_link.png}
         \caption{\emph{Complete Link}}
         \label{fig:complete_link}
     \end{subfigure}
     \begin{subfigure}{0.49\textwidth}
         \centering
-        \includegraphics[width=0.7\textwidth]{img/clustering/single_link.png}
+        \includegraphics[width=0.65\textwidth]{img/clustering/single_link.png}
         \caption{\emph{Single Link}}
         \label{fig:single_link}
     \end{subfigure}
     \begin{subfigure}{0.49\textwidth}
         \centering
-        \includegraphics[width=0.7\textwidth]{img/clustering/ward_link.png}
+        \includegraphics[width=0.65\textwidth]{img/clustering/ward_link.png}
         \caption{\emph{Ward Link}}
         \label{fig:ward_link}
     \end{subfigure}
     \begin{subfigure}{0.49\textwidth}
          \centering
-         \includegraphics[width=0.7\textwidth]{img/clustering/avg_link.png}
+         \includegraphics[width=0.65\textwidth]{img/clustering/avg_link.png}
          \caption{\emph{Average Link}}
          \label{fig:avg_link}
      \end{subfigure}
@@ -119,6 +119,7 @@ We explored different combinations of \emph{eps} for a given \emph{MinPts}; to c
 If \emph{MinPts} is $20$, the optimal \emph{eps} is around $0.25$; in this case, the algorithm found a large dense area surrounded by noisy points, as is showed in Figure \ref{fig:dbscan_good}. By increasing \emph{eps} to $0.3$ the results are the same, if instead we use the value of $0.2$, the algorithm finds more clusters of negligible dimension.
 
 \begin{figure}[h!]
+	\vspace{-4mm}
 	\captionsetup{justification=centering}
 	\centering
 	\begin{subfigure}{0.49\textwidth}
@@ -137,7 +138,16 @@ If \emph{MinPts} is $20$, the optimal \emph{eps} is around $0.25$; in this case,
 	\label{fig:dbscan}
 \end{figure}
 
-\subsection{Extra clustering}
+\subsection{Other clustering}
+
+\begin{wrapfigure}[7]{r}{0.3\textwidth}
+	\vspace*{-1cm}
+	\begin{center}
+		\includegraphics[width=0.25\textwidth]{img/clustering/clust_birch.png}
+	\end{center}
+	\caption{\emph{Birch} results}
+	\label{fig:clust_birch}
+\end{wrapfigure}
 
 Together with the previous algorithms, we also tried to run \emph{Fuzzy C-Means} and \emph{Birch}. They both generates a good partitioning, in particular \emph{Fuzzy C-Means} result's resemble the \emph{K-Means} clustering. However the silhouette score is \emph{0.38}, slightly lower than \emph{K-Means}.
 
@@ -161,16 +171,7 @@ Together with the previous algorithms, we also tried to run \emph{Fuzzy C-Means}
     \label{fig:fc_means}
 \end{figure}
 
-\begin{wrapfigure}[5]{r}{0.39\textwidth}
-	\vspace*{-1cm}
-	\begin{center}
-		\includegraphics[width=0.39\textwidth]{img/clustering/clust_birch.png}
-	\end{center}
-	\caption{\emph{Birch} results}
-	\label{fig:clust_birch}
-\end{wrapfigure}
-
-Fow what concerns \emph{Birch} result's, we have that, even in this case, the algorithm is able to partition the customers into three categories but it generates unbalanced classes. In fact the clusters' cardinalities are \emph{188}, \emph{1315} and \emph{2703}.
+For what concerns \emph{Birch} result's, we have that, even in this case, the algorithm is able to partition the customers into three categories but it generates unbalanced classes. In fact the clusters' cardinalities are \emph{188}, \emph{1315} and \emph{2703}.
 
 \newpage
 
