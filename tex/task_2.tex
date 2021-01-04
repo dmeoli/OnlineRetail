@@ -17,7 +17,8 @@ The data matrix was first standardized and then the two principal components wer
 We selected the two principal components, in this way, we could also have a visual inspection.
 
 \subsection{K-Means}
-\begin{wrapfigure}[11]{l}{.4\textwidth}
+\begin{wrapfigure}[9]{l}{.4\textwidth}
+    \vspace{-5mm}	
     \centering
     \captionsetup{justification=centering}
     \includegraphics[width=.3\textwidth]{img/clustering/sil_tot.png}
@@ -29,18 +30,19 @@ The algorithm runs for $K$ ranging from \emph{2} to \emph{15} clusters. For each
 By looking at the plots in Figure \ref{fig:km_metrics}, we can see that there isn't a prominent \emph{elbow shape}, so we needed the analysis of more metrics to get the optimal number of clusters. By inspecting the silhouette score, it is possible to see that it has its maximum for $K = 2$, followed by $K = 3$. In conclusion, we opted for 3 clusters, to get a trade off between high silhouette and low SSE.
 
 \begin{figure}[h!]
+     \vspace{4mm}
      \captionsetup{justification=centering}		
      \centering
      \begin{subfigure}{0.49\textwidth}
          \centering
 	 \captionsetup{type=figure}
-         \includegraphics[width=\textwidth]{img/clustering/sse.png}
+         \includegraphics[width=0.8\textwidth]{img/clustering/sse.png}
          \caption{SSE}
          \label{fig:sse}
      \end{subfigure}
      \begin{subfigure}{0.49\textwidth}
          \centering
-         \includegraphics[width=\textwidth]{img/clustering/sil.png}
+         \includegraphics[width=0.8\textwidth]{img/clustering/sil.png}
          \caption{Average silhouette}
          \label{fig:sil}
      \end{subfigure}
@@ -140,15 +142,6 @@ If \emph{MinPts} is $20$, the optimal \emph{eps} is around $0.25$; in this case,
 
 \subsection{Other clustering}
 
-\begin{wrapfigure}[7]{r}{0.3\textwidth}
-	\vspace*{-1cm}
-	\begin{center}
-		\includegraphics[width=0.25\textwidth]{img/clustering/clust_birch.png}
-	\end{center}
-	\caption{\emph{Birch} results}
-	\label{fig:clust_birch}
-\end{wrapfigure}
-
 Together with the previous algorithms, we also tried to run \emph{Fuzzy C-Means} and \emph{Birch}. They both generates a good partitioning, in particular \emph{Fuzzy C-Means} result's resemble the \emph{K-Means} clustering. However the silhouette score is \emph{0.38}, slightly lower than \emph{K-Means}.
 
 \begin{figure}[h!]
@@ -171,6 +164,14 @@ Together with the previous algorithms, we also tried to run \emph{Fuzzy C-Means}
     \label{fig:fc_means}
 \end{figure}
 
+\vspace{8mm}
+\begin{wrapfigure}[4]{r}{0.35\textwidth}
+	\vspace{-10mm}
+	\centering
+	\includegraphics[width=0.3\textwidth]{img/clustering/clust_birch.png}
+	\caption{\emph{Birch} results}
+	\label{fig:clust_birch}
+\end{wrapfigure}
 For what concerns \emph{Birch} result's, we have that, even in this case, the algorithm is able to partition the customers into three categories but it generates unbalanced classes. In fact the clusters' cardinalities are \emph{188}, \emph{1315} and \emph{2703}.
 
 \newpage
@@ -180,34 +181,11 @@ For what concerns \emph{Birch} result's, we have that, even in this case, the al
 In conclusion, we opted for the \emph{K-Means} clustering to characterize the customers. As is shown in Figure \ref{fig:pairplot}, the algorithm is able to identify three class of customers corresponding to the low, medium and high spending customers.
 
 \begin{figure}[h!]
+	\vspace{5mm}
 	\captionsetup{justification=centering}
 	\centering
-	\includegraphics[width=0.85\textwidth]{img/clustering/pair_plot_clust.png}
+	\includegraphics[width=0.75\textwidth]{img/clustering/pair_plot_clust.png}
 	\centering
 	\caption{K-Means results}
 	\label{fig:pairplot}
 \end{figure}
-
-
-%\begin{figure}[h!]
-%     \captionsetup{justification=centering}		
-%     \centering
-%     \begin{subfigure}{0.49\textwidth}
-%         \centering
-%	 \captionsetup{type=figure}
-%         \includegraphics[width=\textwidth]{img/clustering/pairplot_fcmeans.png}
-%         \caption{\emph{Fuzzy C-Means}}
-%         \label{fig:pplot_fcmeans}
-%     \end{subfigure}
-%     \begin{subfigure}{0.49\textwidth}
-%         \centering
-%         \includegraphics[width=\textwidth]{img/clustering/pairplot_birch.png}
-%         \caption{\emph{Birch}}
-%         \label{fig:spplot_birch}
-%     \end{subfigure}
-%     \caption{Clustering pariplots}
-   % \label{fig:pplots_extra}
-%\end{figure}
-
-
-
