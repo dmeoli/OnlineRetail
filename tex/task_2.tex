@@ -3,11 +3,11 @@ We now run and compare some clustering algorithm in order to find some structure
 
 \subsection{Preprocessing}
 
-\begin{wrapfigure}[10]{r}{0.4\textwidth}
-\vspace{-13mm}
+\begin{wrapfigure}[7]{r}{0.35\textwidth}
+\vspace{-20mm}
 \centering
 \captionsetup{justification=centering}
-\includegraphics[width=.4\textwidth]{img/clustering/pca.png}
+\includegraphics[width=.35\textwidth]{img/clustering/pca.png}
 \caption{Explained variance ratio}
 \label{fig:pca_img}
 \end{wrapfigure}
@@ -17,6 +17,13 @@ The data matrix was first standardized and then the two principal components wer
 We selected the two principal components, in this way, we could also have a visual inspection.
 
 \subsection{K-Means}
+\begin{wrapfigure}[11]{l}{.4\textwidth}
+    \centering
+    \captionsetup{justification=centering}
+    \includegraphics[width=.3\textwidth]{img/clustering/sil_tot.png}
+    \caption{Silhouette score\\ for each data point}
+    \label{fig:silhouette}
+\end{wrapfigure}
 The algorithm runs for $K$ ranging from \emph{2} to \emph{15} clusters. For each iteration the SSE and the average silhouette value were computed.
 
 By looking at the plots in Figure \ref{fig:km_metrics}, we can see that there isn't a prominent \emph{elbow shape}, so we needed the analysis of more metrics to get the optimal number of clusters. By inspecting the silhouette score, it is possible to see that it has its maximum for $K = 2$, followed by $K = 3$. In conclusion, we opted for 3 clusters, to get a trade off between high silhouette and low SSE.
@@ -40,15 +47,6 @@ By looking at the plots in Figure \ref{fig:km_metrics}, we can see that there is
      \caption{\emph{K-Means} metrics}
     \label{fig:km_metrics}
 \end{figure}
-
-\begin{wrapfigure}[10]{l}{.4\textwidth}
-    \vspace{-5mm}
-    \centering
-    \captionsetup{justification=centering}
-    \includegraphics[width=.3\textwidth]{img/clustering/sil_tot.png}
-    \caption{Silhouette score\\ for each data point}
-    \label{fig:silhouette}
-\end{wrapfigure}
 
 The resulting clusters have a comparable number of points. In particular, \emph{Cluster 2} has \textbf{2006} points, \emph{Cluster 1} \textbf{1440} and \emph{Cluster 0} \textbf{760}.\\
 In Figure \ref{fig:silhouette}, we can see the plot of the Silhouette score, where each different color represents a different cluster, and the dotted red line is the average silhouette score. In particular we have that \emph{Cluster 0} has a silhouette of \emph{0.39}, \emph{0.40} for \emph{Cluster 1} and \emph{0.35} for \emph{Cluster 2}, with an overall average silhouette of \emph{0.39}. We see that a small fraction of points in \emph{Cluster 0} have a negative value but overall the Silhouette suggests a good clustering.
@@ -168,7 +166,7 @@ Together with the previous algorithms, we also tried to run \emph{Fuzzy C-Means}
 	\begin{center}
 		\includegraphics[width=0.39\textwidth]{img/clustering/clust_birch.png}
 	\end{center}
-	\caption{\emph{Birch} metrics}
+	\caption{\emph{Birch} results}
 	\label{fig:clust_birch}
 \end{wrapfigure}
 
