@@ -79,7 +79,7 @@ Wrt our dataset the customer segmentation result as following:
 \item the number of Lost Cheap Customers is 360
 \end{itemize}
 
-Now, we can visualize the correlation between the attributes. In Figure \ref{fig:features_corr}, as expected, we find that the average basket value is highly correlated with the total quantity purchased and the amount of money spent. Furthermore, we can see that also the year frequency is correlated with the amount spent and the total quantity. In the end, of course, the quantity purchased is very highly correlated with the total amount spent. Since the dataset deal with both reatil customers and wholesalers we have that some atrtibutes have really spread values. To weight  less the difference between high value with respect the difference between small values we took the logarithm in base ten of those attributes. In Figure \ref{fig:features_corr_logs} and Figure \ref{fig:features_pairplot_logs} we can see the the correlation matrix after computing the logarithm in base ten of \emph{I}, \emph{Iu}, \emph{Imax}, \emph{Savg}, \emph{F} and \emph{M}.
+Now, we can visualize the correlation between the attributes. In Figure \ref{fig:features_corr}, as expected, we find that the average basket value is highly correlated with the total quantity purchased and the amount of money spent. Furthermore, we can see that also the year frequency is correlated with the amount spent and the total quantity. In the end, of course, the quantity purchased is very highly correlated with the total amount spent. Since the dataset deal with both reatil customers and wholesalers we have that some atrtibutes have really spread values. To weight  less the difference between high value with respect the difference between small values we took the logarithm in base ten of those attributes. In Figure \ref{fig:features_corr_logs} and Figure \ref{fig:features_pairplot_logs} we can see the correlation matrix and the pairplot after computing the logarithm in base ten of \emph{I}, \emph{Iu}, \emph{Imax}, \emph{Savg}, \emph{F} and \emph{M}.
 
 In Figure \ref{fig:pplots}, we can visualize the pairplot for the attributes we have.\\
 On the diagonal, we have the density plots, where we can appreciate the distribution of the features. Instead, the other scatter plots show the relationship between two variables. By analyzing those, we can have a confirmation of what we already found thanks to the previous plot. 
@@ -95,7 +95,7 @@ On the diagonal, we have the density plots, where we can appreciate the distribu
 \centering
 \captionsetup{justification=centering}
 \includegraphics[width=.95\textwidth]{img/preparation/features_corr_logs.png}
-\caption{}
+\caption{Correlation between attributes after the logarithms}
 \label{fig:features_corr_logs}
 \end{subfigure}
 \caption{Correlation Matrix before and after log-normalization}
