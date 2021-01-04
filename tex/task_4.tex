@@ -11,8 +11,8 @@ We ended up having, for each customer, a list of tuple, composed by the day of t
 Then, we checked for consecutive duplicate rows, that are those consecutive records with the same value for each attribute; we found \textbf{1103} sequences of this kind and we decided to drop them.
 That occurs because some products share the same description, while having different ids, and so they are distinguished in a basket; maybe, that is due to some minor differences which are not indicated in the descriptions, and so they cannot be considered in our analysis.
 
-\subsection{GSP Algorithm}
-We now apply the \emph{Generalized Sequential Pattern}, an apriori-based Sequential Pattern Mining algorithm to discover the frequent patterns present in our dataset.\\
+\subsection{Generalized Sequential Pattern Mining}
+We now apply the \emph{GSP (Generalized Sequential Pattern)} algorithm, an apriori-based Sequential Pattern Mining algorithm to discover the frequent patterns present in our dataset.\\
 \emph{GSP} algorithm starts by finding all the 1-sequences that are frequent, that are those patterns with a support greater than the \emph{min\_sup}. We set \emph{min\_sup} equal to 5\%.\\
 Then, at each step, it generates new longer candidates by merging pairs of the previous ones, and later it eliminates all the sequences with a low support. It stops when no more frequent sequences are found.
 
@@ -43,7 +43,7 @@ In other cases, we found sequences of products related to each other, which is q
 \item etc.
 \end{itemize}
 
-\subsubsection{Including Temporal Constraints}
+\subsubsection{Time Constraints}
 We can extend our analysis by considering some temporal constraints in the pattern mining.\\
 In fact, it is important to take into account the time elapsed between two purchases, as long as the total duration of the sequence. 
 

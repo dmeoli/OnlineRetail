@@ -63,20 +63,20 @@ and it helps divide customers into various categories or clusters to identify cu
 To calculate the individual RFM we will use the quartil statistical method, i.e. dividing score into four parts, by associating them a number from 1 to 4, so we will deal with the following:
 
 \begin{itemize}
-\item best Recency score = 1: most recently purchase
-\item best Frequency score = 1: most quantity purchase
-\item best Monetary score = 1: spent the most
+\item best \emph{Recency} score = 1: most recently purchase
+\item best \emph{Frequency} score = 1: most quantity purchase
+\item best \emph{Monetary} score = 1: spent the most
 \end{itemize}
 
 Wrt our dataset the customer segmentation result as following:
 
 \begin{itemize}
-\item the number of Best Customers is 394
-\item the number of Loyal Customers is 1041
-\item the number of Big Spenders is 1052
-\item the number of Almost Lost is 112
-\item the number of Lost Customers is 28
-\item the number of Lost Cheap Customers is 360
+\item the number of \emph{Best Customers} is 394
+\item the number of \emph{Loyal Customers} is 1041
+\item the number of \emph{Big Spenders} is 1052
+\item the number of \emph{Almost Lost} is 112
+\item the number of \emph{Lost Customers} is 28
+\item the number of \emph{Lost Cheap Customers} is 360
 \end{itemize}
 
 Now, we can visualize the correlation between the attributes. In Figure \ref{fig:features_corr}, as expected, we find that the average basket value is highly correlated with the total quantity purchased and the amount of money spent. Furthermore, we can see that also the year frequency is correlated with the amount spent and the total quantity. In the end, of course, the quantity purchased is very highly correlated with the total amount spent. Since the dataset deal with both reatil customers and wholesalers we have that some atrtibutes have really spread values. To weight  less the difference between high value with respect the difference between small values we took the logarithm in base ten of those attributes. In Figure \ref{fig:features_corr_logs} and Figure \ref{fig:features_pairplot_logs} we can see the correlation matrix and the pairplot after computing the logarithm in base ten of \emph{I}, \emph{Iu}, \emph{Imax}, \emph{Savg}, \emph{F} and \emph{M}.
