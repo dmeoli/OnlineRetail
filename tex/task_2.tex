@@ -28,13 +28,13 @@ By looking at the plots in Figure \ref{fig:km_metrics}, we can see that there is
 	 \captionsetup{type=figure}
          \includegraphics[width=\textwidth]{img/clustering/sse.png}
          \caption{SSE}
-         \label{fig:sse_img}
+         \label{fig:sse}
      \end{subfigure}
      \begin{subfigure}{0.49\textwidth}
          \centering
          \includegraphics[width=\textwidth]{img/clustering/sil.png}
          \caption{Average silhouette}
-         \label{fig:sil_img}
+         \label{fig:sil}
      \end{subfigure}
      \caption{\emph{K-Means} metrics}
     \label{fig:km_metrics}
@@ -52,9 +52,9 @@ By looking at the plots in Figure \ref{fig:km_metrics}, we can see that there is
 The resulting clusters have a comparable number of points. In particular \emph{Cluster 2} has \textbf{2006} points, \emph{Cluster 1} \textbf{1440} and \emph{Cluster 0} \textbf{760}.\\
 In Figure \ref{fig:silhouette}, we can see the plot of the Silhouette score, where each different color represents a different cluster, and the dotted red line is the average silhouette score. In particular we have that \emph{Cluster 0} has a silhouette of \emph{0.39}, \emph{0.40} for \emph{Cluster 1} and \emph{0.35} for \emph{Cluster 2}, with an overall average silhouette of \emph{0.39}. We see that a small fraction of points in \emph{Cluster 0} have a negative value but overall the Silhouette suggests a good clustering.
 
-In Figure \ref{fig:skmclust}, we can appreciate the results of the algorithm, where we can see that the clusters are well separated from one another.\\
+In Figure \ref{fig:km_clusters}, we can appreciate the results of the algorithm, where we can see that the clusters are well separated from one another.\\
 The similarity matrix (Figure \ref{fig:sim_heatmap}) shows the affinity of elements inside a cluster; we can see that the results are pretty good. Customers within the same cluster are similar, where similarity between two customers is measured using $e^{-d}$, where $d$ is the eucledian distance.\\
-The plot in Figure \ref{fig:km_avg} shows the average values for each attribute divided by the clusters. In particular, it is possible to see that \emph{Cluster 0} contains the most frequent and spending customers, followed by \emph{Cluster 1} and \emph{Cluster 2}.
+The plot in Figure \ref{fig:cluster_avg} shows the average values for each attribute divided by the clusters. In particular, it is possible to see that \emph{Cluster 0} contains the most frequent and spending customers, followed by \emph{Cluster 1} and \emph{Cluster 2}.
 
 \begin{figure}[h!]
     \centering
@@ -62,7 +62,7 @@ The plot in Figure \ref{fig:km_avg} shows the average values for each attribute 
     \begin{subfigure}{0.32\textwidth}
         \includegraphics[width=\textwidth]{img/clustering/km_clusters.png}
         \caption{Clustering result}
-        \label{fig:skmclust}
+        \label{fig:km_clusters}
     \end{subfigure}
     \begin{subfigure}{0.32\textwidth}
         \includegraphics[width=\textwidth]{img/clustering/sim_heatmap.png}
@@ -72,12 +72,12 @@ The plot in Figure \ref{fig:km_avg} shows the average values for each attribute 
     \begin{subfigure}{0.32\textwidth}
         \includegraphics[width=\textwidth]{img/clustering/cluster_avg.png}
 	\caption{Average values\\ per cluster}
-        \label{fig:km_avg}
+        \label{fig:cluster_avg}
     \end{subfigure}
 \end{figure}
 
 \subsection{Hierarchical clustering}
-We used different kinds of algorithm: \emph{Complete Link}, \emph{Single Link}, \emph{Ward} and \emph{Average Link}. By looking at the dendograms in Figure \ref{fig:dendograms}, if we cut the tree by selecting two or three clusters, we can see that \emph{Single Link} and \emph{Average Link} generate an unbalanced clustering leaving the last merges between a large cluster and a small one, in some cases even a singleton. The most balanced are obtain with \emph{Ward} and \emph{Complete Link}.
+We used different kinds of algorithm: \emph{Complete Link}, \emph{Single Link}, \emph{Ward Link} and \emph{Average Link}. By looking at the dendograms in Figure \ref{fig:dendograms}, if we cut the tree by selecting two or three clusters, we can see that \emph{Single Link} and \emph{Average Link} generate an unbalanced clustering leaving the last merges between a large cluster and a small one, in some cases even a singleton. The most balanced are obtain with \emph{Ward Link} and \emph{Complete Link}.
 
 \begin{figure}[h!]
     \centering
@@ -86,25 +86,25 @@ We used different kinds of algorithm: \emph{Complete Link}, \emph{Single Link}, 
         \centering
         \includegraphics[width=0.7\textwidth]{img/clustering/complete_link.png}
         \caption{\emph{Complete Link}}
-        \label{fig:clink_img}
+        \label{fig:complete_link}
     \end{subfigure}
     \begin{subfigure}{0.49\textwidth}
         \centering
         \includegraphics[width=0.7\textwidth]{img/clustering/single_link.png}
         \caption{\emph{Single Link}}
-        \label{fig:slink_img}
+        \label{fig:single_link}
     \end{subfigure}
     \begin{subfigure}{0.49\textwidth}
         \centering
         \includegraphics[width=0.7\textwidth]{img/clustering/ward_link.png}
-        \caption{\emph{Ward}}
-        \label{fig:ward_img}
+        \caption{\emph{Ward Link}}
+        \label{fig:ward_link}
     \end{subfigure}
     \begin{subfigure}{0.49\textwidth}
          \centering
          \includegraphics[width=0.7\textwidth]{img/clustering/avg_link.png}
          \caption{\emph{Average Link}}
-         \label{fig:centr_img}
+         \label{fig:avg_link}
      \end{subfigure}
      \caption{Dendograms}
     \label{fig:dendograms}
@@ -124,7 +124,7 @@ If \emph{MinPts} is $20$, the optimal \emph{eps} is around $0.25$. In this case 
 		\includegraphics[width=.65\textwidth]{img/clustering/dbscan.png}
 		\centering
 		\caption{\emph{eps}$ = 0.25$}
-		\label{fig:dbscan_good}
+		\label{fig:dbscan}
 	\end{subfigure}
 	\begin{subfigure}{0.49\textwidth}
 		\includegraphics[width=.65\textwidth]{img/clustering/dbscan_bad.png}
@@ -157,7 +157,7 @@ Together with the previous algorithms, we also tried to run \emph{Fuzzy C-Means}
          \label{fig:sil_fcmeans}
      \end{subfigure}
      \caption{\emph{Fuzzy C-Means} results}
-    \label{fig:fc_means_data}
+    \label{fig:fc_means}
 \end{figure}
 
 \begin{wrapfigure}{r}{0.39\textwidth}
