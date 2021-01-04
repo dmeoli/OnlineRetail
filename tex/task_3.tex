@@ -11,33 +11,36 @@ We also standardize the data with a standard scaler, achieving a distribution wi
 
 For each model, we perform a grid search, to find the best values for some hyperparameters; for that, we used a \emph{5-fold cross validation}.
 
-\subsection{Support Vector Classifier}
+\subsection{Support Vector Machine}
 \begin{figure}[h!]
      \captionsetup{justification=centering}             
      \centering
      \begin{subfigure}{0.49\textwidth}
          \centering
          \captionsetup{type=figure}
-         \includegraphics[width=\textwidth]{img/classification/svm_confusion.png}
+         \includegraphics[scale=0.45]{img/classification/svm_confusion.png}
          \caption{Confusion Matrix \\ for SVM Classifier}
          \label{fig:svm_confusion}
      \end{subfigure}
      \begin{subfigure}{0.49\textwidth}
          \centering
-         \includegraphics[width=\textwidth]{img/classification/svm_lc.png}
-         \caption{Learning curves \\ for SVM Classifier}
+         \includegraphics[scale=0.45]{img/classification/svm_lc.png}
+         \caption{Learning curve \\ for SVM Classifier}
          \label{fig:svm_lc}
      \end{subfigure}
-     \caption{}
+     \caption{Support Vector Machine}
     \label{fig:svm}
 \end{figure}
-
 The first model we analyze is the \textbf{SVM}, that is a classifier that searches for an hyperplane that can linearly separate the data points, possibly in a transformed space, in the non-separable case.
 
 We use a Linear Support Vector Classifier and, after the grid search, we found that the best value for the regularization parameter is $C=1000$.\\
 With this configuration, we achieved a training accuracy of 0.9906 and a test accuracy of 0.9962.
 
-From the Figure \ref{fig:svm_confusion}, we can see the confusion matrix related to the results on the test set, and we notice that the model made only 4 mistakes on the whole dataset; for that, we have that also the precision and the recall for each class are all above 0.98.
+From the Figure \ref{fig:svm_confusion}, we can see the confusion matrix related to the results on the test set, and we notice that the model made only 4 mistakes on the whole dataset; for that, we have that also the precision and the recall for each class are all above 0.98.\\
+In Figure \ref{fig:svm_lc}, we can see the learning curve for this model. We have that the training and validation scores are quite similar, even if, for small sizes of the training set, the train score is slightly greater; that means that more training examples helped increasing generalization capability of the classifier.   
+We can also appreciate, from the shadows around the curves, that the standard deviation of the scores decreases by increasing the size of the set.
+
+\pagebreak
 
 \subsection{Neural Network}
 \begin{figure}[h!]
@@ -46,20 +49,19 @@ From the Figure \ref{fig:svm_confusion}, we can see the confusion matrix related
      \begin{subfigure}{0.49\textwidth}
          \centering
          \captionsetup{type=figure}
-         \includegraphics[width=\textwidth]{img/classification/nn_confusion.png}
+         \includegraphics[scale=0.45]{img/classification/nn_confusion.png}
          \caption{Confusion Matrix \\ for Neural Network}
          \label{fig:nn_confusion}
      \end{subfigure}
      \begin{subfigure}{0.49\textwidth}
          \centering
-         \includegraphics[width=\textwidth]{img/classification/nn_lc.png}
-         \caption{Learning curves \\ for Neural Network}
+         \includegraphics[scale=0.45]{img/classification/nn_lc.png}
+         \caption{Learning curve \\ for Neural Network}
          \label{fig:nn_lc}
      \end{subfigure}
-     \caption{}
+     \caption{Neural Network}
     \label{fig:nn}
 \end{figure}
-
 Now, we use a Neural Network, in particular a \textbf{Multi Layer Perceptron}.\\
 The best values for the hyperparameters that we found was:
 \begin{itemize}
@@ -69,7 +71,8 @@ The best values for the hyperparameters that we found was:
 \item The \emph{lbfgs} optimizer, that can converge faster and with better results on small datasets like ours
 \end{itemize}
 
-With this model, we got a training accuracy of 1 and a test accuracy of 0.999; the reason is clear in Figure \ref{fig:nn_confusion}, where we can see that just one data point was misclassified.
+With this model, we got a training accuracy of 1 and a test accuracy of 0.999; the reason is clear in Figure \ref{fig:nn_confusion}, where we can see that just one data point was misclassified.\\
+Furthermore, from Figure \ref{fig:nn_lc}, we notice an improvement in the validation score with the increasing of the training set size; in the end, the curves have more or less the same behavior.
 
 \subsection{Naive Bayes Classifier}
 \begin{figure}[h!]
@@ -78,23 +81,23 @@ With this model, we got a training accuracy of 1 and a test accuracy of 0.999; t
      \begin{subfigure}{0.49\textwidth}
          \centering
          \captionsetup{type=figure}
-         \includegraphics[width=\textwidth]{img/classification/nb_confusion.png}
+         \includegraphics[scale=0.45]{img/classification/nb_confusion.png}
          \caption{Confusion Matrix \\ for Naive Bayes}
          \label{fig:nb_confusion}
      \end{subfigure}
      \begin{subfigure}{0.49\textwidth}
          \centering
-         \includegraphics[width=\textwidth]{img/classification/nb_lc.png}
-         \caption{Learning curves \\ for Naive Bayes}
+         \includegraphics[scale=0.45]{img/classification/nb_lc.png}
+         \caption{Learning curve \\ for Naive Bayes}
          \label{fig:nb_lc}
      \end{subfigure}
-     \caption{}
+     \caption{Naive Bayes Classifier}
     \label{fig:nb}
 \end{figure}
-
 The Naive Bayes Classifier tries to estimate the class conditional probability for each item, using the \emph{Bayes} theorem, with the assumption that all the features are conditionally independent. In particular, we used a \textbf{GaussianNB}, where the likelihood of the features is assumed to be Gaussian.
 
 In Figure \ref{fig:nb_confusion}, we can see that the performances of this model are slightly worse than the previous ones; in fact, we achieve a training accuracy of 0.9668 and a test accuracy of 0.9525.  
+The learning curve in Figure \ref{fig:nb_lc} shows that , with a small training set, the validation score is lower than the training one, with a big standard deviation; with a small increase in the size, the two values converge to a point, with no further improvements.
 
 \subsection{K-Nearest Neighbors}
 \begin{figure}[h!]
@@ -103,17 +106,17 @@ In Figure \ref{fig:nb_confusion}, we can see that the performances of this model
      \begin{subfigure}{0.49\textwidth}
          \centering
          \captionsetup{type=figure}
-         \includegraphics[width=\textwidth]{img/classification/knn_confusion.png}
+         \includegraphics[scale=0.45]{img/classification/knn_confusion.png}
          \caption{Confusion Matrix \\ for K-Nearest Neighbors}
          \label{fig:knn_confusion}
      \end{subfigure}
      \begin{subfigure}{0.49\textwidth}
          \centering
-         \includegraphics[width=\textwidth]{img/classification/knn_lc.png}
-         \caption{Learning curves \\ for K-Nearest Neighbors}
+         \includegraphics[scale=0.45]{img/classification/knn_lc.png}
+         \caption{Learning curve \\ for K-Nearest Neighbors}
          \label{fig:knn_lc}
      \end{subfigure}
-     \caption{}
+     \caption{K-Nearest Neighbors}
     \label{fig:knn}
 \end{figure}
 
@@ -125,8 +128,10 @@ The grid search showed that the best configuration is
 \end{itemize}
 
 With these values, we have a training accuracy of 1 and a test accuracy of 0.9781.
-The Figure \ref{fig:knn_confusion} shows that some points are misclassified, with some customers, belonging to the high and low profile, incorrectly labeled as medium.
+The Figure \ref{fig:knn_confusion} shows that some points are misclassified, with some customers, belonging to the high and low profile, incorrectly labeled as medium.\\
+Instead, from Figure \ref{fig:knn_lc}, we can see the training score is always equal to 1, while the validation score shows some improvements with bigger training sets.
 
+\vspace{13mm}
 \begin{figure}
 \centering
 \includegraphics[width=\linewidth]{img/classification/decision_tree.png}
@@ -134,6 +139,7 @@ The Figure \ref{fig:knn_confusion} shows that some points are misclassified, wit
 \label{fig:decision_tree}
 \end{figure}
 
+\pagebreak
 \subsection{Decision Tree}
 \begin{figure}[h!]
      \captionsetup{justification=centering}             
@@ -141,17 +147,17 @@ The Figure \ref{fig:knn_confusion} shows that some points are misclassified, wit
      \begin{subfigure}{0.49\textwidth}
          \centering
          \captionsetup{type=figure}
-         \includegraphics[width=\textwidth]{img/classification/dt_confusion.png}
+         \includegraphics[scale=0.45]{img/classification/dt_confusion.png}
          \caption{Confusion Matrix \\ for Decision Tree}
          \label{fig:dt_confusion}
      \end{subfigure}
      \begin{subfigure}{0.49\textwidth}
          \centering
-         \includegraphics[width=\textwidth]{img/classification/dt_lc.png}
-         \caption{Learning curves \\ for Decision Tree}
+         \includegraphics[scale=0.45]{img/classification/dt_lc.png}
+         \caption{Learning curve \\ for Decision Tree}
          \label{fig:dt_lc}
      \end{subfigure}
-     \caption{}
+     \caption{Decision Tree}
     \label{fig:dt}
 \end{figure}
 
@@ -169,7 +175,8 @@ The best configuration found is:
 The best result is a training accuracy of 1 and a test accuracy of 0.9392, but one of the advantages of this kind of model is that it is easy to interpret, since it can be visualized.
 In Figure \ref{fig:decision_tree}, we can have a representation of the best estimator that we found.
 
-The Figure \ref{fig:dt_confusion} shows the model makes several mistakes, with respect to the other classifiers, given that the decision tree is a quite simple model.
+The Figure \ref{fig:dt_confusion} shows the model makes several mistakes, with respect to the other classifiers, given that the decision tree is a quite simple model.\\
+On the other hand, from the learning curve ,represented in Figure \ref{fig:dt_lc}, we can appreciate the distance between the training and validation score; as the size increases, the validation one increases, but it cannot reach the training value.
 
 \subsection{Random Forest}
 \begin{figure}[h!]
@@ -178,17 +185,17 @@ The Figure \ref{fig:dt_confusion} shows the model makes several mistakes, with r
      \begin{subfigure}{0.49\textwidth}
          \centering
          \captionsetup{type=figure}
-         \includegraphics[width=\textwidth]{img/classification/rf_confusion.png}
+         \includegraphics[scale=0.45]{img/classification/rf_confusion.png}
          \caption{Confusion Matrix \\ for Random Forest}
          \label{fig:rf_confusion}
      \end{subfigure}
      \begin{subfigure}{0.49\textwidth}
          \centering
-         \includegraphics[width=\textwidth]{img/classification/rf_lc.png}
-         \caption{Learning curves \\ for Random Forest}
+         \includegraphics[scale=0.45]{img/classification/rf_lc.png}
+         \caption{Learning curve \\ for Random Forest}
          \label{fig:rf_lc}
      \end{subfigure}
-     \caption{}
+     \caption{Random Forest}
     \label{fig:rf}
 \end{figure}
 
@@ -201,138 +208,8 @@ In this case, the best hyperparameters are:
 \item \emph{min\_samples\_split} equal to 2
 \item \emph{n\_estimators} equal to 1500
 \end{itemize}
-As a results, we have a training accuracy of 1 and a test accuracy of 0.9952; these good results are confirmed by the Figure \ref{fig:rf_confusion}, that shows that the errors made by the model are very few.
-
-\subsection{Conclusion}
-In conclusion, the model that performs the best is the Neural Network, which is almost perfect both on training and test set; also the SVM and Random Forest have very good performances, having an accuracy of 99\%.\\
-Overall, even if the other models give slightly worse results, they all have an accuracy greater than 93\%, which is pretty good. That is because the dataset is not very complex, since the clusters given by K-Means(Fig. \ref{fig:skmclust}) are almost linearly separable.
-
-\subsection{Support Vector Classifier}
-\begin{minipage}{0.59\textwidth}
-The first model we analyze is the \textbf{SVM}, that is a classifier that searches for an hyperplane that can linearly separate the data points, possibly in a transformed space, in the non-separable case.
-
-We use a Linear Support Vector Classifier and, after the grid search, we found that the best value for the regularization parameter is $C=1000$.\\
-With this configuration, we achieved a training accuracy of 0.9906 and a test accuracy of 0.9962.
-
-From the Figure \ref{fig:svm_confusion}, we can see the confusion matrix related to the results on the test set, and we notice that the model made only 4 mistakes on the whole dataset; for that, we have that also the precision and the recall for each class are all above 0.98.
-\end{minipage}
-\begin{minipage}{0.4\textwidth}
-\centering
-\includegraphics[width=0.90\textwidth]{img/classification/svm_confusion.png}
-\captionsetup{justification=centering}
-\captionof{figure}{Confusion Matrix\\ for SVM Classifier}
-\label{fig:svm_confusion}
-\end{minipage}
-
-\subsection{Neural Network}
-\begin{minipage}{0.59\textwidth}
-Now, we use a Neural Network, in particular a \textbf{Multi Layer Perceptron}.\\
-The best values for the hyperparameters that we found was:
-\begin{itemize}
-\item 1 hidden layer with 50 units
-\item Logistic activation function
-\item Learning rate equal to 0.001
-\item The \emph{lbfgs} optimizer, that can converge faster and with better results on small datasets like ours
-\end{itemize}
-
-With this model, we got a training accuracy of 1 and a test accuracy of 0.999; the reason is clear in Figure \ref{fig:nn_confusion}, where we can see that just one data point was misclassified.
-\end{minipage}
-\begin{minipage}{0.4\textwidth}
-\centering
-\includegraphics[width=0.90\textwidth]{img/classification/nn_confusion.png}
-\captionsetup{justification=centering}
-\captionof{figure}{Confusion Matrix\\ for Neural Network}
-\label{fig:nn_confusion}
-\end{minipage}
-
-\subsection{Naive Bayes Classifier}
-\begin{minipage}{0.59\textwidth}
-\vspace{-13mm}
-The Naive Bayes Classifier tries to estimate the class conditional probability for each item, using the \emph{Bayes} theorem, with the assumption that all the features are conditionally independent. In particular, we used a \textbf{GaussianNB}, where the likelihood of the features is assumed to be Gaussian.
-
-In Figure \ref{fig:nb_confusion}, we can see that the performances of this model are slightly worse than the previous ones; in fact, we achieve a training accuracy of 0.9668 and a test accuracy of 0.9525.  
-\end{minipage}
-\begin{minipage}{0.4\textwidth}
-\centering
-\includegraphics[width=0.90\textwidth]{img/classification/nb_confusion.png}
-\captionsetup{justification=centering}
-\captionof{figure}{Confusion Matrix\\ for Naive Bayes}
-\label{fig:nb_confusion}
-\end{minipage}
-
-\subsection{K-Nearest Neighbors}
-\begin{minipage}{0.59\textwidth}
-The K-Nearest Neighbors model is an instance-based classifier, that, for each record, selects the class label based on the majority of its nearest neighbors.\\
-The grid search showed that the best configuration is
-\begin{itemize}
-\item \emph{n\_neighbors} equal to 50
-\item \emph{distance} as weight function; that makes the weight of a point to be inversely proportional to its distance
-\end{itemize}
-
-With these values, we have a training accuracy of 1 and a test accuracy of 0.9781.
-The Figure \ref{fig:knn_confusion} shows that some points are misclassified, with some customers, belonging to the high and low profile, incorrectly labeled as medium.
-\end{minipage}
-\begin{minipage}{0.4\textwidth}
-\centering
-\includegraphics[width=0.90\textwidth]{img/classification/knn_confusion.png}
-\captionsetup{justification=centering}
-\captionof{figure}{Confusion Matrix\\ for K-Nearest Neighbors}
-\label{fig:knn_confusion}
-\end{minipage}
-
-\begin{figure}
-\centering
-\includegraphics[width=\linewidth]{img/classification/decision_tree.png}
-\caption{Decision Tree}
-\label{fig:decision_tree}
-\end{figure}
-
-\subsection{Decision Tree}
-\begin{minipage}{0.59\textwidth}
-A Decision Tree model learns some decision rules from the training data, in order to grow a tree that is able to predict the class label for our test points. 
-The best configuration found is:
-\begin{itemize}
-\item \emph{criterion} equal to \emph{gini}
-\item \emph{max\_depth} equal to 200
-\item \emph{max\_features} equal to 5
-\item \emph{min\_samples\_leaf} equal to 1
-\item \emph{min\_samples\_split} equal to 2
-\item \emph{splitter} equal to \emph{best}
-\end{itemize}
-
-The best result is a training accuracy of 1 and a test accuracy of 0.9392, but one of the advantages of this kind of model is that it is easy to interpret, since it can be visualized.
-In Figure \ref{fig:decision_tree}, we can have a representation of the best estimator that we found.
-
-The Figure \ref{fig:dt_confusion} shows the model makes several mistakes, with respect to the other classifiers, given that the decision tree is a quite simple model.
-\end{minipage}
-\begin{minipage}{0.4\textwidth}
-\centering
-\includegraphics[width=0.90\textwidth]{img/classification/dt_confusion.png}
-\captionsetup{justification=centering}
-\captionof{figure}{Confusion Matrix\\ for Decision Tree}
-\label{fig:dt_confusion}
-\end{minipage}
-
-\subsection{Random Forest}
-\begin{minipage}{0.59\textwidth}
-Lastly, we analyze the Random Forest. It is an \emph{ensemble} model, composed by several decision trees, and the result is given by averaging the predictions of the single classifier.
-In this case, the best hyperparameters are:
-\begin{itemize}
-\item \emph{max\_depth} equal to 30
-\item \emph{max\_features} equal to 1
-\item \emph{min\_samples\_leaf} equal to 1
-\item \emph{min\_samples\_split} equal to 2
-\item \emph{n\_estimators} equal to 1500
-\end{itemize}
-As a results, we have a training accuracy of 1 and a test accuracy of 0.9952; these good results are confirmed by the Figure \ref{fig:rf_confusion}, that shows that the errors made by the model are very few.
-\end{minipage}
-\begin{minipage}{0.4\textwidth}
-\centering
-\includegraphics[width=0.90\textwidth]{img/classification/rf_confusion.png}
-\captionsetup{justification=centering}
-\captionof{figure}{Confusion Matrix\\ for Random Forest}
-\label{fig:rf_confusion}
-\end{minipage}
+As a results, we have a training accuracy of 1 and a test accuracy of 0.9952; these good results are confirmed by the Figure \ref{fig:rf_confusion}, that shows that the errors made by the model are very few.\\
+The Figure \ref{fig:rf_lc} shows that, for small sizes of the training set, the validation score is quite low; with bigger sets, this score has some improvements but it is not able to approach the training score, that is constantly equal to 1.
 
 \subsection{Conclusion}
 In conclusion, the model that performs the best is the Neural Network, which is almost perfect both on training and test set; also the SVM and Random Forest have very good performances, having an accuracy of 99\%.\\
