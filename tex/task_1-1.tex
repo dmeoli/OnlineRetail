@@ -59,7 +59,7 @@ To also manage the presence of the remaining prices equal to zero, 34 entries to
 As we can see in Figure \ref{fig:sale_qta_boxplots_after}, the previous operations already cleaned some of the outliers we had in the original dataset; now we manually check them, to determine if they are errors or not.
 
 In the case of \emph{Sale}, we have that the maximum value is 649.5, which is quite high but we discovered that this purchase is referred to a 60 pieces of an item, \emph{i.e. picnic basket wicker 60 pices}, so we proceed by dividing the \emph{Sale} value by 60 and incrementing the \emph{Qta} with the same value.\\
-In the case of \emph{Qta}, we see just one value are really away from the others, and it represent huge purchases, with quantity equal to 12540. We consider this row as correct.
+In the case of \emph{Qta}, we see just one value are really away from the others, and it represent huge purchases, with quantity equal to 12540. We decided to drop the row.
 
 We decided to create the attribute \emph{TotSale}, i.e., the product between \emph{Sale} and \emph{Qta}, that represents the total amount spent by a customer for each type of product purchased. We made this choice mainly to have a clearer look to the dataset, emphasizing an important information that was not explicit in the original table, and also for the feature extraction later.
 
