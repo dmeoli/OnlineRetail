@@ -1,4 +1,4 @@
-fcmeans
+fuzzy-c-means
 gensim
 hdbscan
 matplotlib
