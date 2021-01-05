@@ -1,3 +1,4 @@
+fcmeans
 gensim
 hdbscan
 matplotlib
