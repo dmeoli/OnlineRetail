@@ -11,6 +11,6 @@ scipy
 seaborn
 sklearn
 spmf
-umap
+umap-learn
 webcolors
 wordcloud
