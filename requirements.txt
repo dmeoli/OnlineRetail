@@ -1,0 +1,15 @@
+gensim
+hdbscan
+matplotlib
+nltk
+numpy
+pandas
+plotly
+pydotplus
+scipy
+seaborn
+sklearn
+spmf
+umap
+webcolors
+wordcloud
