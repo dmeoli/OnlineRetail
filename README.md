@@ -5,7 +5,7 @@ This project was developed during the Data Mining course @
 under the supervision of prof. 
 [Anna Monreale](http://pages.di.unipi.it/amonreale/).
 
-A project consists in data analysis based on the use of data mining tools.
+The project consists in data analysis based on the use of data mining tools.
 The project has to be performed by a team of 2/3 students. It has to be performed by
 using Python. The guidelines require to address specific tasks and results must be
 reported in a unique paper. The total length of this paper must be max 20 pages of text
