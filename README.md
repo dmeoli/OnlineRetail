@@ -1,4 +1,7 @@
-# Data Mining project 2020/2021 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/dmeoli/DataMiningUniPi/master)
+# Data Mining project 2020/2021
+
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/dmeoli/OnlineRetail/master)
+[![Python Version](https://img.shields.io/badge/python-3.8-blue)](https://www.python.org/)
 
 This project was developed during the Data Mining course @ 
 [Department of Computer Science](https://www.di.unipi.it/en/) @ [University of Pisa](https://www.unipi.it/index.php/english) 
